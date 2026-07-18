@@ -9,4 +9,4 @@ Specs for this tree's crates and curriculum.
   only the guarantee-spine (pseudonymous subject, no PII field). The FHIR R4-shaped
   record types land when this spec arrives.
 - **FAT_MASTERY / obesity-onboarding** — the curriculum + scanner surfaces (Modules 1–4,
-  D-12). Static, L1; they clear for Arweave only after per-surface category review.
+  D-12). Static, zero external references; they clear for Arweave only after per-surface category review.

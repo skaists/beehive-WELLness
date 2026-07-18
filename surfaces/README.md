@@ -1,7 +1,31 @@
 # surfaces
 
-Static, L1, zero-network concept surfaces. **Rehearsed on GitHub Pages; a surface crosses
-to Arweave (L2) only after a per-surface category clearance** — there is no unpublish.
+Static, zero-external-reference concept surfaces. Rehearsed on GitHub Pages; a surface
+crosses to Arweave only after a per-surface category clearance, and **an Arweave write
+cannot be undone.**
+
+## How these are delivered — the limitation, stated
+
+The artifact property and the delivery property are different things, and this tree
+previously wore one word for both. Separating them:
+
+- **The bytes fetch nothing.** No external reference of any kind, verified by enumeration
+  and by an egress-blocked render, with a digest recorded per surface. This is a testable
+  fact about the files.
+- **Reading them is neither private nor guaranteed.** They are served by **one operator,
+  GitHub Pages**, which can observe who reads them, when, and from where — and which can
+  withdraw them at any time, with or without notice, on its own terms rather than ours.
+  Nothing here is censorship-resistant and nothing here is unobserved.
+
+That second bullet is a **limitation disclosed, not a property claimed**, and it is the
+honest answer to "is this decentralised?" — the artifact is self-contained; the delivery is
+a single point of both surveillance and failure. An earlier version of this file put "there
+is no unpublish" one line below "Rehearsed on GitHub Pages," where it read as a claim about
+Pages. It was about Arweave, and it now says so.
+
+**No level is claimed anywhere in this tree.** Level names appear only in historical notes
+recording what was removed. A rubric is in draft and unratified; until a level is granted
+under it by a read-only auditor, the absence of a badge is the accurate state.
 
 ## Layout — flat, deliberately
 
@@ -20,14 +44,14 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `44772611597a701dda95c1bbf9cb3e8b694fb6253f2d7d739ba092f973fa7a49` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
-| `module1_hemp_hearts_label_reader.html` | `909917a1cb5049f35fe6bc78993a0f9e66add8b3cfdb1202021d05b0641317f2` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
-| `module2_fats_label_wont_show.html` | `948e31ca56698cc65e4722651237ff095b7a676643ffb3a1770f4cd45f706bf9` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A then L-1 --> |
-| `module3_portion_reality.html` | `99bc8829b2bb9e6bb3d2e9e28c9ef33df8d0b650fa01f7e290e9458f8cd8ba24` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A then L-1 --> |
-| `module4_decide_for_yourself.html` | `b43a158bc20c84de6597aafc21ff22a183d5f5ed84761f162bbf489ee60758fa` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
-| `d12_fat_scan_result.html` | `70254ae128d61e75d1898627b1274126c8bfbe42ce5fb06b8c37e97f8e8254c4` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-E --> |
-| `blOVErai_companion_surface.html` | `74e41657b813fdeaed3524c18b0fed37e1d91cd0319ca02f7cf20c77917be056` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
-| `bqueenbee_analytics.html` | `d7bd6bf5ab92d327f95addab5b512e20f138e0b8265f38ff30704c18fe44c945` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `beehive_wellness_index.html` | `2a39116f9b2c94081f8bf566746211a8b1b765cf8a003b39d6aa60f48e935aca` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `module1_hemp_hearts_label_reader.html` | `b30e55a38f4fcb4f99d867e4ce16633b5530236a827a6fb426d71d1be815aa7f` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `module2_fats_label_wont_show.html` | `7c7755c4553962ea0487a422c9cef3e25bffe873746f9ec8aa2266131d9ad5dd` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `module3_portion_reality.html` | `999d0961f7471d9c3fd0423d3026542823e3c34ed3d4d3292d53df7e4d450344` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `module4_decide_for_yourself.html` | `e89c0b9bb84496b8c8cf6d2973da63f178aaa189066c333e78e2f73f309aabeb` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `d12_fat_scan_result.html` | `70254ae128d61e75d1898627b1274126c8bfbe42ce5fb06b8c37e97f8e8254c4` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-E; byte-unchanged by W-1 --> |
+| `blOVErai_companion_surface.html` | `954e9980737eb9e07c858b8f650f798f7ed358abe673ae8662f40d06c5a5ae39` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `bqueenbee_analytics.html` | `57ab6921efab5c53b5a6b5706aaada5f7ab0e76a24a9e4c327323abf2ae9ceb3` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
 
 ## Mechanical verification (all eight)
 
@@ -55,6 +79,33 @@ All eight clear. Notes worth keeping:
   Eating Disorders — not the discontinued NEDA line), no goal weight, no deficit.
 - **bQueenBee** draws both walls at once: de-identified aggregate only ("counted, never
   named") and participation/evidence metrics, explicitly *not* health outcomes.
+
+## W-1 · the wording pass — one clearance event, as sequenced
+
+Every outstanding wording ruling executed together, so the bytes move once instead of
+twice. Seven surfaces changed; `d12_fat_scan_result.html` was already clean from C-E and is
+byte-unchanged, which is why its row says so rather than claiming a re-clearance it did not
+have.
+
+**1 · "proven" → what was actually measured.** Ruled to fall under the absolute-language
+law, on grounds stronger than style: in `bqueenbee_analytics` the phrase was load-bearing —
+*"proven understanding per cycle — the only thing that mints b"* made proven comprehension
+the **mint predicate**. What the system measures is *assessments passed*, not comprehension;
+four correct answers evidence understanding, they do not establish it. An economy minting
+on an overclaimed predicate is the overclaim doing work rather than merely sitting in copy.
+Now: `assessments passed`, `assessments passed per cycle`, and `◆ 4 / 4 CORRECT ◆` in place
+of `◆ COMPREHENSION PROVEN · 4 / 4 ◆`. Identical move to the independence chip — state the
+count, let the reader draw the conclusion.
+
+**2 · Level names out of every live claim.** The three markdown mentions and all eight HTML
+header comments now read **"zero external references"** — a testable fact — instead of `L1`,
+a grade. Facts survive; grades require grants. Level names remain only in the historical
+sections of this file, which record what was removed and must stay legible.
+
+**3 · The delivery limitation is now disclosed** (see the top of this file). This is the
+substantive addition: the tree previously stated the artifact property and stayed silent on
+the delivery one. It now says plainly that one operator serves these, can observe every
+reader, and can withdraw them at will.
 
 ## C-E · D-12 v2 — per-value provenance, and the disagreements kept
 
