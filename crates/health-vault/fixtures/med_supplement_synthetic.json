@@ -1,0 +1,1 @@
+{"medication":{"system":"http://www.nlm.nih.gov/research/umls/rxnorm","code":"1151","display":"Vitamin D"},"dosage":{"amount":{"value":1000.0,"unit":"IU"},"timing":"daily"},"status":"Active"}

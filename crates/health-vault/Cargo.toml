@@ -3,4 +3,8 @@ name = "health-vault"
 version = "0.1.0"
 edition.workspace = true
 license = "MIT OR Apache-2.0"
-description = "No-PII health-record types with a pseudonymous subject (MIT/Apache SDK edge). Guarantee-spine only until the SOVEREIGN_HEALTH_VAULT spec lands; the FHIR R4-shaped record types build on this without ever adding a PII field."
+description = "Pure FHIR R4-style health-record schema with NO PII field: the subject is a pseudonymous DID reference, every record is consent-gated (no valid consent -> does not serialize), and an uncoded/ununited value is rejected. Synthetic-only, zero I/O, zero crypto. Links no kernel crate (own DID-ref + EvidenceClass mirrors) -> cleanly permissive."
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
