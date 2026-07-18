@@ -20,14 +20,14 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `6fada5884caea6e02b07c435dde29f336c03badc2001fad75dd37898dc77de49` <!-- PUBLIC-CONSTANT: content digest --> |
-| `module1_hemp_hearts_label_reader.html` | `ca84b0423666679df1549dd3e865277e2f4e19ba2703870881c8b3d90af0bd91` <!-- PUBLIC-CONSTANT: content digest --> |
-| `module2_fats_label_wont_show.html` | `ad5144f48f06c5c335b84905206393e7c90100f34ac7d1c691a1968eb4663e22` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A --> |
-| `module3_portion_reality.html` | `a33492b64d92a6169823a4df47a1ff4a931a17667c60f921065770cb5da656d0` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A --> |
-| `module4_decide_for_yourself.html` | `0bb863ee3ef67bb6e7d31d5f98cea8133bcfbbdc03f03793d3a866a24788dd98` <!-- PUBLIC-CONSTANT: content digest --> |
-| `d12_fat_scan_result.html` | `8d65303c3d0fcbc7d43dceb02df5ed56e979049cc3ecb0b61641e3a5b48a6009` <!-- PUBLIC-CONSTANT: content digest --> |
-| `blOVErai_companion_surface.html` | `c9f75e5bfd576bce53a2d4eb8cee7c892d54cad37d5ccc555cadb4c0aef75e09` <!-- PUBLIC-CONSTANT: content digest --> |
-| `bqueenbee_analytics.html` | `1b4ae69ac3c26c791ef2f810130bcfd2352a2c489f1b2344b15d8c85d3b4df11` <!-- PUBLIC-CONSTANT: content digest --> |
+| `beehive_wellness_index.html` | `44772611597a701dda95c1bbf9cb3e8b694fb6253f2d7d739ba092f973fa7a49` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `module1_hemp_hearts_label_reader.html` | `909917a1cb5049f35fe6bc78993a0f9e66add8b3cfdb1202021d05b0641317f2` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `module2_fats_label_wont_show.html` | `948e31ca56698cc65e4722651237ff095b7a676643ffb3a1770f4cd45f706bf9` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A then L-1 --> |
+| `module3_portion_reality.html` | `99bc8829b2bb9e6bb3d2e9e28c9ef33df8d0b650fa01f7e290e9458f8cd8ba24` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-A then L-1 --> |
+| `module4_decide_for_yourself.html` | `b43a158bc20c84de6597aafc21ff22a183d5f5ed84761f162bbf489ee60758fa` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `d12_fat_scan_result.html` | `98adba61f2daea57bd6b50c4b1f97a29c371034591da1a844317a6e50d920388` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `blOVErai_companion_surface.html` | `74e41657b813fdeaed3524c18b0fed37e1d91cd0319ca02f7cf20c77917be056` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
+| `bqueenbee_analytics.html` | `d7bd6bf5ab92d327f95addab5b512e20f138e0b8265f38ff30704c18fe44c945` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 --> |
 
 ## Mechanical verification (all eight)
 
@@ -55,6 +55,36 @@ All eight clear. Notes worth keeping:
   Eating Disorders — not the discontinued NEDA line), no goal weight, no deficit.
 - **bQueenBee** draws both walls at once: de-identified aggregate only ("counted, never
   named") and participation/evidence metrics, explicitly *not* health outcomes.
+
+## L-1 · the L1 badge removed from all eight footers — clearance void across the board
+
+The C-G audit found that **`L1` is defined nowhere in this repository.** The token appeared
+20 times — here, in the root README, in `dockets/`, and in all eight surfaces — with no
+criteria, no rubric, and no stated judge. The founder ruled the badge comes off the
+footers pending a ratified ladder: *an undefined level displayed is a claim.*
+
+**What was changed:** exactly one string, ` · L1 · ` → ` · `, in the footer line of each of
+the eight surfaces. Nothing else. The diff is 8 lines, one per file.
+
+**What it cost, stated plainly.** Every surface changed bytes, so **all eight digests are
+new and every prior clearance is void — including the six that still carried the founder's
+own eyeball.** Before this edit the chain was six founder-eyeballed plus two Code-seat
+re-clearances; after it, **zero of the eight carry a founder eyeball.** That is a real
+downgrade of the clearance chain, accepted deliberately because a live undefined claim on
+a published surface outranks clearance bookkeeping. It is recorded rather than absorbed
+quietly, and it means **all eight need a founder re-eyeball**, not just the two from C-A.
+
+**Deliberately not changed:** the `L1 zero-network` note in each file's HTML header
+comment. The ruling addressed the footers, and the objection was to a *displayed*
+undefined level; a header comment is a design note explaining why tokens are inlined, not
+a badge shown to a reader. Whether those 8 comments and the 3 remaining markdown mentions
+also go is open, and is a second question rather than an assumed extension of the first.
+
+**Still open on a founder ruling:** the word "proven" in `bqueenbee_analytics.html` and
+`module4_decide_for_yourself.html`. Those two files will therefore take a *second* edit if
+the ruling removes it — two clearance events where one would have done. That sequencing
+cost is the direct consequence of ruling the badge before ruling the wording, and is noted
+so the next batch can be ordered the other way round.
 
 ## C-A · the one open item, now closed — and the two modules re-cleared
 

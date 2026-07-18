@@ -1,5 +1,14 @@
 # AUDIT — beehive-WELLness at `209a2b6`
 
+> **Status since publication.** The founder accepted all findings and owned the lineage of
+> the top three. Defects 1–3 are fixed (`33a84a8`); the kernel's copy of the fail-open
+> guard is fixed in its own tree (`1c84d8f`); and the L1 badge has been removed from all
+> eight footers, voiding every prior clearance — see `surfaces/README.md` § L-1.
+> **The digests recorded below are superseded.** `surfaces/README.md` holds the current
+> table; this file is a record of what was true at `209a2b6` and is not updated to track
+> the tree. Findings 4–8 remain open, and the L1 stamp remains withheld until a ladder is
+> ratified.
+
 End-to-end audit ordered as C-G. Five checks, each adversarially re-run by three
 independent skeptics briefed to refute rather than confirm, plus a completeness critic
 asked what the audit failed to look at. 21 reviewers, all read-only.
