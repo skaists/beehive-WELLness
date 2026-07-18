@@ -1,0 +1,21 @@
+name: guards
+on: [push, pull_request]
+jobs:
+  scans:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: secret-scan (tree)
+        run: sh scripts/secret-scan.sh tree
+      - name: phi-scan (tree)
+        run: sh scripts/phi-scan.sh tree
+  cargo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: cargo build --workspace
+      - name: test
+        run: cargo test --workspace
+      - name: fmt
+        run: cargo fmt --all --check
