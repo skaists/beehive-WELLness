@@ -1,0 +1,10 @@
+[package]
+name = "food-composition"
+version = "0.1.0"
+edition.workspace = true
+license = "MIT OR Apache-2.0"
+description = "Multi-source food-composition backbone. Axis A only: nutrient numbers with per-value provenance, where independence is DERIVED by resolving borrowed_from to distinct roots and can never be assigned. Claim-free by construction — no study, trial, patent or outcome type exists in this crate. Serde only, pins nothing."
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
