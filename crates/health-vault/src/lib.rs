@@ -2,7 +2,7 @@
 //!
 //! **The C-6 move, applied to health data:** just as `adapter-lti` has no mint path,
 //! `health-vault` has no PII field. The subject of every record is a pseudonymous DID
-//! reference ([`SubjectRef`]); there is no `name`, `mrn`, `ssn`, `dob`, or `address`
+//! reference ([`Did`]); there is no `name`, `mrn`, `ssn`, `dob`, or `address`
 //! field anywhere in the crate. Re-identification is impossible from these types because
 //! the identifying fields do not exist — structural, not promised.
 //!
@@ -17,29 +17,23 @@
 //!
 //! **Home & licence note.** The spec placed this in the kernel and reused
 //! `capability::Did`/`EvidenceClass`; the founder later ruled health material off the
-//! kernel (k001 wall) into this MIT tree, which forbids linking AGPL `capability`. So
-//! [`SubjectRef`] and [`EvidenceClass`] are local mirrors — the first real case that
-//! justifies consolidating them into a permissive `type-bindings` crate.
+//! kernel (k001 wall) into this MIT tree, which forbids linking AGPL `capability`. The
+//! subject now uses the **canonical [`Did`]** from the kernel's permissive `type-bindings`
+//! crate (built for exactly this — a one-way pin, MIT staying MIT). [`EvidenceClass`]
+//! stays a local mirror: splitting it from capability's tier ladder is a separate,
+//! careful refactor, not done yet.
 
 #![forbid(unsafe_code)]
 
 use serde::{Deserialize, Serialize};
 
-// ── the no-PII subject ──
+// ── the no-PII subject: the canonical Did, from the permissive type-bindings crate ──
 
-/// A pseudonymous DID reference — the only handle a record has to a person. Not a name,
-/// MRN, SSN, or DOB; those fields do not exist, so a record cannot carry them.
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub struct SubjectRef(String);
-
-impl SubjectRef {
-    pub fn new(pseudonym: impl Into<String>) -> Self {
-        SubjectRef(pseudonym.into())
-    }
-    pub fn as_str(&self) -> &str {
-        &self.0
-    }
-}
+/// The subject of every record is the canonical [`Did`], consumed from the kernel's
+/// permissive `type-bindings` crate (MIT/Apache — no AGPL infection, no local fork). It
+/// is a pseudonymous DID string; there is still no name/mrn/ssn/dob/address field
+/// anywhere, so re-identification is impossible from these types.
+pub use type_bindings::Did;
 
 // ── shared value types ──
 
@@ -245,7 +239,7 @@ impl std::error::Error for VaultError {}
 /// resource — so an invalid record cannot exist, not merely fails to serialize.
 #[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct VaultRecord {
-    subject: SubjectRef,
+    subject: Did,
     resource: Resource,
     consent: Consent,
     provenance: Provenance,
@@ -253,7 +247,7 @@ pub struct VaultRecord {
 
 impl VaultRecord {
     pub fn new(
-        subject: SubjectRef,
+        subject: Did,
         resource: Resource,
         consent: Consent,
         provenance: Provenance,
@@ -270,7 +264,7 @@ impl VaultRecord {
         })
     }
 
-    pub fn subject(&self) -> &SubjectRef {
+    pub fn subject(&self) -> &Did {
         &self.subject
     }
     pub fn resource(&self) -> &Resource {
@@ -292,8 +286,8 @@ mod tests {
     const MED: &str = include_str!("../fixtures/med_supplement_synthetic.json");
     const CONSENT_REVOKED: &str = include_str!("../fixtures/consent_revoked_synthetic.json");
 
-    fn subject() -> SubjectRef {
-        SubjectRef::new("did:bnr:test-thread-0001")
+    fn subject() -> Did {
+        Did::new("did:bnr:test-thread-0001")
     }
     fn good_consent() -> Consent {
         Consent {
@@ -329,7 +323,7 @@ mod tests {
         let o: Observation = serde_json::from_str(OBS_HR).unwrap();
         let r = VaultRecord::new(subject(), Resource::Observation(o), good_consent(), prov());
         assert!(r.is_ok());
-        assert_eq!(r.unwrap().subject().as_str(), "did:bnr:test-thread-0001");
+        assert_eq!(r.unwrap().subject(), &Did::new("did:bnr:test-thread-0001"));
     }
 
     #[test]
@@ -426,7 +420,7 @@ mod tests {
             prov(),
         )
         .unwrap();
-        assert_eq!(r.subject().as_str(), "did:bnr:test-thread-0001");
+        assert_eq!(r.subject(), &Did::new("did:bnr:test-thread-0001"));
     }
 
     // GREEN pending a real, de-identified provider export (synthetic-substituted):

@@ -3,8 +3,11 @@ name = "health-vault"
 version = "0.1.0"
 edition.workspace = true
 license = "MIT OR Apache-2.0"
-description = "Pure FHIR R4-style health-record schema with NO PII field: the subject is a pseudonymous DID reference, every record is consent-gated (no valid consent -> does not serialize), and an uncoded/ununited value is rejected. Synthetic-only, zero I/O, zero crypto. Links no kernel crate (own DID-ref + EvidenceClass mirrors) -> cleanly permissive."
+description = "Pure FHIR R4-style health-record schema with NO PII field: the subject is the canonical Did (from the permissive type-bindings crate), every record is consent-gated, an uncoded/ununited value is rejected. Synthetic-only, zero I/O. Consumes only the permissive type-bindings crate from the kernel repo (one-way pin) -> stays cleanly MIT."
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+# The one-way permissive pin (like LOVErnment-DAO -> kernel): the canonical Did, from the
+# kernel's MIT/Apache type-bindings crate. NOT capability (AGPL) — this stays MIT.
+type-bindings = { git = "https://github.com/beehive-nature/beehive-nature", rev = "270490fc9c71feab58c495f6fd9904359b29803f" }
