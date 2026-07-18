@@ -80,6 +80,29 @@ All eight clear. Notes worth keeping:
 - **bQueenBee** draws both walls at once: de-identified aggregate only ("counted, never
   named") and participation/evidence metrics, explicitly *not* health outcomes.
 
+## Founder clearance — 2026-07-18, recorded against digests, scope confirmed not inferred
+
+**All eight surfaces carry a fresh founder eyeball as of the digests in the table above**
+(tree `3fccb98`). This closes the standing debt that had grown across C-A, L-1 and W-1,
+during which no surface held a current founder clearance.
+
+**Scope, confirmed by asking rather than assuming.** The founder was asked once, explicitly,
+what a statement of having reviewed everything covered, and confirmed all three:
+
+1. **The eight live served surfaces** — opened at their public URLs, so the review was of
+   the bytes a reader actually receives, not of a local working copy.
+2. **The relay and proposal documents** — the L-1 ladder revisions and the dispatches.
+3. **`AUDIT.md` and this file**, including the delivery-limitation disclosure at the top.
+
+Why that precision is written down instead of a shorter sentence: a clearance recorded on
+an inference is the same defect class as every one caught in this run — a claim asserted
+beyond what was established. The reviewed set was verified before it was recorded, which is
+the only way this line is worth anything to a later reader.
+
+**What this clearance does and does not cover.** It attaches to the specific digests listed
+above and to nothing else. Any byte change voids it for the changed file, and the next
+editor is on the same footing as every prior pass: clearance does not travel.
+
 ## W-1 · the wording pass — one clearance event, as sequenced
 
 Every outstanding wording ruling executed together, so the bytes move once instead of
