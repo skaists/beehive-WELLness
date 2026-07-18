@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fat breakdown · scan result · bLOVErAi</title>
-<!-- D-12 · scan→USDA-profile result. bnr-design tokens inlined (L1 zero-network). Mobile-first. Honey = b. Data-category colors are labeled, not entity colors. Nutrition facts only — no health claim. -->
+<!-- D-12 v2 · scan→composition result with per-value provenance (order C-E). bnr-design tokens inlined, zero-network. Mobile-first. Honey = b. Data-category colors are labeled, not entity colors. Nutrition facts only — no health claim.
+     GOVERNING CONSTRAINT: display what was measured, never a conclusion the measurement does not support. One source reads "1 determination" — not "unverified" (a judgement), not "verified" (a claim).
+     COLOUR LAW (E-3): --verified green is NOT bound to the determination count anywhere on this surface. High agreement is not verification, and binding the two would smuggle a banned claim back in through colour. Counts are neutral; spread uses --info. Colour never carries meaning alone — every chip ships an icon and a word.
+     RTL (E-5): machine strings (source ids, FDC numbers, INFOODS tagnames, quantities) carry .mach = direction:ltr + unicode-bidi:isolate — both halves, because isolation alone still lays out against an RTL base. Source NAMES are translatable prose and take the paragraph direction. -->
 <style>
 :root{
   color-scheme:light;
@@ -26,12 +29,17 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui
 .concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
 .wrap{max-width:720px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
 h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
 .sub{color:var(--ink-mut);font-size:var(--text-sm);margin:0 0 var(--s4)}
 .k{font-family:var(--font-mono);font-size:var(--text-2xs);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s2) 0 var(--s3)}
 .labelbox{border-left:4px solid var(--ink-dim)}
 .labelbox .row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:var(--text-sm);padding:3px 0}
 .muted{color:var(--ink-dim);font-size:var(--text-2xs)}
+/* E-5 · machine strings pin their own direction. Both halves of the rule: direction fixes
+   the run's internal order, isolate stops it being reordered by its neighbours. Isolation
+   alone leaves the run laying out against an RTL base, which reverses a value+unit pair. */
+.mach{direction:ltr;unicode-bidi:isolate;font-family:var(--font-mono);white-space:nowrap}
 /* stacked bar */
 .stack{display:flex;height:26px;border-radius:7px;overflow:hidden;margin:6px 0 4px;border:1px solid var(--line)}
 .stack>span{display:block}
@@ -40,10 +48,32 @@ h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
 .dot{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
 .tbl{width:100%;border-collapse:collapse;font-size:var(--text-sm);margin-top:6px}
 .tbl td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.tbl td:last-child{text-align:right;font-family:var(--font-mono);white-space:nowrap}
-.tbl .ind{padding-left:16px;color:var(--ink-mut)}
+.tbl td:last-child{text-align:end;font-family:var(--font-mono);white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.tbl .ind{padding-inline-start:16px;color:var(--ink-mut)}
 .tag{display:inline-block;font-family:var(--font-mono);font-size:var(--text-2xs);border-radius:6px;padding:1px 7px}
 .nm{background:repeating-linear-gradient(45deg,var(--nm),var(--nm) 4px,transparent 4px,transparent 8px);color:var(--ink-mut);border:1px solid var(--line)}
+/* ── E-1 · source badge: origin AND basis, because basis is what makes two numbers
+   comparable or not, and it is where our own dataset diverges from USDA ── */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:var(--text-2xs);color:var(--ink-mut);border:1px solid var(--line);border-radius:var(--pill);padding:2px 9px;margin:3px 4px 0 0;background:var(--card)}
+.badge .basis{color:var(--ink-dim)}
+.ic{width:11px;height:11px;flex:0 0 auto}
+/* ── E-2/E-3 · independence chip.
+   DELIBERATELY NEUTRAL. There is no green here and no colour ramp keyed to the count:
+   two determinations agreeing is not verification, and colouring it like success would
+   state exactly the conclusion the measurement does not support. Counts read as text.
+   Only SPREAD gets a hue (--info), because a spread is an observation, not a grade. ── */
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:var(--text-2xs);border:1px solid var(--line);border-radius:var(--pill);padding:2px 9px;color:var(--ink-mut);background:transparent}
+.chip.none{border-style:dashed;color:var(--ink-dim)}
+.chip .n{font-weight:800;color:var(--ink);direction:ltr;unicode-bidi:isolate}
+.spread{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:var(--text-2xs);border:1px solid color-mix(in srgb,var(--info) 45%,var(--line));border-radius:var(--pill);padding:2px 9px;color:var(--info);background:color-mix(in srgb,var(--info) 7%,transparent)}
+.flag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:var(--text-2xs);border:1px solid color-mix(in srgb,var(--guard) 45%,var(--line));border-radius:var(--pill);padding:2px 9px;color:var(--guard);background:color-mix(in srgb,var(--guard) 7%,transparent)}
+.prov{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.div{border:1px solid var(--line);border-radius:12px;padding:var(--s3);margin-top:var(--s3);background:var(--card)}
+.div h3{margin:0 0 4px;font-size:var(--text-md)}
+.div .why{margin:0 0 8px;color:var(--ink-mut);font-size:var(--text-xs)}
+.vals{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.val{border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:var(--text-2xs);color:var(--ink-mut);background:var(--paper)}
+.val b{display:block;font-family:var(--font-mono);font-size:var(--text-sm);color:var(--ink);direction:ltr;unicode-bidi:isolate}
 .call{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--o3);border-radius:12px;padding:var(--s3);margin:var(--s3) 0}
 .call h3{margin:0 0 6px;font-size:var(--text-md)}
 .call p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
@@ -56,18 +86,23 @@ h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
   <div class="bar"><b>bLOVErAi</b><span class="c">· scan result</span><span class="concept">CONCEPT — simulated · zero network</span></div>
   <div class="wrap">
     <h1>Organic hemp hearts</h1>
-    <p class="sub">Scanned. Here's every fat in it — including the ones the label legally doesn't have to tell you.</p>
+    <p class="sub">Scanned. Here's every fat in it — including the ones the label legally doesn't have to tell you, and including where our own numbers disagree with USDA's.</p>
 
     <span class="k">What the package showed</span>
     <div class="card labelbox">
-      <div class="row"><span>Total fat</span><span>48.8 g</span></div>
-      <div class="row"><span>&nbsp;&nbsp;Saturated</span><span>4.6 g</span></div>
-      <div class="row"><span>&nbsp;&nbsp;Trans</span><span>0 g</span></div>
+      <div class="row"><span>Total fat</span><span class="mach">48.8 g</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Saturated</span><span class="mach">4.6 g</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Trans</span><span class="mach">0 g</span></div>
       <div class="muted" style="margin-top:6px">…and that's all it's required to say. Poly, mono, and the omega split are optional — usually omitted.</div>
     </div>
 
-    <span class="k">What it actually is · per 100 g (USDA)</span>
+    <span class="k">What it actually is · per 100 g</span>
     <div class="card">
+      <div class="prov">
+        <span class="badge"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h10v10H3z"/><path d="M6 6h4M6 9h4"/></svg><span class="mach">USDA FDC 170148</span> <span class="basis">· hulled hearts, per 100 g</span></span>
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/></svg><span class="n">1</span> determination</span>
+      </div>
+
       <div class="stack" aria-hidden="true">
         <span style="width:9.4%;background:var(--sfa)"></span>
         <span style="width:11.5%;background:var(--mufa)"></span>
@@ -76,28 +111,90 @@ h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
         <span style="width:3.3%;background:var(--nm)"></span>
       </div>
       <div class="legend">
-        <span class="sw"><span class="dot" style="background:var(--sfa)"></span>Saturated 4.6 g</span>
-        <span class="sw"><span class="dot" style="background:var(--mufa)"></span>Monounsat. 5.6 g</span>
-        <span class="sw"><span class="dot" style="background:var(--o6)"></span>Omega-6 28 g</span>
-        <span class="sw"><span class="dot" style="background:var(--o3)"></span>Omega-3 9 g</span>
-        <span class="sw"><span class="dot" style="background:var(--nm)"></span>other/unresolved 1.6 g</span>
+        <span class="sw"><span class="dot" style="background:var(--sfa)"></span>Saturated <span class="mach">4.6 g</span></span>
+        <span class="sw"><span class="dot" style="background:var(--mufa)"></span>Monounsat. <span class="mach">5.6 g</span></span>
+        <span class="sw"><span class="dot" style="background:var(--o6)"></span>Omega-6 <span class="mach">28 g</span></span>
+        <span class="sw"><span class="dot" style="background:var(--o3)"></span>Omega-3 <span class="mach">9 g</span></span>
+        <span class="sw"><span class="dot" style="background:var(--nm)"></span>other/unresolved <span class="mach">1.6 g</span></span>
       </div>
 
       <table class="tbl">
-        <tr><td><b>Saturated — by chain length</b></td><td>4.6 g</td></tr>
+        <tr><td><b>Saturated — by chain length</b> <span class="muted mach">SFA</span></td><td>4.6 g</td></tr>
         <tr><td class="ind">short-chain (SCFA)</td><td><span class="tag nm">none</span></td></tr>
         <tr><td class="ind">medium-chain (MCFA / MCT)</td><td><span class="tag nm">none</span></td></tr>
         <tr><td class="ind">long-chain (LCFA · palmitic, stearic)</td><td>≈4.6 g</td></tr>
-        <tr><td><b>Monounsaturated</b> (oleic, ω-9)</td><td>5.6 g</td></tr>
-        <tr><td><b>Omega-6</b> (essential)</td><td>28 g</td></tr>
-        <tr><td class="ind">linoleic acid (LA)</td><td>≈28 g</td></tr>
-        <tr><td class="ind">GLA</td><td><span class="tag nm">not measured</span></td></tr>
-        <tr><td><b>Omega-3</b> (essential)</td><td>9 g</td></tr>
-        <tr><td class="ind">ALA (plant ω-3)</td><td>≈9 g</td></tr>
-        <tr><td class="ind">EPA</td><td>0 g</td></tr>
-        <tr><td class="ind">DHA</td><td>0 g</td></tr>
+        <tr><td><b>Monounsaturated</b> (oleic, ω-9) <span class="muted mach">MUFA</span></td><td>5.6 g</td></tr>
+        <tr><td><b>Omega-6</b> (essential) <span class="muted mach">FAPU N6</span></td><td>28 g</td></tr>
+        <tr><td class="ind">linoleic acid (LA) <span class="muted mach">F18D2CN6</span></td><td>≈28 g</td></tr>
+        <tr><td class="ind">GLA <span class="muted mach">F18D3CN6</span></td><td><span class="tag nm">not measured</span></td></tr>
+        <tr><td><b>Omega-3</b> (essential) <span class="muted mach">FAPU N3</span></td><td>9 g</td></tr>
+        <tr><td class="ind">ALA (plant ω-3) <span class="muted mach">F18D3CN3</span></td><td>≈9 g</td></tr>
+        <tr><td class="ind">EPA <span class="muted mach">F20D5</span></td><td>0 g</td></tr>
+        <tr><td class="ind">DHA <span class="muted mach">F22D6</span></td><td>0 g</td></tr>
       </table>
-      <div class="muted" style="margin-top:8px">Serving (30 g) ≈ 0.30× each. Source: USDA FoodData Central — Seeds, hemp seed, hulled (FDC 170148). Cross-check: Health Canada CNF.</div>
+      <div class="muted" style="margin-top:8px">Serving (30 g) ≈ 0.30× each. Nutrient identities are <span class="mach">INFOODS</span> tagnames, so a number is matched by what was analysed rather than by the word a table prints for it.</div>
+    </div>
+
+    <h2>Where the numbers came from</h2>
+    <p class="sub" style="margin-bottom:var(--s2)">Every value carries its source <i>and its basis</i>. Basis is which food, measured against what — and it is the difference between two numbers disagreeing and two numbers describing different things.</p>
+    <div class="card">
+      <div class="prov" style="margin-top:0">
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/></svg><span class="n">1</span> determination</span>
+        <span class="muted">one laboratory measured it</span>
+      </div>
+      <div class="prov">
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5.5" cy="8" r="3.5"/><circle cx="10.5" cy="8" r="3.5"/></svg><span class="n">2</span> independent determinations</span>
+        <span class="muted">two laboratories measured it separately</span>
+      </div>
+      <div class="prov">
+        <span class="chip none"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10"/></svg>not measured</span>
+        <span class="muted">nobody measured it — shown as itself, never as zero, never estimated from a similar food</span>
+      </div>
+      <p class="muted" style="margin-top:var(--s3);font-size:var(--text-xs)"><b>A count is not a grade.</b> Twelve national tables printing the same number is still <span class="mach">1</span> determination, because most of them copied it — the count follows each value back to the laboratory that actually measured it, so agreement between copies can't inflate it. And a high count is deliberately not coloured as success anywhere on this page: more measurements is more measurement, not proof. You draw the conclusion; this page just tells you what was counted.</p>
+    </div>
+
+    <h2>Where sources disagree — including ours</h2>
+    <p class="sub" style="margin-bottom:var(--s2)">This scanner shows disagreement instead of hiding it behind an average. All three of these are live, unresolved, and shown on purpose.</p>
+
+    <div class="div">
+      <h3>Hemp protein — <span class="mach">42%</span> vs <span class="mach">31.6 g</span></h3>
+      <p class="why">Not a disagreement. These describe <b>two different foods</b>, so they are never compared and never averaged here.</p>
+      <div class="vals">
+        <div class="val"><b>31.6 g / 100 g</b><span class="mach">USDA FDC 170148</span><br>basis: hulled hearts</div>
+        <div class="val"><b>42%</b><span class="mach">BNR working dataset</span><br>basis: protein concentrate</div>
+      </div>
+      <div class="prov">
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/></svg><span class="n">1</span> determination · per basis</span>
+        <span class="badge"><span class="basis">two bases, kept apart</span></span>
+      </div>
+      <p class="muted" style="margin-top:8px">A concentrate is a processed fraction; hulled hearts are the seed. Both numbers are correct about the thing they measured. Collapsing them into one row is how a scanner starts lying politely.</p>
+    </div>
+
+    <div class="div">
+      <h3>Hemp iron — <span class="mach">0.28</span> vs <span class="mach">7.95 mg</span></h3>
+      <p class="why">Same basis, same nutrient, genuinely different answers. <b>Unresolved, and left that way.</b></p>
+      <div class="vals">
+        <div class="val"><b>7.95 mg / 100 g</b><span class="mach">USDA FDC 170148</span><br>basis: hulled hearts</div>
+        <div class="val"><b>0.28 mg / 100 g</b><span class="mach">BNR working dataset</span><br>basis: hulled hearts</div>
+      </div>
+      <div class="prov">
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5.5" cy="8" r="3.5"/><circle cx="10.5" cy="8" r="3.5"/></svg><span class="n">2</span> independent determinations</span>
+        <span class="spread"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M2 5v6M14 5v6"/></svg>spread <span class="mach">0.28 – 7.95 mg</span></span>
+      </div>
+      <p class="muted" style="margin-top:8px">Nothing here picks a winner and nothing averages them into a middle that no laboratory reported. A twenty-eight-fold gap is a real open question, and the honest display of an open question is the open question.</p>
+    </div>
+
+    <div class="div">
+      <h3>Beef potassium — <span class="mach">252</span> in a grams column</h3>
+      <p class="why">Flagged as structurally implausible. <b>Shown exactly as published — not corrected.</b></p>
+      <div class="vals">
+        <div class="val"><b>252 g / 100 g</b><span class="mach">BNR working dataset</span><br>basis: raw, lean</div>
+      </div>
+      <div class="prov">
+        <span class="flag"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l6 11H2z"/><path d="M8 6.5v3M8 11.5h.01"/></svg>exceeds the whole food</span>
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/></svg><span class="n">1</span> determination</span>
+      </div>
+      <p class="muted" style="margin-top:8px">You cannot have <span class="mach">252 g</span> of anything inside <span class="mach">100 g</span> of food, so something is wrong — most likely a milligram figure sitting in a grams column. This page doesn't guess which, because it doesn't know whether the amount, the unit or the column slipped. Silently rewriting it to <span class="mach">252 mg</span> would be inventing a measurement nobody took.</p>
     </div>
 
     <div class="call">
@@ -106,9 +203,9 @@ h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
       <div class="reward"><span class="muted" style="margin:0">Spot the difference between ALA and EPA/DHA on your next three scans →</span><span class="b">+3 b</span></div>
     </div>
 
-    <p class="muted" style="font-size:var(--text-xs)">Where USDA hasn't measured a sub-fraction, it's shown as <span class="tag nm">not measured</span> — never guessed. A number we don't have is not a number we'll invent.</p>
+    <p class="muted" style="font-size:var(--text-xs)">Where a sub-fraction hasn't been measured, it's shown as <span class="tag nm">not measured</span> — not guessed, not filled in from a similar food, not rounded to zero. A number nobody has is not a number this scanner will invent.</p>
 
-    <div class="foot">D-12 · fat scanner result · CONCEPT · honey = b (simulated) · zero network · composition data from USDA/CNF, translated not asserted · nutrition facts only, no health claim, no intake advice.</div>
+    <div class="foot">D-12 v2 · fat scanner result · CONCEPT · honey = b (simulated) · zero network · composition data from USDA/CNF and the BNR working dataset, translated not asserted · per-value origin + basis, independence derived from provenance · disagreement shown, never resolved · nutrition facts only, no health claim, no intake advice.</div>
   </div>
 </body>
 </html>
