@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 4 · Decide for yourself · bQueenBee</title>
+<!-- bQueenBee capstone · bnr-design inlined (L1 zero-network) · mobile-first · no rainbow · honey=b · sovereignty/purple accent for the graduation beat · no health claim, no prescription -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0; --sovereign:#7D5FB0; --b-value:#E8B54B;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(19px,5vw,24px); --text-xl:clamp(24px,6vw,34px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--radius:14px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.6;font-size:var(--text-sm)}
+.bar{background:var(--card);border-bottom:1px solid var(--line);padding:11px var(--s3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--ink)} .bar .c{font-size:var(--text-xs);color:var(--ink-mut)}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
+.wrap{max-width:760px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
+h1{font-size:var(--text-xl);margin:0 0 6px;letter-spacing:-.4px;line-height:1.1}
+.lede{color:var(--ink-mut);font-size:var(--text-md);margin:0 0 var(--s4)}
+h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
+p{margin:0 0 var(--s2)}
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:10px;margin:var(--s2) 0}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3)}
+.tool .n{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--biomass);font-weight:700}
+.tool h3{margin:4px 0 3px;font-size:var(--text-sm)}
+.tool p{margin:0;color:var(--ink-mut);font-size:var(--text-2xs)}
+.decide{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
+.decide .claim{font-weight:700;font-size:var(--text-md);border-left:4px solid var(--guard);padding-left:12px;margin-bottom:var(--s3)}
+.step{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .s{font-family:var(--font-mono);font-weight:700;color:var(--info);flex:0 0 auto}
+.step p{margin:0;font-size:var(--text-sm);color:var(--ink-mut)}
+.step b{color:var(--ink)}
+.verdict{margin-top:var(--s3);padding-top:var(--s3);border-top:2px solid var(--line);font-size:var(--text-sm)}
+.verdict b{color:var(--biomass)}
+.ethos{background:color-mix(in srgb,var(--sovereign) 6%,var(--card));border:1px solid color-mix(in srgb,var(--sovereign) 25%,var(--line));border-radius:var(--radius);padding:var(--s4);margin:var(--s4) 0;text-align:center}
+.ethos .quote{font-size:var(--text-lg);font-style:italic;color:var(--sovereign);margin:0 0 8px;line-height:1.3}
+.ethos .attr{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--ink-dim)}
+.ethos p{margin:var(--s2) 0 0;color:var(--ink-mut);font-size:var(--text-sm)}
+.check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
+.qq{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
+.opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
+.opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
+.reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+.grad{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s4);margin:var(--s4) 0}
+.grad .seal{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--sovereign);letter-spacing:.1em}
+.grad h3{margin:8px 0 6px;font-size:var(--text-lg);color:var(--sovereign)}
+.note{color:var(--ink-dim);font-size:var(--text-2xs)}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body>
+  <div class="bar"><b>bQueenBee</b> <span class="c">· BeehiveNature · Module 4 of 4 · capstone</span><span class="concept">CONCEPT — simulated · zero network</span></div>
+  <div class="wrap">
+    <h1>Decide for yourself</h1>
+    <p class="lede">You arrived wanting to be told what to eat. You're leaving able to read any claim and answer that yourself. That was the whole point — and it's the last thing a course that respects you would hand over: the deciding.</p>
+
+    <h2>Your toolkit — everything the first three modules gave you</h2>
+    <div class="kit">
+      <div class="tool"><div class="n">M1</div><h3>Read the panel</h3><p>Per-100 g → serving → your day. Know the form (hearts vs powder) and the database (USDA / CNF).</p></div>
+      <div class="tool"><div class="n">M2</div><h3>See the hidden fats</h3><p>SCFA / MCFA / LCFA aren't one thing; "has omega-3" ≠ "has EPA/DHA."</p></div>
+      <div class="tool"><div class="n">M3</div><h3>Size the claim</h3><p>Energy density × amount. Completeness, not restriction — size up toward what's missing.</p></div>
+      <div class="tool"><div class="n">M1–3</div><h3>Sort proved from claimed</h3><p>Fact, hypothesis, or unsupported — always know which column a statement is in.</p></div>
+    </div>
+
+    <h2>Now run the tools on a live claim</h2>
+    <div class="decide">
+      <div class="claim">"Every adult should eat 100 g of hemp hearts a day."</div>
+      <div class="step"><span class="s">1</span><p><b>What form?</b> Hemp <i>hearts</i> — so USDA's 31.6 g protein / 553 kcal per 100 g applies (not the powder's 42–50%).</p></div>
+      <div class="step"><span class="s">2</span><p><b>What does 100 g actually contain?</b> ~553 kcal, 31.6 g complete protein, ~9 g ALA (plant ω-3, little/no EPA-DHA), 700 mg magnesium. All <b>fact</b>, from the panel.</p></div>
+      <div class="step"><span class="s">3</span><p><b>Which part is a claim?</b> "Every adult" and "100 g a day" — a universal daily prescription. That's not on any panel; it's an assertion about all people. Column: <b>unsupported as universal</b>.</p></div>
+      <div class="step"><span class="s">4</span><p><b>So what do you do?</b> Split it: the nutrition facts are real and useful; the one-size prescription isn't. You decide <i>your</i> amount, sized up toward what your own day is missing — with the facts in hand.</p></div>
+      <div class="verdict"><b>Your verdict, not ours:</b> a food can be genuinely nutritious <em>and</em> "everyone must eat exactly this much" can be an overreach — both at once. You just held both without being sold either.</div>
+    </div>
+
+    <div class="ethos">
+      <p class="quote">"Let food be thy medicine, and medicine be thy food."</p>
+      <div class="attr">— attributed to Hippocrates (attribution debated — even this deserves a source-check)</div>
+      <p>The deepest reading of that line isn't a prescription — "eat X to cure Y." It's understanding food well enough to make it part of how you care for yourself, <b>with open eyes</b>. This course gave you the eyes. What you do with them, and any medical question, stays with you and your clinician.</p>
+    </div>
+
+    <h2>The last check</h2>
+    <div class="check">
+      <div class="qq">You read "an ancient physician proved hemp cures inflammation." First move?</div>
+      <button class="opt correct">✓ Source-check it — who, where, what evidence — before believing or repeating. Even famous names get misquoted.</button>
+      <button class="opt">Repeat it — it sounds authoritative.</button>
+      <button class="opt">Dismiss it — old means wrong.</button>
+      <div class="reward"><span class="note" style="margin:0">You reached for the source instead of the feeling. That's the reflex the whole course was building.</span><span class="b">+5 b</span></div>
+    </div>
+
+    <div class="grad">
+      <div class="seal">◆ COMPREHENSION PROVEN · 4 / 4 ◆</div>
+      <h3>You can read food now</h3>
+      <p class="note">A mastery event records <b>that</b> you proved this — never what you'll eat. It's yours, portable, and outlives this school. Teach the next person the label trick and you close an edge: understanding, passed on.</p>
+    </div>
+
+    <p class="note" style="font-size:var(--text-xs)">Sovereignty, the small daily kind: no app, no influencer, and no course — including this one — decides your plate. You do, with the tools to see clearly. That's where BeehiveNature always meant to leave you.</p>
+
+    <div class="foot">bQueenBee · Module 4 (capstone) · CONCEPT · honey = b (simulated) · zero network · L1 · no health claim, no prescription, no verdict handed down · composition: USDA FDC / Health Canada CNF · ED-safe: no goal weight, no deficit.</div>
+  </div>
+</body>
+</html>

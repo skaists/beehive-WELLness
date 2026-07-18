@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 1 · Read the Label — Hemp Hearts · bQueenBee</title>
+<!-- BeehiveNature canvas · bQueenBee lesson · bnr-design tokens inlined (L1 zero-network). Mobile-first. No rainbow. --b-value honey for b amounts. Nutrition facts only — no health claim. -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0;
+  --b-value:#E8B54B; /* b amounts only — ruled 2026-07-17 */
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(19px,5vw,24px); --text-xl:clamp(24px,6vw,34px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--radius:14px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.6;font-size:var(--text-sm)}
+.bar{background:var(--card);border-bottom:1px solid var(--line);padding:11px var(--s3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--ink)} .bar .c{font-size:var(--text-xs);color:var(--ink-mut)}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
+.wrap{max-width:760px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
+h1{font-size:var(--text-xl);margin:0 0 6px;letter-spacing:-.4px;line-height:1.1}
+.lede{color:var(--ink-mut);font-size:var(--text-md);margin:0 0 var(--s4)}
+h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
+p{margin:0 0 var(--s2)}
+.k{font-family:var(--font-mono);font-size:var(--text-2xs);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim)}
+/* nutrition panel */
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:var(--s3);font-family:var(--font-ui);max-width:360px}
+.panel .t{font-size:var(--text-lg);font-weight:800;border-bottom:8px solid var(--ink);padding-bottom:4px;margin-bottom:4px}
+.panel .s{font-size:var(--text-2xs);color:var(--ink-mut);border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:6px}
+.panel .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.panel .row.big{font-weight:800;border-bottom:4px solid var(--ink)}
+.panel .row .v{font-variant-numeric:tabular-nums}
+.panel .ind{padding-left:14px;color:var(--ink-mut)}
+.src{font-size:var(--text-2xs);color:var(--ink-dim);margin-top:8px;font-family:var(--font-mono)}
+/* callout */
+.call{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--biomass);border-radius:12px;padding:var(--s3);margin:var(--s3) 0}
+.call.form{border-left-color:var(--you)} .call.src2{border-left-color:var(--info)}
+.call h3{margin:0 0 6px;font-size:var(--text-md)}
+.call p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
+.formrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pill{font-family:var(--font-mono);font-size:var(--text-2xs);border:1px solid var(--line);border-radius:var(--pill);padding:4px 10px;white-space:nowrap}
+.pill b{color:var(--biomass)}
+/* check */
+.check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
+.q{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
+.opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
+.opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
+.reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+.note{color:var(--ink-dim);font-size:var(--text-2xs);margin-top:8px}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+.foot a{color:var(--info)}
+</style>
+</head>
+<body>
+  <div class="bar"><b>bQueenBee</b> <span class="c">· BeehiveNature · Module 1 of 4</span><span class="concept">CONCEPT — simulated · zero network</span></div>
+  <div class="wrap">
+    <h1>Read the label</h1>
+    <p class="lede">We're not here to tell you what to eat. We're here so you can read a nutrition panel yourself and decide. Today's specimen: organic hemp hearts.</p>
+
+    <h2>The panel — hemp hearts, per 100&nbsp;g</h2>
+    <div class="panel">
+      <div class="t">Nutrition Facts</div>
+      <div class="s">Hulled hemp seed (hearts) · per 100&nbsp;g</div>
+      <div class="row big"><span>Energy</span><span class="v">553 kcal</span></div>
+      <div class="row big"><span>Protein</span><span class="v">31.6 g</span></div>
+      <div class="row"><span>Total fat</span><span class="v">48.8 g</span></div>
+      <div class="row ind"><span>polyunsaturated</span><span class="v">38.1 g</span></div>
+      <div class="row ind"><span>saturated</span><span class="v">4.6 g</span></div>
+      <div class="row"><span>Carbohydrate</span><span class="v">8.7 g</span></div>
+      <div class="row ind"><span>fiber</span><span class="v">4.0 g</span></div>
+      <div class="row"><span>Magnesium</span><span class="v">700 mg</span></div>
+      <div class="row"><span>Phosphorus</span><span class="v">1650 mg</span></div>
+      <div class="row"><span>Zinc</span><span class="v">9.9 mg</span></div>
+      <div class="row"><span>Iron</span><span class="v">8.0 mg</span></div>
+      <div class="src">source: USDA FoodData Central · "Seeds, hemp seed, hulled" (FDC 170148)</div>
+    </div>
+
+    <h2>Three things the panel is telling you</h2>
+    <div class="call">
+      <h3>1 · Per 100 g is not per serving</h3>
+      <p>Every number above is per 100 g. A common serving is ~30 g (about 3 tbsp). To get a serving, multiply by 0.30: protein becomes 31.6 × 0.30 ≈ <b>9.5 g</b>, energy 553 × 0.30 ≈ <b>166 kcal</b>. Panels quote per-100 g so foods compare fairly — you do the serving math.</p>
+    </div>
+    <div class="call">
+      <h3>2 · "Complete protein" is a real, checkable fact</h3>
+      <p>Hemp hearts contain all nine essential amino acids in usable amounts — that's what "complete" means, and it's verifiable in the amino-acid breakdown, not a marketing word. ~31.6 g/100 g of complete plant protein is genuinely notable. (What that <i>does</i> for a given body is a different question, for a later module and honest evidence — not this panel.)</p>
+    </div>
+    <div class="call">
+      <h3>3 · The fat is mostly polyunsaturated</h3>
+      <p>Of 48.8 g fat, 38.1 g is polyunsaturated — largely linoleic acid (omega-6) and alpha-linolenic acid (omega-3), in a ratio near 3:1. That the ratio exists is fact; whether a 3:1 ratio matters for you is a claim to weigh later, not read off the label.</p>
+    </div>
+
+    <h2>The skill that outlasts this lesson: know your <em>form</em></h2>
+    <div class="call form">
+      <h3>Same plant, three very different numbers</h3>
+      <p>"Hemp protein" on two packages can mean two different foods. Protein per 100 g depends entirely on the <b>form</b>:</p>
+      <div class="formrow">
+        <span class="pill"><b>Hearts</b> (hulled seed) ≈ 31.6 g</span>
+        <span class="pill"><b>Protein powder</b> (concentrate) ≈ 42–50 g</span>
+        <span class="pill"><b>Whole seed</b> (with hull) ≈ 25 g + more fiber</span>
+      </div>
+      <p style="margin-top:10px">So if a comparison table lists hemp at "42%," it's almost certainly the <b>powder</b>, not the hearts. Neither is wrong — they're different foods. Reading well means asking <i>which form</i> before you trust the number.</p>
+    </div>
+    <div class="call src2">
+      <h3>And know your <em>database</em></h3>
+      <p>Lab-verified national databases are the trustworthy sources: <b>USDA FoodData Central</b> (US) and <b>Health Canada's Canadian Nutrient File</b> (CNF). A product's own back-of-pack panel may round differently or use a different lab. When numbers disagree, the question isn't "who's lying" — it's "different form, different lot, or different database?"</p>
+    </div>
+
+    <h2>Prove you can read it</h2>
+    <div class="check">
+      <div class="q">A recipe calls for a 30 g serving of hemp hearts. About how much protein is that?</div>
+      <button class="opt">31.6 g — that's what the panel says.</button>
+      <button class="opt correct">✓ ~9.5 g — the panel is per 100 g; 31.6 × 0.30 ≈ 9.5.</button>
+      <button class="opt">~3 g — a serving is tiny.</button>
+      <div class="reward"><span class="note" style="margin:0">You converted per-100 g to per-serving. That's the skill.</span><span class="b">+2 b</span></div>
+    </div>
+    <div class="check">
+      <div class="q">A tub says "hemp protein — 48 g protein per 100 g." Is that the same food as hemp hearts?</div>
+      <button class="opt correct">✓ No — 48 g signals a protein powder/concentrate, not hearts (≈31.6 g).</button>
+      <button class="opt">Yes — hemp is hemp.</button>
+      <button class="opt">The label must be wrong.</button>
+      <div class="reward"><span class="note" style="margin:0">You checked the form before trusting the number.</span><span class="b">+3 b</span></div>
+    </div>
+    <div class="check">
+      <div class="q">Classify each statement: <b>fact</b>, <b>hypothesis</b>, or <b>unsupported</b>.</div>
+      <button class="opt correct">✓ "Hemp hearts contain all 9 essential amino acids" → <b>fact</b> (verifiable in USDA data).</button>
+      <button class="opt correct">✓ "Eating hemp hearts may support X in some people" → <b>hypothesis</b> (needs evidence, graded later).</button>
+      <button class="opt correct">✓ "Every adult should eat 100 g a day" → <b>unsupported</b> (a universal prescription, not a panel fact).</button>
+      <div class="reward"><span class="note" style="margin:0">Telling these three apart is the whole point — and the most valuable thing you'll leave with.</span><span class="b">+5 b</span></div>
+    </div>
+
+    <p class="note" style="font-size:var(--text-xs);margin-top:var(--s4)">You read the label, sized a serving, checked the form and the source, and separated fact from claim. You now decide for yourself whether and how much hemp hearts belong in your day — nobody decided it for you. That's Module 1.</p>
+
+    <div class="foot">bQueenBee · Module 1 · CONCEPT · rewards simulated (honey = b) · zero network · L1 · nutrition facts only, no health claim — this lesson delivers no verdict. Sources: USDA FoodData Central (FDC 170148); Health Canada Canadian Nutrient File.</div>
+  </div>
+</body>
+</html>

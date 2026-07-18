@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 2 · The fats the label won't show you · bQueenBee</title>
+<!-- bQueenBee lesson · bnr-design inlined (L1 zero-network) · mobile-first · no rainbow · honey=b · established biochem as fact, outcome-claims graded · no health claim -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0; --b-value:#E8B54B;
+  --sfa:#B0895A; --mufa:#8FA79C; --o6:#2E7FC0; --o3:#5FA544;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(19px,5vw,24px); --text-xl:clamp(24px,6vw,34px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--radius:14px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.6;font-size:var(--text-sm)}
+.bar{background:var(--card);border-bottom:1px solid var(--line);padding:11px var(--s3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--ink)} .bar .c{font-size:var(--text-xs);color:var(--ink-mut)}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
+.wrap{max-width:760px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
+h1{font-size:var(--text-xl);margin:0 0 6px;letter-spacing:-.4px;line-height:1.1}
+.lede{color:var(--ink-mut);font-size:var(--text-md);margin:0 0 var(--s4)}
+h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
+p{margin:0 0 var(--s2)}
+.chain{display:flex;flex-direction:column;gap:8px;margin:var(--s2) 0}
+.link{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3)}
+.link .c{width:44px;flex:0 0 auto;font-family:var(--font-mono);font-weight:800;font-size:var(--text-xs);text-align:center;padding-top:2px}
+.link h3{margin:0 0 3px;font-size:var(--text-md)}
+.link p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
+.link.scfa .c{color:#8a6d3b}.link.mcfa .c{color:var(--biomass)}.link.lcfa .c{color:var(--sfa)}
+.fam{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3);margin:var(--s2) 0}
+.path{font-family:var(--font-mono);font-size:var(--text-sm);background:var(--paper);border-radius:8px;padding:10px 12px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.path b{color:var(--o3)} .path.six b{color:var(--o6)}
+.proved{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:var(--s3);margin:var(--s2) 0}
+.box{border:1px solid var(--line);border-radius:12px;padding:var(--s3)}
+.box.p{border-left:4px solid var(--biomass)} .box.h{border-left:4px solid var(--guard)}
+.box h3{margin:0 0 8px;font-size:var(--text-sm);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+.box.p h3{color:var(--biomass)} .box.h h3{color:var(--guard)}
+.box ul{margin:0;padding-left:18px;color:var(--ink-mut);font-size:var(--text-xs)} .box li{margin:5px 0}
+.check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
+.q{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
+.opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
+.opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
+.reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+.note{color:var(--ink-dim);font-size:var(--text-2xs)}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body>
+  <div class="bar"><b>bQueenBee</b> <span class="c">· BeehiveNature · Module 2 of 4</span><span class="concept">CONCEPT — simulated · zero network</span></div>
+  <div class="wrap">
+    <h1>The fats the label won't show you</h1>
+    <p class="lede">Module 1 taught you to read the panel. But the two most important things about fat, the panel doesn't print: that "saturated" is three different molecules, and that not all omega-3 is the same omega-3.</p>
+
+    <h2>1 · "Saturated" is not one thing — chain length is everything</h2>
+    <p>All saturated fats share a chemistry, but their <b>chain length</b> changes how your body handles them. The label prints one word for all three:</p>
+    <div class="chain">
+      <div class="link scfa"><div class="c">C2–C6</div><div><h3>Short-chain (SCFA)</h3><p>Butyric, propionic, acetic. You mostly <i>grow</i> these — gut microbes ferment fiber into them; only traces in food (butter). Butyrate is the main fuel of your colon lining. <span class="note">(established)</span></p></div></div>
+      <div class="link mcfa"><div class="c">C6–C12</div><div><h3>Medium-chain (MCFA / MCTs)</h3><p>Caprylic, capric, lauric. Coconut, MCT oil. Absorbed straight to the liver via the portal vein, largely skipping the bile/chylomicron route, and rapidly burned — even ketogenic. Metabolically distinct from all other saturated fat. <span class="note">(established)</span></p></div></div>
+      <div class="link lcfa"><div class="c">C14–C18</div><div><h3>Long-chain (LCFA)</h3><p>Palmitic, stearic, myristic. Most saturated fat in most foods; needs chylomicron transport. Stearic behaves more neutrally than palmitic. <span class="note">(established, nuanced)</span></p></div></div>
+    </div>
+    <p class="note">So coconut's saturated fat (mostly MCTs) and beef's (mostly LCFAs) are handled by different pathways — yet the label calls both just "saturated." That's the comprehension the label costs you.</p>
+
+    <h2>2 · Two fats you must eat — the essentials</h2>
+    <p>Your body builds most fats itself. Two it <b>cannot</b> — you must eat them, which is what "essential" literally means:</p>
+    <div class="fam">
+      <b>Omega-6 family</b> — parent: linoleic acid (LA)
+      <div class="path six"><b>LA</b> → GLA → DGLA → arachidonic acid (AA)</div>
+      <b>Omega-3 family</b> — parent: alpha-linolenic acid (ALA)
+      <div class="path"><b>ALA</b> → EPA → DHA</div>
+      <p style="margin:6px 0 0" class="note">LA and ALA are the two true dietary essentials. Run low on them long enough and you get a real, measurable deficiency (scaly skin, poor healing; biochemically, the "Mead acid" ratio rises) — documented in fat-free medical feeding. That deficiency is fact, not wellness folklore.</p>
+    </div>
+
+    <h2>3 · "Has omega-3" ≠ "has EPA/DHA"</h2>
+    <p>This is the single most-missed distinction, and the scanner makes it visible. <b>Plant omega-3 is ALA</b> (flax, chia, hemp, walnut). <b>Marine omega-3 is EPA/DHA</b> (fish, algae). Your body converts ALA → EPA → DHA only <b>slightly</b> — low single-digit percent to DHA, less in men. So a food labeled "rich in omega-3" may give you ALA and almost no EPA/DHA. Neither is bad; they are just not interchangeable, and the label blurs them into one word.</p>
+
+    <h2>What's proved, and what's still argued</h2>
+    <div class="proved">
+      <div class="box p"><h3>Proved</h3><ul>
+        <li>LA &amp; ALA are essential; deficiency is real and measurable</li>
+        <li>MCTs are absorbed &amp; metabolized differently (portal, ketogenic)</li>
+        <li>ALA→EPA→DHA conversion is inefficient in humans</li>
+        <li>Butyrate fuels colon cells</li>
+        <li>The chain-length and omega pathways themselves</li>
+      </ul></div>
+      <div class="box h"><h3>Still argued — teach as claims</h3><ul>
+        <li>The "ideal" omega-6:omega-3 ratio and its disease effects</li>
+        <li>Saturated fat and heart-disease risk (contested; chain-dependent)</li>
+        <li>Chronic-disease outcomes of long-term low omega-3</li>
+        <li>MCT/ketone benefits beyond metabolism</li>
+      </ul></div>
+    </div>
+    <p class="note">bLOVErAi will always tell you which column a statement is in. The skill isn't memorizing the answer — it's knowing which claims have earned belief and which are still stories.</p>
+
+    <h2>Prove you can read it</h2>
+    <div class="check">
+      <div class="q">Two foods each list "5 g saturated fat" — coconut butter and beef. Same effect on the body?</div>
+      <button class="opt">Yes — saturated fat is saturated fat.</button>
+      <button class="opt correct">✓ Not necessarily — coconut's is mostly medium-chain (MCT), beef's mostly long-chain; different pathways.</button>
+      <button class="opt">Only if the calories match.</button>
+      <div class="reward"><span class="note" style="margin:0">You looked past the label's single word to the chain length.</span><span class="b">+3 b</span></div>
+    </div>
+    <div class="check">
+      <div class="q">A cracker says "good source of omega-3 (from flax)." What omega-3 are you actually getting?</div>
+      <button class="opt correct">✓ Mostly ALA — flax is a plant, so little to no EPA/DHA.</button>
+      <button class="opt">EPA and DHA, the same as fish.</button>
+      <button class="opt">All three equally.</button>
+      <div class="reward"><span class="note" style="margin:0">"Has omega-3" and "has EPA/DHA" are different claims — you caught it.</span><span class="b">+3 b</span></div>
+    </div>
+    <div class="check">
+      <div class="q">Classify: "A specific 4:1 omega-6-to-omega-3 ratio prevents disease."</div>
+      <button class="opt">Fact — it's in the textbooks.</button>
+      <button class="opt correct">✓ Still argued — the pathways are real, but the disease claim is contested, not proved.</button>
+      <button class="opt">Unsupported nonsense.</button>
+      <div class="reward"><span class="note" style="margin:0">You put a real-but-unsettled claim in the right column. That discernment is the whole course.</span><span class="b">+5 b</span></div>
+    </div>
+
+    <p class="note" style="font-size:var(--text-xs);margin-top:var(--s4)">You now know the three saturated fats, the two essentials, and why plant and marine omega-3 aren't the same — more than any label will ever print. What that means for your own plate is yours to decide, with the facts in hand.</p>
+
+    <div class="foot">bQueenBee · Module 2 · CONCEPT · honey = b (simulated) · zero network · L1 · established biochemistry as fact; every outcome-claim graded &amp; sourced · no health claim, no intake advice. Composition grounding: USDA FoodData Central / Health Canada CNF.</div>
+  </div>
+</body>
+</html>

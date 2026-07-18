@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bLOVErAi · your interpreter · concept</title>
+<!-- bLOVErAi companion (teal AI seat) · bnr-design inlined (L1 zero-network) · mobile-first · no rainbow · honey=b · consent-first · interpreter-not-physician ceiling -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --ai-bright:#2CA9C9; --info:#2E7FC0; --sovereign:#7D5FB0; --guard:#7D5FB0; --b-value:#E8B54B;
+  --paper:#F4F8F8; --card:#FFFFFF; --ink:#16211F; --ink-mut:#54655F; --ink-dim:#8AA09A; --line:#E0EAE8;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(20px,5.2vw,26px); --text-xl:clamp(28px,7vw,42px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--s6:52px;--radius:16px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.6;font-size:var(--text-sm)}
+.top{height:4px;background:linear-gradient(90deg,var(--ai),var(--info),var(--sovereign))}
+.wrap{max-width:900px;margin:0 auto;padding:0 var(--s3) var(--s6)}
+.hero{text-align:center;padding:var(--s6) 0 var(--s4)}
+.mark{width:60px;height:60px;margin:0 auto var(--s3);border-radius:16px;background:linear-gradient(135deg,var(--ai),var(--ai-bright));display:flex;align-items:center;justify-content:center}
+.mark svg{width:34px;height:34px;color:#fff}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:4px 12px;display:inline-block;margin-bottom:var(--s3)}
+h1{font-size:var(--text-xl);margin:0 0 var(--s2);letter-spacing:-.5px;line-height:1.05}
+h1 b{color:var(--ai)}
+.lede{font-size:var(--text-md);color:var(--ink-mut);max-width:620px;margin:0 auto}
+h2{font-size:var(--text-lg);margin:var(--s6) 0 var(--s3);letter-spacing:-.3px}
+.k{font-family:var(--font-mono);font-size:var(--text-2xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+/* relationship */
+.rel{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s4)}
+.rel .node{text-align:center;flex:1 1 150px;min-width:0}
+.rel .node .r{width:46px;height:46px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-mono);font-weight:800;font-size:var(--text-sm)}
+.rel .queen .r{background:var(--sovereign)} .rel .love .r{background:var(--ai)}
+.rel .node b{font-size:var(--text-sm)} .rel .node p{margin:2px 0 0;color:var(--ink-mut);font-size:var(--text-2xs)}
+.rel .arr{color:var(--ai);font-family:var(--font-mono);font-size:var(--text-lg)}
+/* level demo */
+.fact{background:color-mix(in srgb,var(--ai) 8%,var(--card));border:1px solid color-mix(in srgb,var(--ai) 25%,var(--line));border-radius:12px;padding:var(--s3);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--ai);margin-bottom:var(--s3)}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:var(--s3)}
+.lvl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3)}
+.lvl .who{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--ai);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.lvl p{margin:0;font-size:var(--text-sm);color:var(--ink)}
+/* range */
+.range{height:12px;border-radius:8px;background:linear-gradient(90deg,var(--ai),var(--info),var(--sovereign));margin:10px 0 6px}
+.rangelabels{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--ink-dim)}
+/* ceiling */
+.ceil{background:color-mix(in srgb,var(--guard) 7%,var(--card));border:1px solid color-mix(in srgb,var(--guard) 30%,var(--line));border-radius:var(--radius);padding:var(--s4)}
+.ceil h3{margin:0 0 8px;color:var(--guard);font-size:var(--text-md)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:var(--s3);margin-top:8px}
+.cols ul{margin:0;padding-left:18px;font-size:var(--text-sm)} .cols li{margin:5px 0}
+.cols .is li{color:var(--ink)} .cols .isnt li{color:var(--ink-mut)}
+.cols .h{font-family:var(--font-mono);font-size:var(--text-2xs);letter-spacing:.08em;text-transform:uppercase}
+.cols .is .h{color:var(--ai)} .cols .isnt .h{color:var(--guard)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s4)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-2xs);font-weight:600;padding:4px 11px;border-radius:var(--pill);border:1px solid;white-space:nowrap}
+.reward{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--pill);padding:6px 14px;margin-top:var(--s3)}
+.reward .b{font-family:var(--font-mono);font-weight:800;color:var(--b-value)}
+.note{color:var(--ink-dim);font-size:var(--text-2xs)}
+.foot{margin-top:var(--s6);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 3v4M9 13h.01M15 13h.01M9 16h6"/></svg></div>
+    <div><span class="concept">CONCEPT — simulated · zero network</span></div>
+    <h1>Meet <b>bLOVErAi</b> — your interpreter</h1>
+    <p class="lede">The hive knows a great deal. bLOVErAi has one job: make it make sense — <b>to you, where you are, in your own words</b>. It never speaks for you and never sees who you are. It just walks beside you.</p>
+  </header>
+
+  <span class="k">Who's who</span>
+  <div class="rel" style="margin-top:var(--s2)">
+    <div class="node queen"><div class="r">Q</div><b>bQueenBee</b><p>the hive mind — tends the courses &amp; the Reserve's analytics, for everyone</p></div>
+    <div class="arr">→</div>
+    <div class="node love"><div class="r">L</div><b>bLOVErAi</b><p>yours alone — translates the hive to you, one person, one language, one level</p></div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:10px">bQueenBee tends the garden; bLOVErAi walks beside you in it.</p>
+
+  <h2>It meets you where you are</h2>
+  <p>Same verified fact from the hive. bLOVErAi doesn't change the fact — it changes the <i>telling</i>, so it lands wherever you're standing:</p>
+  <div class="fact">FROM bQueenBee · verified chunk: hemp hearts are a complete protein — all 9 essential amino acids, ~31.6 g / 100 g (USDA)</div>
+  <div class="levels">
+    <div class="lvl"><div class="who">for a curious kid</div><p>Your body needs 9 little building blocks to grow. These seeds have all 9 — like a full LEGO set in one scoop.</p></div>
+    <div class="lvl"><div class="who">for a busy parent</div><p>Complete plant protein — all essentials — about 9.5 g in a 30 g topping. An easy add to yogurt or oats.</p></div>
+    <div class="lvl"><div class="who">for a skeptical clinician</div><p>Hulled <i>C. sativa</i> seed: ~31.6 g/100 g protein, complete amino-acid profile per USDA FDC 170148. Composition only — outcome claims graded separately.</p></div>
+  </div>
+  <p class="note">One fact, three tellings, zero invention — bLOVErAi translates the chunk, it never adds a claim the hive didn't verify.</p>
+
+  <h2>bLOVErAi carries a range, by design</h2>
+  <div class="range"></div>
+  <div class="rangelabels"><span>teal · machine base</span><span>blue · reason</span><span>purple · toward sovereign</span></div>
+  <p class="note" style="margin-top:8px">Not locked to one hue: it moves along the machine → reason → sovereign spectrum as it calibrates — the singularity as a gradient, not an event. Always paired with a name and an icon so the range stays legible.</p>
+
+  <h2>What it is — and the line it won't cross</h2>
+  <div class="ceil">
+    <h3>An interpreter and literacy coach. Never a physician.</h3>
+    <div class="cols">
+      <div class="is"><div class="h">it will</div><ul>
+        <li>translate labels, lessons, and your own data into your language</li>
+        <li>chart and trend what you log, and show the math</li>
+        <li>flag "this is outside the usual range" and teach you to read it</li>
+      </ul></div>
+      <div class="isnt"><div class="h">it will not</div><ul>
+        <li>diagnose, prescribe, or set a target/deficit/goal weight</li>
+        <li>tell you to start or stop a medication</li>
+        <li>ever see who you are beyond your PoUL thread</li>
+      </ul></div>
+    </div>
+    <p style="margin:var(--s3) 0 0;font-size:var(--text-sm);color:var(--ink)">Its ceiling on anything clinical is one honest sentence: <b>consider discussing this with a clinician.</b></p>
+  </div>
+
+  <div class="chips">
+    <span class="chip" style="color:var(--ai);border-color:var(--ai)">consent-first · nothing sent to us</span>
+    <span class="chip" style="color:var(--sovereign);border-color:var(--sovereign)">revocable · your keys</span>
+    <span class="chip" style="color:var(--biomass);border-color:var(--biomass)">any language</span>
+    <span class="chip" style="color:var(--info);border-color:var(--info)">identity = PoUL thread, never an account</span>
+  </div>
+  <div class="reward">learn a chunk with bLOVErAi → <span class="b">+ honey b</span> <span class="note">(for the understanding, not the time)</span></div>
+
+  <div class="foot">bLOVErAi companion · CONCEPT · teal AI seat (bnr-design) · honey = b (simulated) · zero network · L1 · interpreter not physician · consent-first, identity stays a PoUL thread · no health claim.</div>
+</div>
+</body>
+</html>

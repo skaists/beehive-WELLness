@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 3 · Portion reality · bQueenBee</title>
+<!-- bQueenBee lesson · bnr-design inlined (L1 zero-network) · mobile-first · no rainbow · honey=b · completeness-not-restriction: no goal-weight, no deficit · no health claim, no intake prescription -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0; --b-value:#E8B54B;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(19px,5vw,24px); --text-xl:clamp(24px,6vw,34px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--radius:14px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.6;font-size:var(--text-sm)}
+.bar{background:var(--card);border-bottom:1px solid var(--line);padding:11px var(--s3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--ink)} .bar .c{font-size:var(--text-xs);color:var(--ink-mut)}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
+.wrap{max-width:760px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
+h1{font-size:var(--text-xl);margin:0 0 6px;letter-spacing:-.4px;line-height:1.1}
+.lede{color:var(--ink-mut);font-size:var(--text-md);margin:0 0 var(--s4)}
+h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
+p{margin:0 0 var(--s2)}
+.scale{display:flex;gap:8px;flex-wrap:wrap;margin:var(--s2) 0}
+.q{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3);text-align:center}
+.q .n{font-family:var(--font-mono);font-weight:800;font-size:var(--text-lg);color:var(--biomass)}
+.q .u{font-size:var(--text-2xs);color:var(--ink-dim)}
+.q small{display:block;color:var(--ink-mut);font-size:var(--text-2xs);margin-top:4px}
+.frame{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--biomass);border-radius:12px;padding:var(--s3);margin:var(--s3) 0}
+.frame.ai{border-left-color:var(--ai)}
+.frame h3{margin:0 0 6px;font-size:var(--text-md)}
+.frame p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
+.safe{background:color-mix(in srgb,var(--guard) 7%,var(--card));border:1px solid color-mix(in srgb,var(--guard) 30%,var(--line));border-radius:12px;padding:var(--s3);margin:var(--s3) 0;font-size:var(--text-sm)}
+.safe b{color:var(--guard)}
+.check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
+.qq{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
+.opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
+.opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
+.reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+.note{color:var(--ink-dim);font-size:var(--text-2xs)}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body>
+  <div class="bar"><b>bQueenBee</b> <span class="c">· BeehiveNature · Module 3 of 4</span><span class="concept">CONCEPT — simulated · zero network</span></div>
+  <div class="wrap">
+    <h1>Portion reality</h1>
+    <p class="lede">A number on a panel is only half a fact. The other half is <b>how much, for whom, in whose day</b>. This module teaches you to size any claim against your own life — not to shrink it.</p>
+
+    <h2>The same food, at three scales</h2>
+    <p>Hemp hearts again, so you can watch the number move. Nothing changed about the food — only the amount you're asking about:</p>
+    <div class="scale">
+      <div class="q"><div class="n">553</div><div class="u">kcal · 31.6 g protein</div><small>per 100 g (the panel)</small></div>
+      <div class="q"><div class="n">166</div><div class="u">kcal · 9.5 g protein</div><small>per 30 g serving (~3 tbsp)</small></div>
+      <div class="q"><div class="n">?</div><div class="u">depends on you</div><small>per day</small></div>
+    </div>
+    <p class="note">The panel gives per-100 g. You already know the serving math (×0.30). The third column — per day — the panel can't fill, because it doesn't know you. Anyone who fills it <i>for</i> you, without knowing you, is selling, not teaching.</p>
+
+    <h2>Sizing a claim against your day</h2>
+    <div class="frame">
+      <h3>Energy density is the lever</h3>
+      <p>Hemp hearts are ~5.5 kcal/g — energy-dense, because they're ~49% fat. That's not good or bad; it's a fact you <i>size</i>. 100 g is ~553 kcal — a real chunk of a day for one food. 30 g is a topping. The skill is holding the density in view when you decide the amount, instead of reading "healthy" and forgetting the gram count.</p>
+    </div>
+    <div class="frame ai">
+      <h3>bLOVErAi's job here — and its ceiling</h3>
+      <p>Your interpreter can show you the math for <i>your</i> logged day and <i>your</i> context, in your language. What it will never do is hand you a target number, a deficit, or a "you should eat X." It sizes the question; you answer it. For anything clinical, its ceiling is one sentence: <b>consider discussing this with a clinician.</b></p>
+    </div>
+
+    <h2>The reframe that makes this healthy</h2>
+    <p>Most nutrition apps ask "how do I eat <i>less</i>." We ask the honest question underneath the obesity epidemic: <b>most people are over-fed and under-nourished</b> — so the question is "am I getting my essentials <i>at all</i>?" Completeness, not restriction. You size portions <b>up</b> toward what's missing (the essential fats from Module 2, complete protein, minerals), not <b>down</b> toward a smaller number.</p>
+    <div class="safe">
+      <b>A note we mean:</b> this course sets no goal weight, no calorie deficit, and no target you must hit — by design, those don't exist here. If tracking food ever starts to feel compulsive or distressing, that's worth pausing for. Support is real and available — in the US, the National Alliance for Eating Disorders helpline. You're a person learning to read, not a number to shrink.
+    </div>
+
+    <h2>Prove you can size it</h2>
+    <div class="check">
+      <div class="qq">A food is "5.5 kcal/g." You eat 100 g. Roughly how many calories?</div>
+      <button class="opt correct">✓ ~550 — density × grams (5.5 × 100).</button>
+      <button class="opt">~55 — it's a small snack.</button>
+      <button class="opt">Can't know without the label's "calories" line.</button>
+      <div class="reward"><span class="note" style="margin:0">You sized energy from density and amount — the panel's per-100 g number confirms it.</span><span class="b">+3 b</span></div>
+    </div>
+    <div class="check">
+      <div class="qq">An app tells you "eat exactly 100 g of hemp hearts every day." What's the honest read?</div>
+      <button class="opt correct">✓ It can't know that — a universal daily number for a specific food, for everyone, is a claim, not a fact.</button>
+      <button class="opt">Follow it — it's in the app.</button>
+      <button class="opt">Double it to be safe.</button>
+      <div class="reward"><span class="note" style="margin:0">You refused a prescription dressed as data — the whole point of the course.</span><span class="b">+5 b</span></div>
+    </div>
+
+    <p class="note" style="font-size:var(--text-xs);margin-top:var(--s4)">You can now move a nutrition fact across per-100 g, per-serving, and per-day, hold energy density in view, and tell a fact from a target aimed at you. What belongs on your plate is yours to decide — sized up toward what you're missing, by you.</p>
+
+    <div class="foot">bQueenBee · Module 3 · CONCEPT · honey = b (simulated) · zero network · L1 · completeness not restriction — no goal weight, no deficit, no target · no health claim, no intake advice. Composition: USDA FDC / Health Canada CNF.</div>
+  </div>
+</body>
+</html>

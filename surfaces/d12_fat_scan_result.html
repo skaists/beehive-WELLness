@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fat breakdown · scan result · bLOVErAi</title>
+<!-- D-12 · scan→USDA-profile result. bnr-design tokens inlined (L1 zero-network). Mobile-first. Honey = b. Data-category colors are labeled, not entity colors. Nutrition facts only — no health claim. -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0;
+  --b-value:#E8B54B;
+  /* fat-category data hues (labeled, not entity meaning) */
+  --sfa:#B0895A; --mufa:#8FA79C; --o6:#2E7FC0; --o3:#5FA544; --nm:#C9C4B8;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
+  --text-md:clamp(15px,3.8vw,17px); --text-lg:clamp(19px,5vw,24px); --text-xl:clamp(23px,6vw,30px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--radius:14px;--pill:999px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.55;font-size:var(--text-sm)}
+.bar{background:var(--card);border-bottom:1px solid var(--line);padding:11px var(--s3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--ai)} .bar .c{font-size:var(--text-xs);color:var(--ink-mut)}
+.concept{font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:3px 10px;margin-left:auto}
+.wrap{max-width:720px;margin:0 auto;padding:var(--s4) var(--s3) var(--s5)}
+h1{font-size:var(--text-xl);margin:0 0 4px;letter-spacing:-.3px}
+.sub{color:var(--ink-mut);font-size:var(--text-sm);margin:0 0 var(--s4)}
+.k{font-family:var(--font-mono);font-size:var(--text-2xs);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s2) 0 var(--s3)}
+.labelbox{border-left:4px solid var(--ink-dim)}
+.labelbox .row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:var(--text-sm);padding:3px 0}
+.muted{color:var(--ink-dim);font-size:var(--text-2xs)}
+/* stacked bar */
+.stack{display:flex;height:26px;border-radius:7px;overflow:hidden;margin:6px 0 4px;border:1px solid var(--line)}
+.stack>span{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px;font-size:var(--text-2xs)}
+.sw{display:inline-flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.tbl{width:100%;border-collapse:collapse;font-size:var(--text-sm);margin-top:6px}
+.tbl td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td:last-child{text-align:right;font-family:var(--font-mono);white-space:nowrap}
+.tbl .ind{padding-left:16px;color:var(--ink-mut)}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:var(--text-2xs);border-radius:6px;padding:1px 7px}
+.nm{background:repeating-linear-gradient(45deg,var(--nm),var(--nm) 4px,transparent 4px,transparent 8px);color:var(--ink-mut);border:1px solid var(--line)}
+.call{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--o3);border-radius:12px;padding:var(--s3);margin:var(--s3) 0}
+.call h3{margin:0 0 6px;font-size:var(--text-md)}
+.call p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
+.reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body>
+  <div class="bar"><b>bLOVErAi</b><span class="c">· scan result</span><span class="concept">CONCEPT — simulated · zero network</span></div>
+  <div class="wrap">
+    <h1>Organic hemp hearts</h1>
+    <p class="sub">Scanned. Here's every fat in it — including the ones the label legally doesn't have to tell you.</p>
+
+    <span class="k">What the package showed</span>
+    <div class="card labelbox">
+      <div class="row"><span>Total fat</span><span>48.8 g</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Saturated</span><span>4.6 g</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Trans</span><span>0 g</span></div>
+      <div class="muted" style="margin-top:6px">…and that's all it's required to say. Poly, mono, and the omega split are optional — usually omitted.</div>
+    </div>
+
+    <span class="k">What it actually is · per 100 g (USDA)</span>
+    <div class="card">
+      <div class="stack" aria-hidden="true">
+        <span style="width:9.4%;background:var(--sfa)"></span>
+        <span style="width:11.5%;background:var(--mufa)"></span>
+        <span style="width:57.4%;background:var(--o6)"></span>
+        <span style="width:18.4%;background:var(--o3)"></span>
+        <span style="width:3.3%;background:var(--nm)"></span>
+      </div>
+      <div class="legend">
+        <span class="sw"><span class="dot" style="background:var(--sfa)"></span>Saturated 4.6 g</span>
+        <span class="sw"><span class="dot" style="background:var(--mufa)"></span>Monounsat. 5.6 g</span>
+        <span class="sw"><span class="dot" style="background:var(--o6)"></span>Omega-6 28 g</span>
+        <span class="sw"><span class="dot" style="background:var(--o3)"></span>Omega-3 9 g</span>
+        <span class="sw"><span class="dot" style="background:var(--nm)"></span>other/unresolved 1.6 g</span>
+      </div>
+
+      <table class="tbl">
+        <tr><td><b>Saturated — by chain length</b></td><td>4.6 g</td></tr>
+        <tr><td class="ind">short-chain (SCFA)</td><td><span class="tag nm">none</span></td></tr>
+        <tr><td class="ind">medium-chain (MCFA / MCT)</td><td><span class="tag nm">none</span></td></tr>
+        <tr><td class="ind">long-chain (LCFA · palmitic, stearic)</td><td>≈4.6 g</td></tr>
+        <tr><td><b>Monounsaturated</b> (oleic, ω-9)</td><td>5.6 g</td></tr>
+        <tr><td><b>Omega-6</b> (essential)</td><td>28 g</td></tr>
+        <tr><td class="ind">linoleic acid (LA)</td><td>≈28 g</td></tr>
+        <tr><td class="ind">GLA</td><td><span class="tag nm">not measured</span></td></tr>
+        <tr><td><b>Omega-3</b> (essential)</td><td>9 g</td></tr>
+        <tr><td class="ind">ALA (plant ω-3)</td><td>≈9 g</td></tr>
+        <tr><td class="ind">EPA</td><td>0 g</td></tr>
+        <tr><td class="ind">DHA</td><td>0 g</td></tr>
+      </table>
+      <div class="muted" style="margin-top:8px">Serving (30 g) ≈ 0.30× each. Source: USDA FoodData Central — Seeds, hemp seed, hulled (FDC 170148). Cross-check: Health Canada CNF.</div>
+    </div>
+
+    <div class="call">
+      <h3>Two things the label could never tell you</h3>
+      <p><b>This "saturated fat" has zero MCTs.</b> It's all long-chain — so it behaves nothing like coconut's medium-chain saturated fat, even though the label prints the same word for both. And <b>its omega-3 is all ALA — no EPA or DHA</b> (those aren't in plants). Your body converts ALA→EPA→DHA only slightly, so "has omega-3" and "has EPA/DHA" are different claims. The label collapses both distinctions; the composition reveals them.</p>
+      <div class="reward"><span class="muted" style="margin:0">Spot the difference between ALA and EPA/DHA on your next three scans →</span><span class="b">+3 b</span></div>
+    </div>
+
+    <p class="muted" style="font-size:var(--text-xs)">Where USDA hasn't measured a sub-fraction, it's shown as <span class="tag nm">not measured</span> — never guessed. A number we don't have is not a number we'll invent.</p>
+
+    <div class="foot">D-12 · fat scanner result · CONCEPT · honey = b (simulated) · zero network · L1 · composition data from USDA/CNF, translated not asserted · nutrition facts only, no health claim, no intake advice.</div>
+  </div>
+</body>
+</html>
