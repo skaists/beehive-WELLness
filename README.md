@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/beehive-wellness-logo.svg" alt="beehive-WELLness mandala — lime rim through teal to a purple core" width="200"></p>
+<p align="center"><img src="assets/wellness-mandala.svg" alt="beehive-WELLness mandala — lime rim through teal to a purple core" width="200"></p>
 
 # beehive-WELLness
 

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>beehive-WELLness mark (small)</title>
+  <desc>Coarse small-size variant of the WELLness mark for favicon and mobile use at or below 32px. Same sovereignty gradient (purple core to lime rim); simplified geometry because the full mandala centre is illegible small.</desc>
+  <defs>
+    <radialGradient id="wellness" gradientUnits="userSpaceOnUse" cx="50" cy="50" r="50">
+      <stop offset="0%" stop-color="#9C6FD6"/>
+      <stop offset="30%" stop-color="#6FA9E0"/>
+      <stop offset="58%" stop-color="#45C2DC"/>
+      <stop offset="100%" stop-color="#8FD14F"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="15" fill="url(#wellness)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(0 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(30 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(60 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(90 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(120 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(150 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(180 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(210 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(240 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(270 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(300 50 50)"/>
+  <rect x="45" y="3" width="10" height="22" rx="5" fill="url(#wellness)" transform="rotate(330 50 50)"/>
+</svg>
