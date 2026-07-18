@@ -32,7 +32,7 @@ Today no crate here *needs* kernel internals — `fat-profile` is `serde`-only, 
 
 The kernel is **AGPL-3.0-only** by design (anti-capture). AGPL is copyleft: *anything that statically links an AGPL crate becomes AGPL* — an MIT label on a crate that Cargo-depends on a kernel crate is fiction. So the rule here is per-crate, not blanket:
 
-- A crate that **does not link** any kernel crate ships **MIT OR Apache-2.0** and pins nothing from the kernel. `fat-profile` (serde-only) and `health-vault` (own types) are both here — cleanly permissive.
+- A crate that links **no AGPL kernel crate** ships **MIT OR Apache-2.0**. `fat-profile` is serde-only and pins nothing. `health-vault` **does** pin one kernel crate — `type-bindings`, by rev — and stays permissive because *that crate is itself MIT OR Apache-2.0*. The test is the licence of what you link, not whether you link the kernel at all.
 - A crate that needs to **talk to** the kernel network (wire boundary — a client/SDK that serializes to it) stays a separate work and can be MIT OR Apache-2.0. This is the kernel's own `LICENSING.md` "permissive SDK edges" intent.
 - A crate that must **link kernel internals** is **AGPL-3.0**, labelled honestly, and pins the kernel by rev. None exist yet.
 
@@ -42,7 +42,7 @@ Curriculum and docs: **CC-BY-4.0**. The kernel it consumes stays **AGPL-3.0-only
 
 ```
 beehive-WELLness/
-├─ Cargo.toml            # workspace — pins NO kernel crate today (nothing here needs one)
+├─ Cargo.toml            # workspace — the only kernel pin is permissive type-bindings (health-vault)
 ├─ crates/
 │  ├─ fat-profile/       # USDA/CNF fatty-acid reader · Measured<T> · mock-first · MIT/Apache
 │  └─ health-vault/      # no-PII health record types · pseudonymous subject · MIT/Apache

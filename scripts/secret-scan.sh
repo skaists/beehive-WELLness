@@ -15,6 +15,16 @@ case "$mode" in
   tree) files=$(git ls-files) ;;
   *) echo "usage: secret-scan.sh diff|tree"; exit 2 ;;
 esac
+# Fail closed. Enumeration is via git, so outside a repo (or if git errors) $files is
+# empty, the loop below never runs, and this script would print "clean" having inspected
+# NOTHING — a guard that passes without looking. In tree mode a repo always has tracked
+# files, so empty means the enumeration failed, not that the tree is empty. An empty
+# staged set in diff mode is legitimate (nothing to check), so only tree mode refuses.
+if [ "$mode" = tree ] && [ -z "$files" ]; then
+  echo "  secret-scan: REFUSING — git ls-files returned nothing." >&2
+  echo "  Not a git repository, or git failed. A scan of zero files is not a pass." >&2
+  exit 2
+fi
 for f in $files; do
   echo "$f" | grep -qE "$NAME_RE" && { echo "  secret-shaped filename: $f"; fail=1; }
   case "$f" in *.woff2|*.png|*.jpg|*.svg) continue ;; esac

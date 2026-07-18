@@ -21,6 +21,14 @@ case "$mode" in
   tree) files=$(git ls-files) ;;
   *) echo "usage: phi-scan.sh diff|tree"; exit 2 ;;
 esac
+# Fail closed — see secret-scan.sh for the full reasoning. In tree mode an empty file
+# list means enumeration failed, not that there is nothing to check; a scan of zero
+# files must not read as a pass.
+if [ "$mode" = tree ] && [ -z "$files" ]; then
+  echo "  phi-scan: REFUSING — git ls-files returned nothing." >&2
+  echo "  Not a git repository, or git failed. A scan of zero files is not a pass." >&2
+  exit 2
+fi
 for f in $files; do
   case "$f" in *.png|*.jpg|*.woff2|*.svg|LICENSE*) continue ;; esac
   hits=$(scan "$f"); [ -n "$hits" ] && { echo "$hits"; fail=1; }

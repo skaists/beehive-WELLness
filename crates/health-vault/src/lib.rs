@@ -1,10 +1,18 @@
 //! `health-vault` — a pure FHIR R4-style health-record **schema** with **no PII field**.
 //!
 //! **The C-6 move, applied to health data:** just as `adapter-lti` has no mint path,
-//! `health-vault` has no PII field. The subject of every record is a pseudonymous DID
-//! reference ([`Did`]); there is no `name`, `mrn`, `ssn`, `dob`, or `address`
-//! field anywhere in the crate. Re-identification is impossible from these types because
-//! the identifying fields do not exist — structural, not promised.
+//! `health-vault` has no PII field. These types carry no `name`, `mrn`, `ssn`, `dob` or
+//! `address` field anywhere in the crate; the subject is referenced only by [`Did`].
+//! That is structural and checkable — read the types.
+//!
+//! **What that does NOT establish.** It is not an anonymity guarantee, and this crate
+//! does not make one. Re-identification needs *linkage*, not an identifying field: a
+//! [`Did`] is a stable pseudonym and is the canonical BNR principal, deliberately
+//! resolvable elsewhere in the system, so tying one [`Did`] to a person re-identifies
+//! every record under it retroactively. Quasi-identifiers left in a record — codes,
+//! values, timestamps — are linkable on their own. The absence of a name field removes
+//! the *direct* identifier and nothing else. Anyone reading these types for a privacy
+//! property should draw that inference themselves; the crate is not entitled to state it.
 //!
 //! **Consent-gated by construction.** A [`VaultRecord`] can only be built with a valid,
 //! unrevoked [`Consent`] and a coded+united resource — no consent, or a revoked one, or
@@ -32,7 +40,8 @@ use serde::{Deserialize, Serialize};
 /// The subject of every record is the canonical [`Did`], consumed from the kernel's
 /// permissive `type-bindings` crate (MIT/Apache — no AGPL infection, no local fork). It
 /// is a pseudonymous DID string; there is still no name/mrn/ssn/dob/address field
-/// anywhere, so re-identification is impossible from these types.
+/// anywhere. Pseudonymous is not anonymous — see the crate docs on what this does and
+/// does not establish.
 pub use type_bindings::Did;
 
 // ── shared value types ──
