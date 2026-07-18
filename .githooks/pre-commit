@@ -1,0 +1,4 @@
+#!/bin/sh
+# Two guards, both also run in CI (tree mode) as the remote backstop.
+sh scripts/secret-scan.sh diff || exit 1
+sh scripts/phi-scan.sh diff    || exit 1

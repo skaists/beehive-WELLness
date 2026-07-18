@@ -1,0 +1,3 @@
+/target
+# Library workspace — downstreams resolve their own versions (cargo convention).
+Cargo.lock

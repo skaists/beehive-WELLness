@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = ["crates/fat-profile", "crates/health-vault"]
+
+# No kernel crate is pinned here: nothing in this tree links kernel internals today
+# (fat-profile is serde-only; health-vault defines its own no-PII types), so both stay
+# cleanly MIT OR Apache-2.0. A crate that must link an AGPL kernel crate becomes AGPL
+# and pins it by rev then — decided per crate against the real graph, never blanket.
+# (Kernel reference at scaffold time: beehive-nature@55d1591.)
+
+[workspace.package]
+edition = "2021"

@@ -1,0 +1,7 @@
+{ "basis": "Per100g", "source": {"UsdaFdc": {"fdc_id": 2}},
+  "total_fat": {"Value": 20.0},
+  "saturated": {"total": {"Value": 5.0}, "scfa": "NotMeasured", "mcfa_mct": "NotMeasured", "lcfa": "NotMeasured"},
+  "monounsaturated": "NotMeasured",
+  "omega6": {"total": "NotMeasured", "la": "NotMeasured", "gla": "NotMeasured", "aa": "NotMeasured"},
+  "omega3": {"total": "NotMeasured", "ala": "NotMeasured", "epa": "NotMeasured", "dha": "NotMeasured"},
+  "trans": {"Value": 0.0}, "unresolved": 15.0 }
