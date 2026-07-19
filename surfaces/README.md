@@ -44,7 +44,7 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `2a39116f9b2c94081f8bf566746211a8b1b765cf8a003b39d6aa60f48e935aca` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `beehive_wellness_index.html` | `77c7c05bcc5343f2c4dd7824606036e1cad3b9a5ae92cc34cbca4da6db0ca600` <!-- PUBLIC-CONSTANT: content digest, re-cleared E-5 --> |
 | `module1_hemp_hearts_label_reader.html` | `b30e55a38f4fcb4f99d867e4ce16633b5530236a827a6fb426d71d1be815aa7f` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
 | `module2_fats_label_wont_show.html` | `7c7755c4553962ea0487a422c9cef3e25bffe873746f9ec8aa2266131d9ad5dd` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
 | `module3_portion_reality.html` | `999d0961f7471d9c3fd0423d3026542823e3c34ed3d4d3292d53df7e4d450344` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
@@ -102,6 +102,33 @@ the only way this line is worth anything to a later reader.
 **What this clearance does and does not cover.** It attaches to the specific digests listed
 above and to nothing else. Any byte change voids it for the changed file, and the next
 editor is on the same footing as every prior pass: clearance does not travel.
+
+## E-5 · the invitation added to the index — its clearance is void, the other seven stand
+
+`beehive_wellness_index.html` now carries the verification invitation: *"Do not take our
+word for it. Here is the command."* — with the copy-pasteable command, a statement that no
+account or permission is needed, and **"if your result differs from ours, ours is wrong"**
+pointing at `SECURITY.md`.
+
+**Clearance cost, stated.** The index changed bytes, so **its founder clearance from earlier
+today is void and its digest above is new.** The other seven are byte-unchanged and keep
+theirs. The clearance section below still reads "all eight" because it was true when
+written; it is true of seven now, and this note is the correction rather than a rewrite of
+the record.
+
+**A check was refined in the process, and refining a check is exactly when it must be
+re-proved.** The invitation prints a repository URL as text, which the old blunt
+`https?://` scan flagged as an external reference. It is not one — nothing fetches it. The
+check now tests **fetch positions**: a remote URL in a fetching attribute, in CSS `@import`
+or `url()`, or handed to a runtime fetch API. The old check was over-broad in a way that
+mattered: it would have forbidden this tree from ever printing a URL as text, including in
+the lessons about checking sources that are its whole subject.
+
+Seven fixtures prove the refinement opened no hole — `<script src>`, `<link href>`,
+`@import`, `url()`, `fetch()`, and a protocol-relative `src="//…"` are each still caught,
+and an inert text URL is correctly **not** flagged. That last one is the control that
+motivated the change, and it is in the selftest so nobody has to take this paragraph's word
+for it either.
 
 ## W-1 · the wording pass — one clearance event, as sequenced
 

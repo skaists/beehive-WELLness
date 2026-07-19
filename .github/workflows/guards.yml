@@ -9,6 +9,10 @@ jobs:
         run: sh scripts/secret-scan.sh tree
       - name: phi-scan (tree)
         run: sh scripts/phi-scan.sh tree
+      # Law 2 applied to the verifier itself: a tool that has only ever been observed
+      # passing is a decoration. This tree has shipped two such gates already.
+      - name: verify-l1 selftest (the verifier must be watched biting)
+        run: sh verify/verify-l1.sh selftest
   cargo:
     runs-on: ubuntu-latest
     steps:
