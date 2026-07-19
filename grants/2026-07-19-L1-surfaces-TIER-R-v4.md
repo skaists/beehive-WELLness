@@ -1,11 +1,10 @@
-# GRANT · Level 1 · the eight surfaces — **TIER R · SUPERSEDED**
+# GRANT · Level 1 · the eight surfaces — **TIER R (reproducible)**
 
-> ## SUPERSEDED by [`2026-07-19-L1-surfaces-TIER-R-v4.md`](2026-07-19-L1-surfaces-TIER-R-v4.md)
->
-> Superseded to add a scope limitation this record does not carry: **a grant is not an
-> accessibility audit.** `d12_fat_scan_result.html` holds this grant and fails WCAG AA on
-> its spread-chip text at 3.95:1 — granted, verified, reproducible, and unreadable to some
-> readers simultaneously. This record does not say so; v4 does.
+**Supersedes** [`2026-07-19-L1-surfaces-TIER-R-v3.md`](2026-07-19-L1-surfaces-TIER-R-v3.md).
+Issued to add a scope limitation, not to add strength — see the next section. Superseded
+rather than amended because §5.1a says grants are never amended, and carving an exception
+for "this edit only weakens it" is how the rule stops meaning anything. The judgement of
+whether an edit adds strength cannot be left to the party making it.
 
 **Supersedes** [`2026-07-18-L1-surfaces-TIER-R-v2.md`](2026-07-18-L1-surfaces-TIER-R-v2.md).
 Issued because v2 was **amended after publication** — the line-ending durability section was
@@ -195,3 +194,35 @@ digest did not survive a clone. It was caught, fixed with `fixtures/** -text`, a
 re-verified by re-cloning rather than by re-hashing a working copy. The same exposure would
 have made this grant nominal in exactly the case it exists to serve. It does not, and now
 there is a record saying so with the configurations named.
+
+---
+
+## This grant is not an accessibility audit
+
+It certifies three things: served bytes hash to the recorded digests, the artifacts carry no
+fetchable external reference, and the delivery disclosure is present in each. **It says
+nothing about whether a person can read the page.**
+
+That distinction is not hypothetical here. `d12_fat_scan_result.html` uses `--info` for its
+spread-chip text at **3.95:1**, below the WCAG 2.1 AA minimum of 4.5:1 — while holding this
+grant, passing every check in `verify-l1.sh`, and reproducing byte-for-byte from any clone.
+**Granted, verified, reproducible, and failing AA at the same time.**
+
+A reader who sees `RESULT=PASS` beside a page they cannot read would be right to feel
+misled, and the fix is for the grant to say what it covers before an audit says what it
+doesn't.
+
+**A grant is not a clearance** — it does not certify that a human read the surface for
+category. **A grant is not an accessibility audit** — it does not certify that a human can
+read the surface at all. Both are stated here rather than inferred from silence, because a
+green result is read as broader than it is by exactly the people least equipped to check.
+
+The accessibility audit of these eight is order C-5 and is **not complete**. One finding is
+already recorded above and was surfaced by a checker, not by inspection.
+
+## What was verified about durability, and how
+
+`.gitattributes` carries `* text=auto eol=lf`. The surfaces re-clone with matching digests
+under `core.autocrlf` true, input and false — 8/8 in every case — and the verifier was run
+end to end from a clone made under `autocrlf=true`, the hostile case. The R promise holds on
+a stranger's machine, not merely on the author's.
