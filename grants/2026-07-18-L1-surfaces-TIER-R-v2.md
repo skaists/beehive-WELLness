@@ -144,3 +144,36 @@ certify that a human has read them for category. That eyeball is owed.
 
 **Audited, not proven.** The strongest claim here is *sound by construction*, for item 3
 only. A1 and D1 are met on evidence any reader can regenerate.
+
+---
+
+## Line-ending durability — checked after the fact, and it holds
+
+An R-tier grant promises *"clone it and run the command yourself."* That promise is only
+worth what it survives on **someone else's machine**, and a clean-clone check run under the
+author's own git configuration establishes that it works *there* — not that it works.
+
+Git's `core.autocrlf` rewrites line endings on checkout. Where it applies, a digest-pinned
+artifact hashes differently for the reader than for the author, and **the reader's honest
+conclusion is that the file was tampered with.** A digest that fails on clone is worse than
+no digest at all.
+
+This was checked properly rather than assumed. `.gitattributes` in this repository carries
+`* text=auto eol=lf`, which forces LF on checkout regardless of the reader's setting, and
+the surfaces were re-cloned under **every** relevant configuration:
+
+| clone config | digests matching |
+|---|---|
+| `core.autocrlf=true` (Windows default) | **8/8** |
+| `core.autocrlf=input` | **8/8** |
+| `core.autocrlf=false` | **8/8** |
+
+The verifier was then run end-to-end from a clone made under `core.autocrlf=true` — the
+hostile case — and reproduced L1 in full.
+
+**Why this is recorded rather than merely done:** the sibling repository
+`beehive-biomass/bNATURE.bio` pinned a fixture digest *without* this protection and the
+digest did not survive a clone. It was caught, fixed with `fixtures/** -text`, and
+re-verified by re-cloning rather than by re-hashing a working copy. The same exposure would
+have made this grant nominal in exactly the case it exists to serve. It does not, and now
+there is a record saying so with the configurations named.
