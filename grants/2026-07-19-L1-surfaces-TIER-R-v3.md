@@ -1,16 +1,15 @@
-# GRANT · Level 1 · the eight surfaces — **TIER R · SUPERSEDED**
+# GRANT · Level 1 · the eight surfaces — **TIER R (reproducible)**
 
-> ## SUPERSEDED by [`2026-07-19-L1-surfaces-TIER-R-v3.md`](2026-07-19-L1-surfaces-TIER-R-v3.md)
->
-> **This record was amended after publication and that is why it is superseded.** The
-> line-ending durability section at the foot of this file was appended to an already-issued
-> grant. Ladder §5.1a forbids exactly that: an appended verification makes a grant stronger
-> than the one issued, and "verified under three git configurations" is a stronger claim than
-> "verified once".
->
-> **The append is deliberately left visible below rather than reverted.** Scrubbing it would
-> hide the error this supersession exists to record. The finding it contains is sound; the
-> mechanism was not.
+**Supersedes** [`2026-07-18-L1-surfaces-TIER-R-v2.md`](2026-07-18-L1-surfaces-TIER-R-v2.md).
+Issued because v2 was **amended after publication** — the line-ending durability section was
+appended to it rather than issued as a new record. Ladder §5.1a says grants are superseded,
+never amended, and the reason is exactly this: an appended verification makes a grant
+stronger than the one that was issued. "Verified under three git configurations" is a
+stronger claim than "verified once", and it arrived by edit rather than by issuance.
+
+The durability check itself stands and is included below. What was wrong was the mechanism,
+not the finding. v2 is left **with its append visible** rather than reverted — scrubbing the
+error would hide the thing this supersession exists to record.
 
 **Supersedes** [`2026-07-18-L1-surfaces-TIER-R.md`](2026-07-18-L1-surfaces-TIER-R.md),
 which superseded the provisional grant. Superseding, never amending — ladder §5.1a. Both
