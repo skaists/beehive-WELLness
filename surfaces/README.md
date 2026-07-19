@@ -44,14 +44,14 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `77c7c05bcc5343f2c4dd7824606036e1cad3b9a5ae92cc34cbca4da6db0ca600` <!-- PUBLIC-CONSTANT: content digest, re-cleared E-5 --> |
-| `module1_hemp_hearts_label_reader.html` | `b30e55a38f4fcb4f99d867e4ce16633b5530236a827a6fb426d71d1be815aa7f` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
-| `module2_fats_label_wont_show.html` | `7c7755c4553962ea0487a422c9cef3e25bffe873746f9ec8aa2266131d9ad5dd` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
-| `module3_portion_reality.html` | `999d0961f7471d9c3fd0423d3026542823e3c34ed3d4d3292d53df7e4d450344` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
-| `module4_decide_for_yourself.html` | `e89c0b9bb84496b8c8cf6d2973da63f178aaa189066c333e78e2f73f309aabeb` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
-| `d12_fat_scan_result.html` | `70254ae128d61e75d1898627b1274126c8bfbe42ce5fb06b8c37e97f8e8254c4` <!-- PUBLIC-CONSTANT: content digest, re-cleared C-E; byte-unchanged by W-1 --> |
-| `blOVErai_companion_surface.html` | `954e9980737eb9e07c858b8f650f798f7ed358abe673ae8662f40d06c5a5ae39` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
-| `bqueenbee_analytics.html` | `57ab6921efab5c53b5a6b5706aaada5f7ab0e76a24a9e4c327323abf2ae9ceb3` <!-- PUBLIC-CONSTANT: content digest, re-cleared L-1 then W-1 --> |
+| `beehive_wellness_index.html` | `33657fe5822b4bc47f3895afff2a702bf3bbacfcf2ca5635c8f0e47dbe9df834` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `module1_hemp_hearts_label_reader.html` | `dd1d28cd10a30ff2ceb90839784ed7bb5fff1cf16c7c2e3863d1415bfb6c8dc4` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `module2_fats_label_wont_show.html` | `1f6a0473d2f7010ecf76e6915fc61e14934c6120ad914b0b140a4fa3345b5171` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `module3_portion_reality.html` | `ee21fe30dd0b8bfbea90e7b727d4eb8349837b8297f983b1ed35e3be80a9fbe0` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `module4_decide_for_yourself.html` | `55ed72c7d21b44ff6009cad3e95cff8670c57b12baecc9ec47152027515e8f4d` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `d12_fat_scan_result.html` | `1dca9a215ec0f7c5fb57476053449d923ae76856cd1404cd07e9b2b8f1ac092c` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `blOVErai_companion_surface.html` | `768e5a1ab75b823804b3939a5726ab7d1d3e37bbee6c7d483893bf98ff32d4b7` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `bqueenbee_analytics.html` | `d5a16072e139902e0581f97656891d534b8990dd8e2dd6d7d12527dd957e84fb` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
 
 ## Mechanical verification (all eight)
 
@@ -102,6 +102,50 @@ the only way this line is worth anything to a later reader.
 **What this clearance does and does not cover.** It attaches to the specific digests listed
 above and to nothing else. Any byte change voids it for the changed file, and the next
 editor is on the same footing as every prior pass: clearance does not travel.
+
+## D1-IA · the disclosure moved into every artifact — **all eight clearances void again**
+
+**Second clearance reset in one day. Recorded, not absorbed.** The founder's fresh eyeball
+is owed on all eight again. That debt was closed this morning, reset by E-5 for one file,
+and is now reset for all eight.
+
+**Why the rule bent the artifacts and not the reverse.** D1 as ratified says the delivery
+model is disclosed *in the artifact*. A directory-level README is not in the artifact, and
+the normal case for these surfaces is a **direct link** — a reader opens one HTML file from
+a message and never sees the README. That reader received no disclosure at all, which is
+exactly the failure D1 exists to prevent.
+
+The cheaper path was amending D1 to accept directory-level. It was rejected on principle:
+weakening a ratified rule to fit what was already built, one day after seven revisions
+established that the rule bends the artifact and not the reverse.
+
+**What changed, in one pass:**
+
+1. **All eight** carry a byte-identical disclosure in their footer:
+   *"Served by one operator who can log every reader and withdraw this page at will. Not
+   censorship-resistant, not unobserved."* — the model, then what it is not. A limitation,
+   not a level; it needs no grant (§5.4). Identical wording is deliberate: it makes the
+   verifier's check exact rather than fuzzy, and makes drift trivially visible.
+2. **The README disclosure stays** — belt and braces, not either/or. A reader arriving at
+   the directory should still be told, and removing it would trade one gap for another.
+3. **`d12_fat_scan_result.html`** said "zero-network" where the other seven said "zero
+   external references". Drift from C-E, folded into this pass rather than spending a
+   separate clearance event on it.
+
+**The verifier was re-earned, and one fixture carries the argument.** The D1 check is now
+per-artifact and exact-string, so absence *and alteration* both fail. Three fixtures were
+added, and the load-bearing one is the disclosure removed from a **single** artifact with
+the README intact:
+
+```
+OLD check (directory-level)  -> D1 PASS   <- would have shipped
+NEW check (per-artifact)     -> D1 FAIL   <- bites
+```
+
+Same bytes, opposite verdicts. That flip is the demonstration the refinement did something;
+a refined check nobody watched change behaviour is a refactor wearing a fix's clothes. The
+`directory-level` label is gone from the output, because a label describing the old reading
+would be a stale claim, and this tree has shipped three of those already.
 
 ## E-5 · the invitation added to the index — its clearance is void, the other seven stand
 

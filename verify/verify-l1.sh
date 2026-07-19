@@ -39,8 +39,11 @@ set -u
 
 DEFAULT_BASE="https://skaists.github.io/beehive-WELLness"
 TABLE="surfaces/README.md"
-DISCLOSURE_FILE="surfaces/README.md"
-DISCLOSURE_PHRASE="can observe who reads them"
+# D1 is checked PER ARTIFACT, not directory-level. A reader arriving by direct link never
+# sees a directory README, and D1 as ratified says the model is disclosed *in the artifact*.
+# The wording is byte-identical in all eight, which is what lets this be an exact check
+# rather than a fuzzy one — and makes drift or alteration trivially visible.
+DISCLOSURE_TEXT="Served by one operator who can log every reader and withdraw this page at will. Not censorship-resistant, not unobserved."
 
 BASE="$DEFAULT_BASE"
 MODE="verify"
@@ -184,19 +187,23 @@ run_verify() {
     fi
     echo "A1b_fetched=$_fetched served_matches_recorded=$_matched"
 
-    # ── D1 · disclosure present (presence, NOT adequacy) ────────────────────────
-    # NOTE, stated because it differs from a naive reading: the delivery disclosure
-    # is DIRECTORY-LEVEL, in surfaces/README.md, covering the published set. It is
-    # not repeated inside each HTML file. This script checks it where it actually
-    # is and says so, rather than asserting something untrue about the artifacts.
-    _dfile="$_root/$DISCLOSURE_FILE"
-    if [ -f "$_dfile" ] && grep -q "$DISCLOSURE_PHRASE" "$_dfile" 2>/dev/null; then
-        echo "D1_disclosure=present (directory-level, in $DISCLOSURE_FILE)"
-    else
-        echo "  D1 DISCLOSURE ABSENT from $DISCLOSURE_FILE"
-        _fail=1
-        echo "D1_disclosure=ABSENT"
-    fi
+    # ── D1 · disclosure present IN EACH ARTIFACT (presence, NOT adequacy) ───────
+    # Exact-string match, because the wording is byte-identical across all eight.
+    # That makes both absence AND alteration fail: a reworded disclosure is drift,
+    # and drift in a limitation is how a limitation quietly stops being stated.
+    # This reports presence and leaves adequacy to the reader.
+    _dis=0
+    for _f in $_names; do
+        _p="$_root/surfaces/$_f"
+        [ -f "$_p" ] || continue
+        if grep -qF "$DISCLOSURE_TEXT" "$_p" 2>/dev/null; then
+            _dis=$((_dis + 1))
+        else
+            echo "  D1 DISCLOSURE MISSING OR ALTERED in $_f"
+            _fail=1
+        fi
+    done
+    echo "D1_disclosure_in_artifacts=$_dis/$_n"
 
     echo "RESULT=$([ "$_fail" -eq 0 ] && echo PASS || echo FAIL)"
     return "$_fail"
@@ -279,10 +286,47 @@ run_selftest() {
     rm -f "$_work/flipped_byte/served/"*.bak
     _case flipped_byte 1
 
-    _mk no_disclosure
-    sed -i.bak "s/$DISCLOSURE_PHRASE/REMOVED/" "$_work/no_disclosure/tree/surfaces/README.md" 2>/dev/null
-    rm -f "$_work/no_disclosure/tree/surfaces/"*.bak
-    _case no_disclosure 1
+    # ── D1 per-artifact fixtures (order D1-IA-3) ───────────────────────────────
+    # THE ONE THAT CARRIES THE ARGUMENT: the disclosure removed from a SINGLE
+    # artifact while the directory README stays intact. Under the old
+    # directory-level check this PASSED. Under the per-artifact check it FAILS.
+    # Watching that flip is the demonstration that the refinement did something —
+    # a refined check nobody watched change behaviour is a refactor, not a fix.
+    _mk d1_missing_from_one
+    _dt="$_work/d1_missing_from_one/tree/surfaces/module2_fats_label_wont_show.html"
+    sed -i.bak "s/ · Served by one operator who can log every reader and withdraw this page at will\. Not censorship-resistant, not unobserved\.//" "$_dt" 2>/dev/null
+    rm -f "$_work/d1_missing_from_one/tree/surfaces/"*.bak
+    cp "$_dt" "$_work/d1_missing_from_one/served/module2_fats_label_wont_show.html"
+    _rd=$(sha256_of "$_dt")
+    _od=$(grep -E '^\| `module2_fats_label_wont_show\.html`' "$_work/d1_missing_from_one/tree/surfaces/README.md" | grep -oE '[0-9a-f]{64}')
+    sed -i.bak "s/$_od/$_rd/" "$_work/d1_missing_from_one/tree/surfaces/README.md" 2>/dev/null
+    rm -f "$_work/d1_missing_from_one/tree/surfaces/"*.bak
+    _case d1_missing_from_one 1
+
+    # disclosure ALTERED rather than absent — identical wording is the property,
+    # so drift must bite as hard as deletion
+    _mk d1_altered
+    _at="$_work/d1_altered/tree/surfaces/module3_portion_reality.html"
+    sed -i.bak "s/Not censorship-resistant, not unobserved\./Not censorship resistant, not unobserved./" "$_at" 2>/dev/null
+    rm -f "$_work/d1_altered/tree/surfaces/"*.bak
+    cp "$_at" "$_work/d1_altered/served/module3_portion_reality.html"
+    _rd=$(sha256_of "$_at")
+    _od=$(grep -E '^\| `module3_portion_reality\.html`' "$_work/d1_altered/tree/surfaces/README.md" | grep -oE '[0-9a-f]{64}')
+    sed -i.bak "s/$_od/$_rd/" "$_work/d1_altered/tree/surfaces/README.md" 2>/dev/null
+    rm -f "$_work/d1_altered/tree/surfaces/"*.bak
+    _case d1_altered 1
+
+    # present in the README only, absent from every artifact
+    _mk d1_readme_only
+    for _g in "$_work/d1_readme_only/tree/surfaces"/*.html; do
+        sed -i.bak "s/ · Served by one operator who can log every reader and withdraw this page at will\. Not censorship-resistant, not unobserved\.//" "$_g" 2>/dev/null
+        cp "$_g" "$_work/d1_readme_only/served/$(basename "$_g")"
+        _rd=$(sha256_of "$_g"); _bn=$(basename "$_g")
+        _od=$(grep -E "^\| \`$_bn\`" "$_work/d1_readme_only/tree/surfaces/README.md" | grep -oE '[0-9a-f]{64}')
+        sed -i.bak2 "s/$_od/$_rd/" "$_work/d1_readme_only/tree/surfaces/README.md" 2>/dev/null
+    done
+    rm -f "$_work/d1_readme_only/tree/surfaces/"*.bak "$_work/d1_readme_only/tree/surfaces/"*.bak2
+    _case d1_readme_only 1
 
     _mk empty_set
     # a digest table with no rows: MUST refuse, never pass
