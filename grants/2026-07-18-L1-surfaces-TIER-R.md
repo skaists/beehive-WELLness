@@ -1,4 +1,11 @@
-# GRANT · Level 1 · the eight surfaces — **TIER R (reproducible)**
+# GRANT · Level 1 · the eight surfaces — **TIER R · SUPERSEDED**
+
+> ## SUPERSEDED by [`2026-07-18-L1-surfaces-TIER-R-v2.md`](2026-07-18-L1-surfaces-TIER-R-v2.md)
+>
+> Kept in place and unedited below. Superseding replaces a record and leaves the original
+> legible; amending would let a grant quietly acquire a strength it was never given (§5.1a).
+> Its digests are from commit `f52bc6f` and its D1 check was directory-level. Both are
+> superseded — the disclosure now lives in every artifact.
 
 **Supersedes** `2026-07-18-L1-surfaces.md` (Tier P, provisional). Superseding, never
 amending — ladder §5.1a. The provisional record stays in place, marked superseded, because
