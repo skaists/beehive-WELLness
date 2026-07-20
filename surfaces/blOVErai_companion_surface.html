@@ -8,8 +8,12 @@
 <style>
 :root{
   color-scheme:light;
-  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --ai-bright:#2CA9C9; --info:#2E7FC0; --sovereign:#7D5FB0; --guard:#7D5FB0; --b-value:#E8B54B;
-  --paper:#F4F8F8; --card:#FFFFFF; --ink:#16211F; --ink-mut:#54655F; --ink-dim:#8AA09A; --line:#E0EAE8;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --ai-bright:#2CA9C9; --info:#2A73AE; --sovereign:#7D5FB0; --guard:#7D5FB0; --b-value:#E8B54B;
+  /* AA (RELAY-10): --ai/--info/--ink-dim are TEXT (emphasis) — darkened to clear 4.5:1, hue kept
+     (the 8%-tint --ai backgrounds are decorative, not datum). --biomass datum unchanged;
+     --biomass-ink is its darkened text derivative. */
+  --biomass-ink:#487D34;
+  --paper:#F4F8F8; --card:#FFFFFF; --ink:#16211F; --ink-mut:#54655F; --ink-dim:#64746F; --line:#E0EAE8;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
@@ -56,7 +60,8 @@ h2{font-size:var(--text-lg);margin:var(--s6) 0 var(--s3);letter-spacing:-.3px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s4)}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-2xs);font-weight:600;padding:4px 11px;border-radius:var(--pill);border:1px solid;white-space:nowrap}
 .reward{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--pill);padding:6px 14px;margin-top:var(--s3)}
-.reward .b{font-family:var(--font-mono);font-weight:800;color:var(--b-value)}
+/* honey = b (RELAY-10): honey not repainted; given more surface — a dark chip where gold clears 4.5:1. */
+.reward .b{font-family:var(--font-mono);font-weight:800;color:var(--b-value);display:inline-block;background:var(--ink);padding:2px 10px;border-radius:999px}
 .note{color:var(--ink-dim);font-size:var(--text-2xs)}
 .foot{margin-top:var(--s6);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
 </style>
@@ -116,7 +121,7 @@ h2{font-size:var(--text-lg);margin:var(--s6) 0 var(--s3);letter-spacing:-.3px}
   <div class="chips">
     <span class="chip" style="color:var(--ai);border-color:var(--ai)">consent-first · nothing sent to us</span>
     <span class="chip" style="color:var(--sovereign);border-color:var(--sovereign)">revocable · your keys</span>
-    <span class="chip" style="color:var(--biomass);border-color:var(--biomass)">any language</span>
+    <span class="chip" style="color:var(--biomass-ink);border-color:var(--biomass)">any language</span>
     <span class="chip" style="color:var(--info);border-color:var(--info)">identity = PoUL thread, never an account</span>
   </div>
   <div class="reward">learn a chunk with bLOVErAi → <span class="b">+ honey b</span> <span class="note">(for the understanding, not the time)</span></div>

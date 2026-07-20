@@ -11,11 +11,14 @@
 <style>
 :root{
   color-scheme:light;
-  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0;
+  /* AA (RELAY-10): --ai/--info/--ink-dim are TEXT (emphasis) — darkened to clear 4.5:1, hue kept.
+     The identically-valued DATA hues below (--o6=#2E7FC0, --o3=#5FA544) are the datum and are NOT
+     repainted: a colour that carries meaning may not be moved to fix a text-contrast defect. */
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --info:#2A73AE; --guard:#7D5FB0;
   --b-value:#E8B54B;
-  /* fat-category data hues (labeled, not entity meaning) */
+  /* fat-category data hues (labeled, not entity meaning) — DATUM, never repainted for contrast */
   --sfa:#B0895A; --mufa:#8FA79C; --o6:#2E7FC0; --o3:#5FA544; --nm:#C9C4B8;
-  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#68726A; --line:#E7E6DE;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
@@ -78,7 +81,10 @@ h2{font-size:var(--text-lg);margin:var(--s5) 0 var(--s2);letter-spacing:-.2px}
 .call h3{margin:0 0 6px;font-size:var(--text-md)}
 .call p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
 .reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
-.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+/* honey = b (RELAY-10): --b-value is the colour of b and appears on every surface (D-14); an
+   unreadable gauge is unreadable everywhere, so "documented limitation" is refused. Honey is not
+   repainted — it is given MORE surface: a dark chip on which gold clears 4.5:1 (honey on --ink ≈ 8.5). */
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value);display:inline-block;background:var(--ink);padding:2px 10px;border-radius:999px}
 .foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
 </style>
 </head>

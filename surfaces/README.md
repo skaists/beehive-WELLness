@@ -44,14 +44,14 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `33657fe5822b4bc47f3895afff2a702bf3bbacfcf2ca5635c8f0e47dbe9df834` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `module1_hemp_hearts_label_reader.html` | `dd1d28cd10a30ff2ceb90839784ed7bb5fff1cf16c7c2e3863d1415bfb6c8dc4` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `module2_fats_label_wont_show.html` | `1f6a0473d2f7010ecf76e6915fc61e14934c6120ad914b0b140a4fa3345b5171` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `module3_portion_reality.html` | `ee21fe30dd0b8bfbea90e7b727d4eb8349837b8297f983b1ed35e3be80a9fbe0` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `module4_decide_for_yourself.html` | `55ed72c7d21b44ff6009cad3e95cff8670c57b12baecc9ec47152027515e8f4d` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `d12_fat_scan_result.html` | `1dca9a215ec0f7c5fb57476053449d923ae76856cd1404cd07e9b2b8f1ac092c` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `blOVErai_companion_surface.html` | `768e5a1ab75b823804b3939a5726ab7d1d3e37bbee6c7d483893bf98ff32d4b7` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
-| `bqueenbee_analytics.html` | `d5a16072e139902e0581f97656891d534b8990dd8e2dd6d7d12527dd957e84fb` <!-- PUBLIC-CONSTANT: content digest, re-cleared D1-IA --> |
+| `beehive_wellness_index.html` | `95ae08c07efc9884dd8133d10566afb51e2dd3460ba30ce4489debbbd8082508` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `module1_hemp_hearts_label_reader.html` | `cfe32d59e5b16d06af172cf7328a5d43eabd392c267419892cf3dbcb8a2167de` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `module2_fats_label_wont_show.html` | `06814e3e77264c44cc422b0a609315d91db11c8ec55875fb7c6e0589d8d98cb2` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `module3_portion_reality.html` | `8ba50be3b03f24dfd6e05a4efd8bfce3727f67e9f70462e89b0bda5100c301ae` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `module4_decide_for_yourself.html` | `c3d81b27aa894823142aeec0f1e7375fde07e3c5d711edac5eaab42cb7f75a3d` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `d12_fat_scan_result.html` | `3f17abd25724784a54cc857e1735d02a50d9bd231c5fc4d9d3911ffa061b543c` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `blOVErai_companion_surface.html` | `d6bb318ebd4eb405bb222ad9e99d4843acdee452a49506224c784a074f54273d` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `bqueenbee_analytics.html` | `60ca37aac70b14ceac07df2ede563e7a600ef65e8be8cafa9c77984a44bf46ce` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 
 ## Mechanical verification (all eight)
 

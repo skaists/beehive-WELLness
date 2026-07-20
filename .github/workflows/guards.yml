@@ -13,6 +13,13 @@ jobs:
       # passing is a decoration. This tree has shipped two such gates already.
       - name: verify-l1 selftest (the verifier must be watched biting)
         run: sh verify/verify-l1.sh selftest
+      # RELAY-10 AA guard. Same Law-2 discipline: the contrast checker must be watched failing
+      # on a known-bad token before its passes are believed. Token-level regression guard; the
+      # rendered authority is verify/contrast-probe.js, run in a browser (has its own control).
+      - name: contrast selftest (the guard must be watched biting)
+        run: node verify/check-contrast.mjs selftest
+      - name: contrast guard (all eight surfaces' text tokens clear 4.5:1)
+        run: node verify/check-contrast.mjs
   cargo:
     runs-on: ubuntu-latest
     steps:

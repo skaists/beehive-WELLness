@@ -10,7 +10,10 @@
   color-scheme:dark;
   --ai:#45C2DC; --ai-deep:#57CDE4; --biomass:#86CC72; --sovereign:#9C6FD6; --info:#6FA9E0; --guard:#B7A8F7; --b-value:#E8B54B;
   --g-high:#86CC72; --g-mod:#6FA9E0; --g-low:#8FA79C; --g-vlow:#5E7A6F;
-  --bg:#06110C; --card:#0C1412; --ink:#E9F2EC; --mut:#8FA79C; --dim:#5E7A6F; --line:#1E2B26;
+  /* AA (RELAY-10): dark surface — dim caption text is emphasis; LIGHTENED (toward --ink) to clear
+     4.5:1 on the dark bg. The bright stat numbers (--ai/--biomass/--b-value) are the datum and pass
+     as large text on dark, unchanged — a colour that carries meaning is not repainted. */
+  --bg:#06110C; --card:#0C1412; --ink:#E9F2EC; --mut:#8FA79C; --dim:#6A847A; --line:#1E2B26;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --t-2xs:clamp(11px,2.8vw,12px); --t-xs:clamp(12px,3vw,13px); --t-sm:clamp(13px,3.4vw,15px);

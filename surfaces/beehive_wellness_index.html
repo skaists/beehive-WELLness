@@ -8,8 +8,11 @@
 <style>
 :root{
   color-scheme:light;
-  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --sovereign:#7D5FB0; --guard:#7D5FB0; --b-value:#E8B54B;
-  --paper:#F6F8F1; --card:#FFFFFF; --ink:#1A2320; --ink-mut:#57655F; --ink-dim:#8AA096; --line:#E4EBDC;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --info:#2A73AE; --sovereign:#7D5FB0; --guard:#7D5FB0; --b-value:#E8B54B;
+  /* AA (RELAY-10): --ai/--ink-dim are TEXT (emphasis) — darkened to clear 4.5:1, hue kept.
+     --biomass is a D-1 datum colour, NOT repainted; --biomass-ink is its darkened text derivative. */
+  --biomass-ink:#487D34;
+  --paper:#F6F8F1; --card:#FFFFFF; --ink:#1A2320; --ink-mut:#57655F; --ink-dim:#64746D; --line:#E4EBDC;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --t-2xs:clamp(11px,2.8vw,12px); --t-xs:clamp(12px,3vw,13px); --t-sm:clamp(13px,3.4vw,15px);
@@ -36,8 +39,8 @@ a.card:hover{border-color:var(--biomass)}
 .card .tag{font-family:var(--font-mono);font-size:var(--t-2xs);font-weight:700}
 .card h3{margin:6px 0 4px;font-size:var(--t-md)}
 .card p{margin:0;color:var(--ink-mut);font-size:var(--t-xs)}
-.card .go{color:var(--biomass);font-size:var(--t-2xs);font-family:var(--font-mono);margin-top:8px;display:inline-block}
-.t-learn{color:var(--biomass)} .t-tool{color:var(--ai)} .t-hive{color:var(--sovereign)}
+.card .go{color:var(--biomass-ink);font-size:var(--t-2xs);font-family:var(--font-mono);margin-top:8px;display:inline-block}
+.t-learn{color:var(--biomass-ink)} .t-tool{color:var(--ai)} .t-hive{color:var(--sovereign)}
 .wallnote{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sovereign);border-radius:12px;padding:var(--s3);margin-top:var(--s4);font-size:var(--t-xs);color:var(--ink-mut)}
 .wallnote b{color:var(--ink)}
 .foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--t-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}

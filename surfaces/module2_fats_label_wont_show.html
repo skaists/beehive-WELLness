@@ -8,9 +8,12 @@
 <style>
 :root{
   color-scheme:light;
-  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0; --b-value:#E8B54B;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --info:#2A73AE; --guard:#7D5FB0; --b-value:#E8B54B;
+  /* AA (RELAY-10): data hues (--sfa,--o6,--o3) are DATUM — unchanged; the *-ink tokens are their
+     darkened, in-ramp text derivatives, used where a data hue is set as emphasis text. --info is text-blue. */
   --sfa:#B0895A; --mufa:#8FA79C; --o6:#2E7FC0; --o3:#5FA544;
-  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --biomass-ink:#487D34; --sfa-ink:#886A46;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#68726A; --line:#E7E6DE;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
@@ -32,22 +35,23 @@ p{margin:0 0 var(--s2)}
 .link .c{width:44px;flex:0 0 auto;font-family:var(--font-mono);font-weight:800;font-size:var(--text-xs);text-align:center;padding-top:2px}
 .link h3{margin:0 0 3px;font-size:var(--text-md)}
 .link p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
-.link.scfa .c{color:#8a6d3b}.link.mcfa .c{color:var(--biomass)}.link.lcfa .c{color:var(--sfa)}
+.link.scfa .c{color:#8a6d3b}.link.mcfa .c{color:var(--biomass-ink)}.link.lcfa .c{color:var(--sfa-ink)}
 .fam{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3);margin:var(--s2) 0}
 .path{font-family:var(--font-mono);font-size:var(--text-sm);background:var(--paper);border-radius:8px;padding:10px 12px;margin:8px 0;overflow-x:auto;white-space:nowrap}
-.path b{color:var(--o3)} .path.six b{color:var(--o6)}
+.path b{color:var(--biomass-ink)} .path.six b{color:var(--info)}
 .proved{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:var(--s3);margin:var(--s2) 0}
 .box{border:1px solid var(--line);border-radius:12px;padding:var(--s3)}
 .box.p{border-left:4px solid var(--biomass)} .box.h{border-left:4px solid var(--guard)}
 .box h3{margin:0 0 8px;font-size:var(--text-sm);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
-.box.p h3{color:var(--biomass)} .box.h h3{color:var(--guard)}
+.box.p h3{color:var(--biomass-ink)} .box.h h3{color:var(--guard)}
 .box ul{margin:0;padding-left:18px;color:var(--ink-mut);font-size:var(--text-xs)} .box li{margin:5px 0}
 .check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
 .q{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
 .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
 .opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
 .reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
-.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+/* honey = b (RELAY-10): honey not repainted; given more surface — a dark chip where gold clears 4.5:1. */
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value);display:inline-block;background:var(--ink);padding:2px 10px;border-radius:999px}
 .note{color:var(--ink-dim);font-size:var(--text-2xs)}
 .foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
 </style>

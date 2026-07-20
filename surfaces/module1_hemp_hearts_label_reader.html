@@ -8,9 +8,12 @@
 <style>
 :root{
   color-scheme:light;
-  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0E96A8; --info:#2E7FC0; --guard:#7D5FB0;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --info:#2A73AE; --guard:#7D5FB0;
+  /* AA (RELAY-10): --biomass is a D-1 datum colour and is NOT repainted; --biomass-ink is its
+     text-only derivative, darkened to clear 4.5:1 where biomass green is used as emphasis text. */
+  --biomass-ink:#487D34;
   --b-value:#E8B54B; /* b amounts only — ruled 2026-07-17 */
-  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#93A096; --line:#E7E6DE;
+  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1E2320; --ink-mut:#5F6B62; --ink-dim:#68726A; --line:#E7E6DE;
   --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
   --text-2xs:clamp(11px,2.8vw,12px); --text-xs:clamp(12px,3vw,13px); --text-sm:clamp(13px,3.4vw,15px);
@@ -44,14 +47,15 @@ p{margin:0 0 var(--s2)}
 .call p{margin:0;color:var(--ink-mut);font-size:var(--text-sm)}
 .formrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .pill{font-family:var(--font-mono);font-size:var(--text-2xs);border:1px solid var(--line);border-radius:var(--pill);padding:4px 10px;white-space:nowrap}
-.pill b{color:var(--biomass)}
+.pill b{color:var(--biomass-ink)}
 /* check */
 .check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);margin:var(--s3) 0}
 .q{font-weight:700;font-size:var(--text-md);margin-bottom:var(--s2)}
 .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:var(--text-sm);padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;min-height:44px}
 .opt.correct{border-color:var(--biomass);background:color-mix(in srgb,var(--biomass) 10%,var(--card))}
 .reward{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line)}
-.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value)}
+/* honey = b (RELAY-10): honey not repainted; given more surface — a dark chip where gold clears 4.5:1. */
+.b{font-family:var(--font-mono);font-weight:800;font-size:var(--text-md);color:var(--b-value);display:inline-block;background:var(--ink);padding:2px 10px;border-radius:999px}
 .note{color:var(--ink-dim);font-size:var(--text-2xs);margin-top:8px}
 .foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--text-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
 .foot a{color:var(--info)}
