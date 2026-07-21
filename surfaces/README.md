@@ -49,7 +49,7 @@ grepping for words — "grep found nothing" is not a clearance.
 | `module2_fats_label_wont_show.html` | `06814e3e77264c44cc422b0a609315d91db11c8ec55875fb7c6e0589d8d98cb2` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module3_portion_reality.html` | `8ba50be3b03f24dfd6e05a4efd8bfce3727f67e9f70462e89b0bda5100c301ae` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module4_decide_for_yourself.html` | `c3d81b27aa894823142aeec0f1e7375fde07e3c5d711edac5eaab42cb7f75a3d` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
-| `d12_fat_scan_result.html` | `3f17abd25724784a54cc857e1735d02a50d9bd231c5fc4d9d3911ffa061b543c` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `d12_fat_scan_result.html` | `9e3eb6c8bd8f51275cd94c2a5d81b896799e9a250dcff678e2830b35985f0233` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `blOVErai_companion_surface.html` | `d6bb318ebd4eb405bb222ad9e99d4843acdee452a49506224c784a074f54273d` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `bqueenbee_analytics.html` | `60ca37aac70b14ceac07df2ede563e7a600ef65e8be8cafa9c77984a44bf46ce` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 
