@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New bee · optional connect · beehiveWELLness</title>
+<!-- New bee optional-connect surface · WELLness mark as heartbeat · three views (bee / raver / cypherpunk) authored here, MIT/Apache, no AGPL kernel import · outbound leaves are user-chosen and labeled · no health data crosses · CONCEPT · not medical advice -->
+<style>
+:root{
+  color-scheme:light;
+  --biomass:#5FA544; --leaf:#86CC72; --you:#C7268F; --ai:#0B7A89; --info:#2A73AE; --sovereign:#7D5FB0; --guard:#7D5FB0;
+  --biomass-ink:#487D34;
+  --paper:#F6F8F1; --card:#FFFFFF; --ink:#1A2320; --ink-mut:#57655F; --ink-dim:#64746D; --line:#E4EBDC;
+  --font-ui:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+  --t-2xs:clamp(11px,2.8vw,12px); --t-xs:clamp(12px,3vw,13px); --t-sm:clamp(13px,3.4vw,15px);
+  --t-md:clamp(15px,3.8vw,17px); --t-lg:clamp(20px,5.2vw,26px); --t-xl:clamp(28px,7vw,44px);
+  --s2:12px;--s3:18px;--s4:24px;--s5:36px;--s6:56px;--radius:16px;--pill:999px;
+  --breath:4.8s; --ease:cubic-bezier(.2,.8,.2,1);
+}
+@media (prefers-reduced-motion:reduce){:root{--breath:0ms}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);line-height:1.65;font-size:var(--t-sm)}
+body[data-reg="raver"]{--paper:#F7F1F4;--line:#EDDCE6;--card:#FFFCFD}
+body[data-reg="cypherpunk"]{
+  color-scheme:dark;
+  --paper:#06110C; --card:#0C1412; --ink:#E9F2EC; --ink-mut:#8FA79C; --ink-dim:#6A847A; --line:#1E2B26;
+  --font-ui:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,monospace;
+}
+[data-reg]:not(body){display:none}
+body[data-reg="bee"] [data-reg="bee"],
+body[data-reg="raver"] [data-reg="raver"],
+body[data-reg="cypherpunk"] [data-reg="cypherpunk"]{display:block}
+.wrap{max-width:920px;margin:0 auto;padding:0 var(--s3) var(--s6)}
+.regbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 8px}
+.home{color:var(--ink);text-decoration:none;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.home:hover{text-decoration:underline;text-underline-offset:3px}
+.home:focus-visible{outline:2px solid var(--sovereign);outline-offset:3px}
+#regctl{display:flex;flex-wrap:wrap;gap:6px}
+#regctl button{
+  appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:8px;
+  background:var(--card);color:var(--ink);font:400 .875rem/1.4 var(--font-ui);cursor:pointer
+}
+body[data-reg="cypherpunk"] #regctl button{font-family:var(--font-ui)}
+#regctl button[aria-pressed="true"]{background:var(--sovereign);border-color:var(--sovereign);color:#fff;font-weight:600}
+body[data-reg="raver"] #regctl button[aria-pressed="true"]{background:var(--you);border-color:var(--you)}
+body[data-reg="cypherpunk"] #regctl button[aria-pressed="true"]{background:#86CC72;border-color:#86CC72;color:#06110C}
+#regctl button:hover{border-color:var(--sovereign)}
+#regctl button:focus-visible{outline:2px solid var(--sovereign);outline-offset:3px}
+.hero{text-align:center;padding:var(--s5) 0 var(--s4)}
+.mark-heart{width:88px;height:88px;margin:0 auto var(--s3);display:block;animation:well-breath var(--breath) var(--ease) infinite}
+.mark-heart img{width:100%;height:100%;display:block}
+@keyframes well-breath{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.045);opacity:1}}
+.concept{font-family:var(--font-mono);font-size:var(--t-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:4px 12px;display:inline-block;margin-bottom:var(--s3)}
+h1{font-size:var(--t-xl);margin:0 0 var(--s2);letter-spacing:-.5px;line-height:1.05}
+.lede{font-size:var(--t-md);color:var(--ink-mut);max-width:640px;margin:0 auto}
+.k{font-family:var(--font-mono);font-size:var(--t-2xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin:var(--s5) 0 var(--s2)}
+.grid{display:grid;gap:var(--s3);grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
+a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);text-decoration:none;color:inherit;min-width:0;min-height:44px}
+a.card:hover{border-color:var(--sovereign)}
+a.card:focus-visible{outline:2px solid var(--sovereign);outline-offset:3px}
+.card .tag{font-family:var(--font-mono);font-size:var(--t-2xs);font-weight:700;color:var(--sovereign)}
+.card.watch .tag{color:var(--info)} .card.art .tag{color:var(--ai)} .card.fest .tag{color:var(--you)}
+body[data-reg="cypherpunk"] .card.fest .tag{color:#E8B54B}
+.card h3{margin:6px 0 4px;font-size:var(--t-md)}
+.card p{margin:0;color:var(--ink-mut);font-size:var(--t-xs)}
+.tab{display:block;margin-top:10px;font-family:var(--font-mono);font-size:var(--t-2xs);color:var(--ink-dim)}
+.stay{display:block;text-align:center;margin:var(--s4) auto 0;color:var(--biomass-ink);font-weight:600;text-decoration:none;min-height:44px;padding:10px}
+.stay:hover{text-decoration:underline;text-underline-offset:3px}
+.stay:focus-visible{outline:2px solid var(--biomass-ink);outline-offset:3px}
+.wallnote{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sovereign);border-radius:12px;padding:var(--s3);margin-top:var(--s4);font-size:var(--t-xs);color:var(--ink-mut)}
+.wallnote b{color:var(--ink)}
+.foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--t-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
+</style>
+</head>
+<body data-reg="bee">
+<div class="wrap">
+  <div class="regbar">
+    <a class="home" href="beehive_wellness_index.html">beehive<b style="color:var(--sovereign)">WELLness</b></a>
+    <div id="regctl" role="group" aria-label="View">
+      <button type="button" id="reg-bee" aria-pressed="true"><span aria-hidden="true">🐝</span> New bee</button>
+      <button type="button" id="reg-raver" aria-pressed="false"><span aria-hidden="true">🎛</span> Raver</button>
+      <button type="button" id="reg-cypherpunk" aria-pressed="false"><span aria-hidden="true">⚗</span> Cypherpunk</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <span class="mark-heart" aria-hidden="true"><img src="../assets/wellness-mandala.svg" alt="" width="88" height="88"></span>
+    <div><span class="concept">CONCEPT — optional · simulated · not medical advice</span></div>
+    <div data-reg="bee">
+      <h1>New bee</h1>
+      <p class="lede">You're already welcome. Nothing here asks you to go. If another room calls, these doors open — and they take none of this tree with them.</p>
+    </div>
+    <div data-reg="raver">
+      <h1>Come as you are</h1>
+      <p class="lede">The floor remembers softness. Cross-pollinate only if it feels like home. The lesson stays yours. Nothing clinical walks out with you.</p>
+    </div>
+    <div data-reg="cypherpunk">
+      <h1>Downstream, on purpose</h1>
+      <p class="lede">This surface is MIT/Apache. It does not import the AGPL kernel. The edge is one-way: WELLness → beehive-nature, never the reverse. Nutrition literacy cannot reach governance. These leaves are public estate URLs. No vault, no scan, no label travels.</p>
+    </div>
+  </header>
+
+  <div class="k" id="doors">If you want</div>
+  <div class="grid">
+    <a class="card watch" id="watch" href="https://skaists.dev/surfaces/watch.html" target="_blank" rel="noopener noreferrer">
+      <span class="tag">WATCH</span>
+      <div data-reg="bee"><h3>W@tch</h3><p>A public room for looking. The Keep-path story, if a picture wants you.</p></div>
+      <div data-reg="raver"><h3>Watch-It</h3><p>A warm screen if you want company. Pause is allowed. Nothing here is a test.</p></div>
+      <div data-reg="cypherpunk"><h3>watch.html</h3><p>Estate watch surface. Same-origin public URL on skaists.dev. Read-only from this tree.</p></div>
+      <span class="tab">opens in a new tab · leaving BNR</span>
+    </a>
+    <a class="card art" id="gallery" href="https://skaists.dev/surfaces/blight/gallery.html" target="_blank" rel="noopener noreferrer">
+      <span class="tag">ART</span>
+      <div data-reg="bee"><h3>Gallery</h3><p>Color that doesn't ask. A looking-place, if you want one.</p></div>
+      <div data-reg="raver"><h3>Gallery</h3><p>Walk the walls like a quiet set. No one is grading what you feel.</p></div>
+      <div data-reg="cypherpunk"><h3>blight/gallery.html</h3><p>Public gallery on skaists.dev. Art bytes only. No health payload, no vault field.</p></div>
+      <span class="tab">opens in a new tab · leaving BNR</span>
+    </a>
+    <a class="card fest" id="festival" href="https://skaists.dev/surfaces/festival/" target="_blank" rel="noopener noreferrer">
+      <span class="tag">FESTIVAL</span>
+      <div data-reg="bee"><h3>Hive</h3><p>The festival door. Buzz and PLUR live one organism over — only if you want them.</p></div>
+      <div data-reg="raver"><h3>The floor</h3><p>Peace, love, unity, respect — a seat if you want one. Stay as long as the feeling lasts.</p></div>
+      <div data-reg="cypherpunk"><h3>festival/</h3><p>Public festival surface. Hive / buzz / plur are estate doors, not a data export from this tree.</p></div>
+      <span class="tab">opens in a new tab · leaving BNR</span>
+    </a>
+  </div>
+
+  <a class="stay" href="beehive_wellness_index.html">Stay and read food →</a>
+
+  <div class="wallnote">
+    <div data-reg="bee"><b>Optional, always.</b> Media, art, and festival are other rooms. This tree still teaches how to read food and delivers no advice. Nothing you opened here is sent with you.</div>
+    <div data-reg="raver"><b>You don't owe the hive a visit.</b> Literacy stays literacy. The other rooms are invitations, not a next lesson.</div>
+    <div data-reg="cypherpunk"><b>Wall, stated.</b> Category is nutrition literacy only. No PHI. No health claim beyond the existing curriculum standard. Counsel-gated health import stays off. A click to skaists.dev is a new browsing context — <span style="font-family:var(--font-mono)">target=_blank</span> · <span style="font-family:var(--font-mono)">rel=noopener noreferrer</span> — not a data pipe.</div>
+  </div>
+
+  <div class="foot">beehiveWELLness · New bee · CONCEPT · simulated · optional connect · skaists/beehive-WELLness · MIT/Apache surface · no kernel AGPL import · wall-clean: literacy &amp; composition, no health claim · Served by one operator who can log every reader and withdraw this page at will. Not censorship-resistant, not unobserved.</div>
+</div>
+<script>
+(function(){
+  var KEY='wellness-reg';
+  var REGS=['bee','raver','cypherpunk'];
+  function pref(){
+    try{var v=localStorage.getItem(KEY);return REGS.indexOf(v)>=0?v:'bee';}
+    catch(e){return 'bee';}
+  }
+  function apply(r){
+    document.body.setAttribute('data-reg',r);
+    REGS.forEach(function(id){
+      var b=document.getElementById('reg-'+id);
+      if(b) b.setAttribute('aria-pressed',String(id===r));
+    });
+  }
+  function mount(){
+    apply(pref());
+    REGS.forEach(function(id){
+      var b=document.getElementById('reg-'+id);
+      if(!b) return;
+      b.addEventListener('click',function(){
+        try{localStorage.setItem(KEY,id);}catch(e){}
+        apply(id);
+      });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mount);
+  else mount();
+})();
+</script>
+</body>
+</html>

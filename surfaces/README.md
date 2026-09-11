@@ -29,12 +29,50 @@ under it by a read-only auditor, the absence of a badge is the accurate state.
 
 ## Layout — flat, deliberately
 
-The eight files sit **flat, as siblings**, not one-folder-each. That is a decision, not
+The eight graded files sit **flat, as siblings**, not one-folder-each. That is a decision, not
 laziness: the index links to flat siblings (`href="module1_hemp_hearts_label_reader.html"`),
-so foldering them would require rewriting the index's seven hrefs — i.e. **modifying an
+so foldering them would require rewriting the index's hrefs — i.e. **modifying an
 artifact that was already cleared**. Clearance attaches to specific bytes; a rewritten
-index is a different artifact wearing an approval it never earned. Flat keeps every file
-byte-identical to what was cleared *and* every link resolving (verified, not assumed).
+index is a different artifact wearing an approval it never earned. Flat keeps every graded
+file byte-identical to what was cleared *and* every link resolving (verified, not assumed).
+
+A ninth sibling, `new_bee.html`, is an **optional-connect** surface. It is not in the
+graded eight. It may leave BNR on a labeled user click. It is not a zero-network artifact,
+and it is not a curriculum module. The eight stay the literacy set; New bee is a door.
+
+## New bee · optional connect (not graded)
+
+`new_bee.html` is the first-class New bee surface: calm cards (view / emotion / choose-click,
+no step lists) that invite — if the reader wants — into public estate rooms:
+
+| door | public URL (new tab · leaving BNR) |
+|---|---|
+| Media / W@tch | `https://skaists.dev/surfaces/watch.html` |
+| Art / gallery | `https://skaists.dev/surfaces/blight/gallery.html` |
+| Festival / hive | `https://skaists.dev/surfaces/festival/` |
+
+The index carries a same-origin invitation to those three anchors. The outbound leaves
+live on New bee, each `target="_blank" rel="noopener noreferrer"` and labeled
+*opens in a new tab · leaving BNR*. No health data, vault field, scan, or label travels.
+The surface is MIT/Apache; it does not import kernel `register.js` (AGPL). Three views
+are authored locally: **New bee** (default), **Raver** (warmer empathy), **Cypherpunk**
+(the liability wall and one-way edge, for engineers). The WELLness mark is the heartbeat.
+
+**Poke after Pages rebuilds from `main`:**
+
+1. Open `https://skaists.github.io/beehive-WELLness/surfaces/beehive_wellness_index.html`
+2. The New bee strip is under the hero. Stay, or choose Watch / Gallery / Festival.
+3. On `https://skaists.github.io/beehive-WELLness/surfaces/new_bee.html`, click a card —
+   a new tab should open the estate URL, labeled as leaving BNR.
+4. Toggle Raver and Cypherpunk. Facts stay the same; prose and density change.
+5. Modules 1–4, the fat scan, and the companion are unchanged siblings.
+
+## N-1 · the New bee invitation added to the index — its clearance is void, the other seven stand
+
+`beehive_wellness_index.html` now carries the real WELLness mark and a first-class
+optional New bee strip (three same-origin cards). Bytes changed, so **its founder
+clearance is void and its digest below is new.** Modules 1–4, the scanner, the companion,
+and bQueenBee are byte-unchanged and keep theirs. New bee was never in the graded table.
 
 ## Clearance chain
 
@@ -44,7 +82,7 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `95ae08c07efc9884dd8133d10566afb51e2dd3460ba30ce4489debbbd8082508` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
+| `beehive_wellness_index.html` | `d494f2266b426fc183493ae69c54aaf1ef30dfd00f7552edd8254d865ae8ff72` <!-- PUBLIC-CONSTANT: content digest, voided N-1 New bee invitation + mark --> |
 | `module1_hemp_hearts_label_reader.html` | `cfe32d59e5b16d06af172cf7328a5d43eabd392c267419892cf3dbcb8a2167de` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module2_fats_label_wont_show.html` | `06814e3e77264c44cc422b0a609315d91db11c8ec55875fb7c6e0589d8d98cb2` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module3_portion_reality.html` | `8ba50be3b03f24dfd6e05a4efd8bfce3727f67e9f70462e89b0bda5100c301ae` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
@@ -53,10 +91,11 @@ grepping for words — "grep found nothing" is not a clearance.
 | `blOVErai_companion_surface.html` | `d6bb318ebd4eb405bb222ad9e99d4843acdee452a49506224c784a074f54273d` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `bqueenbee_analytics.html` | `60ca37aac70b14ceac07df2ede563e7a600ef65e8be8cafa9c77984a44bf46ce` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 
-## Mechanical verification (all eight)
+## Mechanical verification (the graded eight)
 
-- **Zero network** — no `http(s)://`, no CDN, no `@import`, no remote fonts, anywhere.
-- **Links** — the index's 7 hrefs all resolve as siblings.
+- **Zero network** — no `http(s)://`, no CDN, no `@import`, no remote fonts, anywhere
+  in the graded eight. New bee is the documented exception: labeled outbound leaves only.
+- **Links** — the index's curriculum hrefs plus the three New bee invitations resolve as siblings.
 - **CONCEPT-tagged** — every surface carries it.
 - **Gates** — secret-scan and PHI-marker scan clean.
 

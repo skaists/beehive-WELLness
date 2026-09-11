@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>beehiveWELLness · concept index</title>
-<!-- beehiveWELLness landing · ties the surface set · bnr-design light face · zero external references · mobile-first · links are relative to the surface files (working hub when co-located) · logo mark = WELLness gradient placeholder (real skaists mandala swaps in) -->
+<!-- beehiveWELLness landing · ties the surface set · bnr-design light face · zero external references · mobile-first · links are relative to the surface files (working hub when co-located) · mark = wellness-mandala.svg · New bee invitation is same-origin only; outbound leaves live on new_bee.html -->
 <style>
 :root{
   color-scheme:light;
@@ -24,8 +24,8 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-ui
 .wrap{max-width:1000px;margin:0 auto;padding:0 var(--s3) var(--s6)}
 .hero{text-align:center;padding:var(--s6) 0 var(--s4)}
 .lockup{display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s3)}
-.mark{width:66px;height:66px;flex:0 0 auto;border-radius:50%;
-  background:radial-gradient(circle at 50% 50%, #9C6FD6 0%, #6FA9E0 30%, #45C2DC 58%, #8FD14F 100%)}
+.mark{width:66px;height:66px;flex:0 0 auto;border-radius:50%;overflow:hidden}
+.mark img{width:100%;height:100%;display:block}
 .wordmark{font-size:clamp(22px,6vw,36px);font-weight:800;letter-spacing:-.6px}
 .wordmark b{color:var(--sovereign)}
 .concept{font-family:var(--font-mono);font-size:var(--t-2xs);color:var(--guard);border:1px dashed color-mix(in srgb,var(--guard) 45%,transparent);border-radius:var(--pill);padding:4px 12px;display:inline-block;margin-bottom:var(--s3)}
@@ -40,7 +40,8 @@ a.card:hover{border-color:var(--biomass)}
 .card h3{margin:6px 0 4px;font-size:var(--t-md)}
 .card p{margin:0;color:var(--ink-mut);font-size:var(--t-xs)}
 .card .go{color:var(--biomass-ink);font-size:var(--t-2xs);font-family:var(--font-mono);margin-top:8px;display:inline-block}
-.t-learn{color:var(--biomass-ink)} .t-tool{color:var(--ai)} .t-hive{color:var(--sovereign)}
+.t-learn{color:var(--biomass-ink)} .t-tool{color:var(--ai)} .t-hive{color:var(--sovereign)} .t-bee{color:var(--you)}
+.invite{font-size:var(--t-xs);color:var(--ink-mut);max-width:640px;margin:0 0 var(--s3)}
 .wallnote{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sovereign);border-radius:12px;padding:var(--s3);margin-top:var(--s4);font-size:var(--t-xs);color:var(--ink-mut)}
 .wallnote b{color:var(--ink)}
 .foot{margin-top:var(--s5);color:var(--ink-dim);font-size:var(--t-2xs);font-family:var(--font-mono);border-top:1px solid var(--line);padding-top:var(--s3)}
@@ -50,7 +51,7 @@ a.card:hover{border-color:var(--biomass)}
 <div class="wrap">
   <header class="hero">
     <div class="lockup">
-      <span class="mark" aria-hidden="true"><!-- placeholder gradient; real skaists mandala (lime→teal→purple) swaps in --></span>
+      <span class="mark" aria-hidden="true"><img src="../assets/wellness-mandala.svg" alt="" width="66" height="66"></span>
       <span class="wordmark">beehive<b>WELLness</b></span>
     </div>
     <div><span class="concept">CONCEPT — simulated · zero network · not medical advice</span></div>
@@ -58,6 +59,14 @@ a.card:hover{border-color:var(--biomass)}
     <p class="lede">The Beehive Nature Reserve's wellness tree: open nutrition literacy that hands you the tools, not a prescription. Prove you understand — earn b for the understanding.</p>
     <div class="ethos">"Let food be thy medicine" — the reading, in your hands.</div>
   </header>
+
+  <div class="k">New bee · if you want another room</div>
+  <p class="invite">Stay and read food. Or — only if a different door calls — these open the New bee surface. Media, art, and festival are invitations, not a next lesson. Nothing from this course has to follow you.</p>
+  <div class="grid">
+    <a class="card" href="new_bee.html#watch"><span class="tag t-bee">WATCH</span><h3>W@tch</h3><p>A public room for looking — if a picture wants you.</p><span class="go">New bee door →</span></a>
+    <a class="card" href="new_bee.html#gallery"><span class="tag t-bee">ART</span><h3>Gallery</h3><p>Color that doesn't ask. A looking-place, if you want one.</p><span class="go">New bee door →</span></a>
+    <a class="card" href="new_bee.html#festival"><span class="tag t-bee">FESTIVAL</span><h3>Hive</h3><p>The floor, buzz, PLUR — only if you want them.</p><span class="go">New bee door →</span></a>
+  </div>
 
   <div class="k">Learn · the course (prove comprehension → earn b)</div>
   <div class="grid">
