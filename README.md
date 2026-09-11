@@ -46,7 +46,7 @@ beehive-WELLness/
 ├─ crates/
 │  ├─ fat-profile/       # USDA/CNF fatty-acid reader · Measured<T> · mock-first · MIT/Apache
 │  └─ health-vault/      # no-PII health record types · pseudonymous subject · MIT/Apache
-├─ surfaces/             # static, zero-external-reference concept surfaces (the modules, the scanner)
+├─ surfaces/             # static concept surfaces — eight graded zero-network siblings + optional New bee door
 ├─ dockets/              # crate + curriculum specs
 ├─ fixtures/             # synthetic ONLY — the PHI-marker guard fails the build on real PHI
 ├─ .githooks/            # secret-scan + PHI-marker scan

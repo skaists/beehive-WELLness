@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>beehive-WELLness — New bee connect</title>
+  <!-- optional connect · CONCEPT · not graded · not medical advice · no PHI · progressive disclosure · data-i18n · no AGPL import -->
+  <style>
+    :root {
+      --paper: #F6F8F1;
+      --card: #FFFFFF;
+      --ink: #1A2320;
+      --ink-mut: #57655F;
+      --ink-dim: #64746D;
+      --biomass-ink: #487D34;
+      --b-value: #E8B54B;
+      --line: #E4EBDC;
+      --link: #1a4a7a;
+      --link-visited: #5a3d6e;
+      --mark: #5b3d8f;
+      --warn-bg: #f7f0d8;
+      --warn-ink: #3d3418;
+      --you: #8a1f64;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 1.05rem/1.55 Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    main { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1.1rem 3rem; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 650; line-height: 1.25; }
+    h1 { font-size: 1.65rem; margin: 0; }
+    h2 { font-size: 1.18rem; margin: 1.45rem 0 0.4rem; }
+    h3 { font-size: 1.02rem; margin: 0 0 0.35rem; }
+    p, li { color: var(--ink); }
+    .muted { color: var(--ink-mut); }
+    a { color: var(--link); }
+    a:visited { color: var(--link-visited); }
+    header.hero {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 0.85rem;
+    }
+    .mark-wrap { flex: 0 0 auto; width: 4.5rem; position: relative; }
+    .mark-wrap img { width: 4.5rem; height: 4.5rem; display: block; }
+    .bloom {
+      display: none;
+      position: absolute;
+      inset: -1.1rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,38,143,0.28) 0%, rgba(11,122,137,0.12) 42%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      body[data-reg="newbee"] .mark-wrap img {
+        animation: mark-breath 5.5s ease-in-out infinite;
+      }
+      body[data-reg="raver"] .bloom {
+        display: block;
+        animation: bloom-breath 6.5s ease-in-out infinite;
+      }
+      body[data-reg="raver"] .mark-wrap img {
+        animation: mark-bloom 6.5s ease-in-out infinite;
+      }
+    }
+    @keyframes mark-breath {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.94; }
+    }
+    @keyframes mark-bloom {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    @keyframes bloom-breath {
+      0%, 100% { transform: scale(0.92); opacity: 0.55; }
+      50% { transform: scale(1.18); opacity: 0.95; }
+    }
+    .crumb { font-size: 0.95rem; margin: 0 0 0.75rem; }
+    .chrome {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1rem;
+      align-items: center;
+      margin: 0.7rem 0 1rem;
+    }
+    .views {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    #blangctl {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-left: auto;
+    }
+    #blangctl label {
+      font-size: 0.85rem;
+      color: var(--ink-mut);
+    }
+    #blangsel {
+      font: inherit;
+      font-size: 0.92rem;
+      padding: 0.28rem 0.45rem;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 8px;
+      max-width: 12rem;
+    }
+    #blangnote {
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+      white-space: nowrap;
+    }
+    .views button {
+      font: inherit;
+      font-size: 0.92rem;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .views button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--card);
+      border-color: var(--ink);
+    }
+    .card, .beat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.05rem 1.05rem;
+      margin: 0 0 0.75rem;
+    }
+    .beat { padding: 1.15rem 1.15rem 1.2rem; }
+    .deepen { margin: 0 0 0.9rem; }
+    .deepen .feature { margin: 0 0 0.65rem; }
+    .quiet-row {
+      display: grid;
+      gap: 0.45rem 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(9.2rem, 100%), 1fr));
+    }
+    .quiet-row .card {
+      margin: 0;
+      padding: 0.55rem 0.15rem 0.35rem;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+    .quiet-row h2 { font-size: 0.98rem; margin: 0 0 0.2rem; }
+    .quiet-row p { margin: 0; font-size: 0.9rem; color: var(--ink-mut); }
+    .quiet-row .cta {
+      margin-top: 0.3rem;
+      padding: 0.15rem 0;
+      border: none;
+    }
+    .deepen .feature h2 { margin: 0 0 0.3rem; }
+    .cta {
+      display: inline-block;
+      margin-top: 0.45rem;
+      padding: 0.38rem 0.8rem;
+      border: 1px solid var(--link);
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .cta:visited { color: var(--link); }
+    .kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      margin: 0 0 0.3rem;
+    }
+    .featured {
+      border-color: #e0c4b4;
+      box-shadow: 0 0 0 1px rgba(199, 38, 143, 0.08);
+    }
+    .law {
+      margin: 0 0 0.7rem;
+      padding: 0.75rem 0.85rem;
+      border-left: 3px solid var(--mark);
+      background: #f3f6ee;
+      border-radius: 0 8px 8px 0;
+    }
+    .law p { margin: 0.35rem 0 0; }
+    .code {
+      font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+      font-size: 0.92rem;
+    }
+    .ext { font-size: 0.9rem; }
+    .liability {
+      background: var(--warn-bg);
+      color: var(--warn-ink);
+      border: 1px solid #d4c48a;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 1.3rem 0 0;
+    }
+    .rooms { padding-left: 1.15rem; margin: 0.4rem 0 0.8rem; }
+    details.more {
+      margin: 0.4rem 0 0.8rem;
+      color: var(--ink-mut);
+    }
+    details.more summary {
+      cursor: pointer;
+      color: var(--ink);
+    }
+    body[data-reg="newbee"] .for-raver,
+    body[data-reg="newbee"] .for-cypher { display: none; }
+    body[data-reg="raver"] .for-newbee,
+    body[data-reg="cypherpunk"] .for-newbee { display: none; }
+    body[data-reg="raver"] { background: #f6ebe3; }
+    body[data-reg="raver"] .card { border-color: #e0c4b4; }
+    body[data-reg="raver"] h1,
+    body[data-reg="raver"] h2 { color: var(--you); }
+    body[data-reg="cypherpunk"] {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background: #eef1ea;
+    }
+    body[data-reg="cypherpunk"] .card,
+    body[data-reg="cypherpunk"] .law,
+    body[data-reg="cypherpunk"] .liability,
+    body[data-reg="cypherpunk"] .views button,
+    body[data-reg="cypherpunk"] #blangsel { border-radius: 2px; }
+  </style>
+</head>
+<body data-reg="newbee">
+  <main>
+    <p class="crumb"><a href="beehive_wellness_index.html" data-i18n="well.newbee.crumb">WELLness</a></p>
+    <header class="hero">
+      <div class="mark-wrap">
+        <span class="bloom" aria-hidden="true"></span>
+        <img src="wellness-mandala.svg" width="72" height="72" alt="">
+      </div>
+      <div>
+        <h1 class="for-newbee" data-i18n="well.newbee.title">After a literacy win</h1>
+        <h1 class="for-raver" hidden>The plant is still alive in the lesson</h1>
+        <h1 class="for-cypher" hidden>Optional connect · instruments</h1>
+        <p class="muted for-newbee" style="margin:0.25rem 0 0;" data-i18n="well.newbee.lead">Optional. Stay if you are done.</p>
+        <p class="muted for-raver" hidden style="margin:0.25rem 0 0;">A breath. A plate. Ground that had to give.</p>
+        <p class="muted for-cypher" hidden style="margin:0.25rem 0 0;">Same doors. First-screen temperature only. Cite or stay silent.</p>
+      </div>
+    </header>
+
+    <div class="chrome">
+      <div class="views" role="group" aria-label="View">
+        <button type="button" data-reg="newbee" aria-pressed="true">New bee</button>
+        <button type="button" data-reg="raver" aria-pressed="false">Raver</button>
+        <button type="button" data-reg="cypherpunk" aria-pressed="false">Cypherpunk</button>
+      </div>
+      <div id="blangctl" data-language-host>
+        <label for="blangsel" data-i18n="well.newbee.lang">Language</label>
+        <select id="blangsel" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+          <option value="lv">Latviešu</option>
+          <option value="th">ไทย</option>
+          <option value="gd">Gàidhlig</option>
+          <option value="tt">Татар теле</option>
+          <option value="uk">Українська</option>
+          <option value="cs">Čeština</option>
+          <option value="zh">中文</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="nl-be">Vlaams (België)</option>
+          <option value="es">Español</option>
+          <option value="nl">Nederlands</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="he">עברית</option>
+          <option value="hi">हिन्दी</option>
+          <option value="bn">বাংলা</option>
+          <option value="fa">فارسی</option>
+          <option value="ur">اردو</option>
+          <option value="ja">日本語</option>
+          <option value="da">dansk</option>
+          <option value="nb">norsk</option>
+          <option value="sv">svenska</option>
+          <option value="fi">suomi</option>
+          <option value="tr">Türkçe</option>
+          <option value="hu">magyar</option>
+          <option value="sa">संस्कृतम्</option>
+        </select>
+        <span id="blangnote" hidden></span>
+      </div>
+    </div>
+
+    <article class="beat for-newbee" id="win">
+      <p style="margin:0;" data-i18n="well.newbee.beat">You learned to read a label. Deepen if you want.</p>
+    </article>
+
+    <section class="deepen for-newbee" aria-label="Optional rooms">
+      <article class="card feature" id="hexagon">
+        <h2 data-i18n="well.newbee.food">See your food drawn honestly</h2>
+        <p data-i18n="well.newbee.food.p">A picture, if you want one.</p>
+        <a class="cta" href="https://skaists.dev/surfaces/bfood.html" data-i18n="well.newbee.food.go">See</a>
+      </article>
+      <div class="quiet-row">
+        <article class="card" id="symposium">
+          <h2 data-i18n="well.newbee.talk">Talk about food</h2>
+          <p data-i18n="well.newbee.talk.p">A public room.</p>
+          <a class="cta" href="https://skaists.dev/surfaces/bsymposium.html" data-i18n="well.newbee.talk.go">Open</a>
+        </article>
+        <article class="card" id="earth">
+          <h2 data-i18n="well.newbee.earth">Food and earth</h2>
+          <p data-i18n="well.newbee.earth.p">The same living ground.</p>
+          <a class="cta" href="https://skaists.dev/surfaces/bearth.html" data-i18n="well.newbee.earth.go">Open</a>
+        </article>
+        <article class="card" id="media">
+          <h2 data-i18n="well.newbee.media">Pictures and music</h2>
+          <p data-i18n="well.newbee.media.p">Only if a room calls.</p>
+          <a class="cta" href="#more" data-i18n="well.newbee.media.go">See rooms</a>
+        </article>
+      </div>
+    </section>
+
+    <article class="card featured for-raver" hidden id="earth-raver">
+      <p class="kicker">First-class · living ground</p>
+      <h2>What the plate costs the living ground</h2>
+      <p>Seed, soil, breath — one living system. Land is not a slogan. If you want to feel what food asks of the planet, this door is open. No lecture. A living cost.</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bearth.html">Open bEarth</a>
+    </article>
+
+    <article class="card for-raver" hidden>
+      <h2>Food as a living drawing</h2>
+      <p>Not a pyramid of slogans. A picture that keeps a blank blank. If a module just told the truth a label hides, that catch in the throat is the celebration.</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bfood.html">See the drawing</a>
+    </article>
+
+    <article class="card for-raver" hidden>
+      <h2>Voices around one table</h2>
+      <p>Not a fight. A listening. The same honesty, spoken aloud, if that call is yours.</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bsymposium.html">Sit with the voices</a>
+    </article>
+
+    <section class="for-raver" hidden id="bloom">
+      <h2>When honesty blooms</h2>
+      <article class="card">
+        <h3>A blank that stayed blank</h3>
+        <p>The scan refused a fake zero. That is reverence — the plant was not invented to fill a hole.</p>
+      </article>
+      <article class="card">
+        <h3>Fat that was not one word</h3>
+        <p>The lesson split what a label smashes together. The body already knew they were not the same fire.</p>
+      </article>
+      <article class="card">
+        <h3>The seed is still a plant</h3>
+        <p>Hemp in the lesson grew, was hulled, and remains a living thing — not a cure, not a slogan. Consciousness first. Literacy only.</p>
+      </article>
+    </section>
+
+    <article class="card for-cypher" hidden>
+      <p class="kicker">Gold standard · bfood.html</p>
+      <h2>THE bFOOD HEXAGON</h2>
+      <p>Successor to the food pyramid. Measurement grammar only — not a health outcome. Three render states: measured (solid) · NotMeasured (dashed empty, n/m) · floor (dashed filled, ≥).</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bfood.html">Open bfood.html</a>
+    </article>
+
+    <section class="for-cypher" hidden id="laws">
+      <h2>Hexagon laws</h2>
+      <p class="muted">Exhibits. Each cites <a href="https://skaists.dev/surfaces/bfood.html">bfood.html</a>. This tree does not compute a plate.</p>
+      <div class="law" id="law-nm">
+        <h3>NotMeasured ≠ 0</h3>
+        <p>Dashed empty. n/m. Never filled as zero. A missing assay stays missing.</p>
+        <p><a href="https://skaists.dev/surfaces/bfood.html">Cite: empty-cell law</a></p>
+      </div>
+      <div class="law" id="law-floor">
+        <h3>≥ floors</h3>
+        <p>Dashed filled. A lower bound is not a total.</p>
+        <p><a href="https://skaists.dev/surfaces/bfood.html">Cite: floor-cell law</a></p>
+      </div>
+      <div class="law" id="law-scale">
+        <h3>Body-scaled only where science scales</h3>
+        <p>Height, weight, age, sex, activity scale a cell only when the science does. WELLness collects none of those fields.</p>
+        <p><a href="https://skaists.dev/surfaces/bfood.html">Cite: scaled vs unscaled</a></p>
+      </div>
+      <div class="law" id="law-fat">
+        <h3>Fat disaggregated</h3>
+        <p>Undifferentiated “saturated fat” is forbidden. Lauric, palmitic, trans are not one glyph.</p>
+        <p><a href="https://skaists.dev/surfaces/bfood.html">Cite: fat classes</a></p>
+      </div>
+      <div class="law" id="law-ladder">
+        <h3>Evidence ladder</h3>
+        <p>T0 composed → T1 self-reported → T2 receipt-backed → T3 assayed. A prettier drawing does not climb a tier.</p>
+        <p><a href="https://skaists.dev/surfaces/bfood.html">Cite: evidence ladder</a></p>
+      </div>
+    </section>
+
+    <section class="for-cypher" hidden id="measured">
+      <h2>fat-profile · Measured&lt;T&gt;</h2>
+      <article class="card">
+        <p class="code">Measured&lt;T&gt; { Value(T) | NotMeasured }</p>
+        <p>No constructor turns NotMeasured into a number. No interpolation. A USDA gap stays NotMeasured through the hatched chip. Same law the Hexagon draws.</p>
+        <p class="muted">Cite: <span class="code">crates/fat-profile</span> in this tree. Silent if uncited.</p>
+      </article>
+    </section>
+
+    <article class="card for-cypher" hidden>
+      <p class="kicker">Discourse · bsymposium.html</p>
+      <h2>bSymposium</h2>
+      <p>MAHA × bFood. Dual-receipted. Cite or the row stays silent. Not a care plan.</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bsymposium.html">Open bsymposium.html</a>
+    </article>
+
+    <section class="for-cypher" hidden id="receipts">
+      <h2>Symposium receipts</h2>
+      <p class="muted">Exhibits, not a homework list. All land on <a href="https://skaists.dev/surfaces/bsymposium.html">bsymposium.html</a>.</p>
+      <div class="law">
+        <h3>Dual-receipted discourse</h3>
+        <p>Every MAHA claim a dated primary; every bFood claim an in-tree record. Align · complementary · open + named settlement path.</p>
+      </div>
+      <div class="law">
+        <h3>Five co-creations (exhibits)</h3>
+        <p>Lot-level COA · NotMeasured≠0 as label law · fatty-acid chain-length disclosure · receipts-disciplined publishing · SNAP experiments on the tier ladder.</p>
+      </div>
+    </section>
+
+    <article class="card for-cypher" hidden>
+      <p class="kicker">Living systems · bearth.html</p>
+      <h2>bEarth arithmetic</h2>
+      <p>What food actually costs the planet — dials, self-refutations, N₂O. Instruments live on that origin. This tree does not run the model.</p>
+      <a class="cta" href="https://skaists.dev/surfaces/bearth.html">Open bearth.html</a>
+    </article>
+
+    <section class="for-cypher" hidden id="earth-math">
+      <h2>bEarth instruments</h2>
+      <p class="muted">Cite <a href="https://skaists.dev/surfaces/bearth.html">bearth.html</a>. New bee first paint never carries this depth.</p>
+      <div class="law">
+        <h3>Dials</h3>
+        <p>Population · g/day · hull→heart recovery · yield · N applied · N₂O emission factor. Every input is contested; the page will not choose a flattering value.</p>
+        <p><a href="https://skaists.dev/surfaces/bearth.html">Cite: demand dials</a></p>
+      </div>
+      <div class="law">
+        <h3>Self-refutations</h3>
+        <p>On-page, against interest: “sequesters CO₂ — double rainforest” refuted · “sequesters nitrogen” refuted · “waste stream is fertilizer” refuted on economics.</p>
+        <p><a href="https://skaists.dev/surfaces/bearth.html">Cite: the three claims given up</a></p>
+      </div>
+      <div class="law">
+        <h3>N₂O</h3>
+        <p>Measured field factor ~5× below IPCC Tier 1 default (Tedeschi et al. 2020) — the page’s strongest environmental card, with site/season limits attached.</p>
+        <p><a href="https://skaists.dev/surfaces/bearth.html">Cite: N₂O instrument</a></p>
+      </div>
+      <div class="law">
+        <h3>Floor ≠ total</h3>
+        <p>FAOSTAT hemp area is a floor: China has not reported since 1990. A missing report is not a zero.</p>
+        <p><a href="https://skaists.dev/surfaces/bearth.html">Cite: land denominator</a></p>
+      </div>
+    </section>
+
+    <section id="more">
+      <h2 class="for-newbee" data-i18n="well.newbee.more">More rooms</h2>
+      <h2 class="for-raver" hidden>Other living rooms</h2>
+      <h2 class="for-cypher" hidden>Atlas hrefs</h2>
+      <p class="muted for-newbee" data-i18n="well.newbee.more.p">Still optional.</p>
+      <p class="muted for-raver" hidden>If a color, a song, or a floor calls.</p>
+      <p class="muted for-cypher" hidden>Live atlas paths. Estate = same tab. Invent nothing.</p>
+      <details class="more for-newbee">
+        <summary data-i18n="well.newbee.more.open">Open names</summary>
+        <ul class="rooms">
+          <li><a href="https://skaists.dev/surfaces/university/index.html">University</a></li>
+          <li><a href="https://skaists.dev/surfaces/doors/bnature-bio.html">Living-systems door</a></li>
+          <li><a href="https://skaists.dev/surfaces/watch.html">Watch</a></li>
+          <li><a href="https://skaists.dev/surfaces/blight/gallery.html">Gallery</a></li>
+          <li><a href="https://skaists.dev/surfaces/blight/studio-music.html">Studio music</a></li>
+          <li><a href="https://skaists.dev/surfaces/festival/index.html">Festival</a></li>
+          <li><a href="https://skaists.dev/surfaces/buzz-directory.html">Buzz</a></li>
+          <li><a href="https://skaists.dev/surfaces/kandi.html">Kandi</a></li>
+          <li><a href="https://skaists.dev/surfaces/plur.html">PLUR</a></li>
+        </ul>
+      </details>
+      <ul class="rooms for-raver" hidden>
+        <li><a href="https://skaists.dev/surfaces/university/index.html">University</a></li>
+        <li><a href="https://skaists.dev/surfaces/doors/bnature-bio.html">Living-systems door</a></li>
+        <li><a href="https://skaists.dev/surfaces/watch.html">Watch</a></li>
+        <li><a href="https://skaists.dev/surfaces/blight/gallery.html">Gallery</a></li>
+        <li><a href="https://skaists.dev/surfaces/blight/studio-music.html">Studio music</a></li>
+        <li><a href="https://skaists.dev/surfaces/festival/index.html">Festival</a></li>
+        <li><a href="https://skaists.dev/surfaces/buzz-directory.html">Buzz</a></li>
+        <li><a href="https://skaists.dev/surfaces/kandi.html">Kandi</a></li>
+        <li><a href="https://skaists.dev/surfaces/plur.html">PLUR</a></li>
+      </ul>
+      <ul class="rooms for-cypher" hidden>
+        <li><a href="https://skaists.dev/surfaces/university/index.html">University</a></li>
+        <li><a href="https://skaists.dev/surfaces/doors/bnature-bio.html">Living-systems door</a></li>
+        <li><a href="https://skaists.dev/surfaces/watch.html">Watch</a></li>
+        <li><a href="https://skaists.dev/surfaces/blight/gallery.html">Gallery</a></li>
+        <li><a href="https://skaists.dev/surfaces/blight/studio-music.html">Studio music</a></li>
+        <li><a href="https://skaists.dev/surfaces/festival/index.html">Festival</a></li>
+        <li><a href="https://skaists.dev/surfaces/buzz-directory.html">Buzz</a></li>
+        <li><a href="https://skaists.dev/surfaces/kandi.html">Kandi</a></li>
+        <li><a href="https://skaists.dev/surfaces/plur.html">PLUR</a></li>
+      </ul>
+      <p class="ext muted"><a href="https://github.com/beehive-nature/beehive-nature/blob/main/SPEC_hulled_hemp_hearts_COA_tri_jurisdictional.md" target="_blank" rel="noopener noreferrer"><span class="for-newbee" data-i18n="well.newbee.coa">Food spec</span><span class="for-raver" hidden>The paper trail of a seed</span><span class="for-cypher" hidden>COA spec (cite)</span><span class="ext" data-i18n="well.newbee.newtab"> (opens in a new tab)</span></a></p>
+    </section>
+
+    <aside class="liability">
+      <p class="for-newbee" style="margin:0;" data-i18n="well.newbee.wall">Literacy only. Not medical advice.</p>
+      <p class="for-raver" hidden style="margin:0;">Feeling is not a diagnosis. The plant is not a prescription. Literacy only. CONCEPT / simulated. No PHI.</p>
+      <p class="for-cypher" hidden style="margin:0;"><strong>Liability wall.</strong> Nutrition literacy only. CONCEPT / simulated. Not medical advice. No PHI. No diagnosis, treatment, prevention, or outcome claims. Optional estate rooms stay literacy and discourse. They do not become a care plan because you opened them. Cite-or-silent: a claim without a receipt does not ship.</p>
+    </aside>
+  </main>
+  <script>
+    (function () {
+      var KEY = "wellness-reg";
+      var LANG_KEY = "blang";
+      var body = document.body;
+      var buttons = document.querySelectorAll(".views button[data-reg]");
+      var allowed = { newbee: true, raver: true, cypherpunk: true };
+      var RTL = { ar: 1, he: 1, fa: 1, ur: 1 };
+      var sel = document.getElementById("blangsel");
+      var note = document.getElementById("blangnote");
+      var langs = {};
+      if (sel) Array.prototype.forEach.call(sel.options, function (o) { langs[o.value] = true; });
+
+      /* Short New bee strings only. Machine-drafted ⚙ until attested. English is the source. */
+      var corpus = {
+        "well.newbee.lang": { ru:"Язык", lv:"Valoda", th:"ภาษา", gd:"Cànan", tt:"Тел", uk:"Мова", cs:"Jazyk", zh:"语言", ko:"언어", ar:"اللغة", "nl-be":"Taal", es:"Idioma", nl:"Taal", de:"Sprache", fr:"Langue", he:"שפה", hi:"भाषा", bn:"ভাষা", fa:"زبان", ur:"زبان", ja:"言語", da:"Sprog", nb:"Språk", sv:"Språk", fi:"Kieli", tr:"Dil", hu:"Nyelv", sa:"भाषा" },
+        "well.newbee.title": { ru:"После урока", lv:"Pēc lasīšanas", th:"หลังอ่านฉลาก", gd:"An dèidh leughadh", tt:"Укудан соң", uk:"Після уроку", cs:"Po čtení", zh:"读完之后", ko:"읽은 뒤", ar:"بعد القراءة", "nl-be":"Na het lezen", es:"Después de leer", nl:"Na het lezen", de:"Nach dem Lesen", fr:"Après la lecture", he:"אחרי הקריאה", hi:"पढ़ने के बाद", bn:"পড়ার পর", fa:"پس از خواندن", ur:"پڑھنے کے بعد", ja:"読んだあと", da:"Efter læsning", nb:"Etter lesing", sv:"Efter läsning", fi:"Lukemisen jälkeen", tr:"Okuduktan sonra", hu:"Olvasás után", sa:"पठनानन्तरम्" },
+        "well.newbee.lead": { ru:"По желанию. Можно остаться.", lv:"Pēc izvēles. Vari palikt.", th:"ไม่บังคับ อยู่ต่อได้", gd:"Roghainneil. Fuirich ma thogras tu.", tt:"Ихтыяри. Калырга ярый.", uk:"За бажанням. Можна лишитись.", cs:"Volitelné. Můžeš zůstat.", zh:"可选。留下也行。", ko:"선택. 머물러도 됩니다.", ar:"اختياري. يمكنك البقاء.", "nl-be":"Optioneel. Blijf gerust.", es:"Opcional. Puedes quedarte.", nl:"Optioneel. Blijf gerust.", de:"Freiwillig. Du darfst bleiben.", fr:"Facultatif. Tu peux rester.", he:"רשות. אפשר להישאר.", hi:"वैकल्पिक। रुक सकते हैं।", bn:"ঐচ্ছিক। থাকতে পারো।", fa:"اختیاری. می‌توانی بمانی.", ur:"اختیاری۔ رہ سکتے ہو۔", ja:"任意。このままでも。", da:"Valgfrit. Du må blive.", nb:"Valgfritt. Du kan bli.", sv:"Valfritt. Du får stanna.", fi:"Valinnainen. Voit jäädä.", tr:"İsteğe bağlı. Kalabilirsin.", hu:"Nem kötelező. Maradhatsz.", sa:"वैकल्पिकम्। स्थातुं शक्यते।" },
+        "well.newbee.beat": { ru:"Ты научился читать этикетку. Углубляйся, если хочешь.", lv:"Tu iemācījies lasīt etiķeti. Dziļāk — ja gribi.", th:"คุณอ่านฉลากได้แล้ว ลึกขึ้นได้ถ้าต้องการ", gd:"Ionnsachadh tu leughadh bileag. Racha nas doimhne ma thogras tu.", tt:"Син ярлык укырга өйрәндең. Теләсәң тирәнәйт.", uk:"Ти навчився читати етикетку. Глибше — якщо хочеш.", cs:"Naučil ses číst štítek. Prohlub, chceš-li.", zh:"你会读标签了。想再看就看。", ko:"라벨을 읽을 수 있습니다. 더 보고 싶다면.", ar:"تعلمت قراءة البطاقة. تعمّق إن شئت.", "nl-be":"Je kunt een etiket lezen. Verdiep als je wilt.", es:"Ya sabes leer una etiqueta. Profundiza si quieres.", nl:"Je kunt een etiket lezen. Verdiep als je wilt.", de:"Du kannst ein Etikett lesen. Vertiefe, wenn du willst.", fr:"Tu sais lire une étiquette. Va plus loin si tu veux.", he:"למדת לקרוא תווית. העמיקו אם תרצו.", hi:"लेबल पढ़ना आ गया। चाहो तो और देखो।", bn:"লেবেল পড়তে শিখেছ। চাইলে আরও দেখো।", fa:"برچسب خواندن را آموختی. اگر خواستی عمیق‌تر شو.", ur:"لیبل پڑھنا آ گیا۔ چاہو تو آگے بڑھو۔", ja:"ラベルは読める。見たいなら、もう少し。", da:"Du kan læse en etiket. Gå videre, hvis du vil.", nb:"Du kan lese en etikett. Gå dypere om du vil.", sv:"Du kan läsa en etikett. Fördjupa om du vill.", fi:"Osaat lukea etiketin. Syvennä, jos haluat.", tr:"Etiket okumayı öğrendin. İstersen derinleş.", hu:"Megtanultál címkét olvasni. Mélyíts, ha akarod.", sa:"पत्रं पठितुं शिक्षितम्। इच्छसि चेत् गभीरं गच्छ।" },
+        "well.newbee.food": { ru:"Еда, нарисованная честно", lv:"Ēdiens, zīmēts godīgi", th:"อาหารที่วาดอย่างตรงไปตรงมา", gd:"Biadh air a tharraing gu onarach", tt:"Тугры рәсемләнгән аш", uk:"Їжа, намальована чесно", cs:"Jídlo nakreslené poctivě", zh:"诚实地画出你的食物", ko:"음식을 정직하게 그리기", ar:"طعام مرسوم بصدق", "nl-be":"Eten eerlijk getekend", es:"Tu comida dibujada con honestidad", nl:"Eten eerlijk getekend", de:"Essen ehrlich gezeichnet", fr:"Ta nourriture dessinée honnêtement", he:"האוכל שלך מצויר בכנות", hi:"खाना ईमानदारी से बना चित्र", bn:"খাবার সৎভাবে আঁকা", fa:"غذایت صادقانه کشیده", ur:"کھانا ایمانداری سے کھینچا", ja:"正直に描いた食べ物", da:"Mad tegnet ærligt", nb:"Mat tegnet ærlig", sv:"Mat ritad ärligt", fi:"Ruoka piirretty rehellisesti", tr:"Yemeğin dürüstçe çizilmiş", hu:"Étel őszintén rajzolva", sa:"भोजनं सत्येन चित्रितम्" },
+        "well.newbee.food.p": { ru:"Картинка, если хочешь.", lv:"Bilde, ja gribi.", th:"รูปภาพ ถ้าอยากดู", gd:"Dealbh, ma thogras tu.", tt:"Рәсем, теләсәң.", uk:"Малюнок, якщо хочеш.", cs:"Obrázek, chceš-li.", zh:"想看就看这张图。", ko:"보고 싶다면, 그림.", ar:"صورة، إن شئت.", "nl-be":"Een beeld, als je wilt.", es:"Una imagen, si quieres.", nl:"Een beeld, als je wilt.", de:"Ein Bild, wenn du willst.", fr:"Une image, si tu veux.", he:"תמונה, אם תרצו.", hi:"एक चित्र, चाहो तो।", bn:"একটি ছবি, চাইলে।", fa:"یک تصویر، اگر بخواهی.", ur:"ایک تصویر، چاہو تو۔", ja:"見たいなら、絵。", da:"Et billede, hvis du vil.", nb:"Et bilde, om du vil.", sv:"En bild, om du vill.", fi:"Kuva, jos haluat.", tr:"Bir resim, istersen.", hu:"Egy kép, ha akarod.", sa:"चित्रम्, यदि इच्छसि।" },
+        "well.newbee.food.go": { ru:"Смотреть", lv:"Skatīt", th:"ดู", gd:"Seall", tt:"Карарга", uk:"Дивитись", cs:"Zobrazit", zh:"看", ko:"보기", ar:"انظر", "nl-be":"Bekijk", es:"Ver", nl:"Bekijk", de:"Ansehen", fr:"Voir", he:"ראה", hi:"देखें", bn:"দেখো", fa:"ببین", ur:"دیکھو", ja:"見る", da:"Se", nb:"Se", sv:"Se", fi:"Katso", tr:"Gör", hu:"Nézd", sa:"पश्य" },
+        "well.newbee.talk": { ru:"Поговорить о еде", lv:"Runāt par ēdienu", th:"คุยเรื่องอาหาร", gd:"Bruidhinn mu bhiadh", tt:"Аш турында сөйләшү", uk:"Поговорити про їжу", cs:"Mluvit o jídle", zh:"谈谈食物", ko:"음식 이야기", ar:"الحديث عن الطعام", "nl-be":"Over eten praten", es:"Hablar de comida", nl:"Over eten praten", de:"Über Essen sprechen", fr:"Parler de nourriture", he:"לדבר על אוכל", hi:"खाना पर बात", bn:"খাবার নিয়ে কথা", fa:"گفتگو درباره غذا", ur:"کھانے کی بات", ja:"食べ物の話", da:"Tale om mad", nb:"Snakke om mat", sv:"Prata om mat", fi:"Puhua ruoasta", tr:"Yemek hakkında konuş", hu:"Beszélni az ételről", sa:"आहारस्य कथा" },
+        "well.newbee.talk.p": { ru:"Открытая комната.", lv:"Publiska telpa.", th:"ห้องสาธารณะ", gd:"Seòmar poblach.", tt:"Ачык бүлмә.", uk:"Публічна кімната.", cs:"Veřejná místnost.", zh:"一间公开的房间。", ko:"공개된 방.", ar:"غرفة عامة.", "nl-be":"Een open kamer.", es:"Una sala pública.", nl:"Een open kamer.", de:"Ein öffentlicher Raum.", fr:"Une salle publique.", he:"חדר ציבורי.", hi:"एक सार्वजनिक कमरा।", bn:"একটি খোলা ঘর।", fa:"اتاقی عمومی.", ur:"ایک کھلا کمرہ۔", ja:"開かれた部屋。", da:"Et offentligt rum.", nb:"Et åpent rom.", sv:"Ett öppet rum.", fi:"Julkinen huone.", tr:"Açık bir oda.", hu:"Nyilvános szoba.", sa:"सार्वजनिकं गृहम्।" },
+        "well.newbee.talk.go": { ru:"Открыть", lv:"Atvērt", th:"เปิด", gd:"Fosgail", tt:"Ачарга", uk:"Відкрити", cs:"Otevřít", zh:"打开", ko:"열기", ar:"افتح", "nl-be":"Open", es:"Abrir", nl:"Open", de:"Öffnen", fr:"Ouvrir", he:"פתח", hi:"खोलें", bn:"খोलো", fa:"باز کن", ur:"کھولو", ja:"開く", da:"Åbn", nb:"Åpne", sv:"Öppna", fi:"Avaa", tr:"Aç", hu:"Megnyit", sa:"उद्घाटय" },
+        "well.newbee.earth": { ru:"Еда и земля", lv:"Ēdiens un zeme", th:"อาหารและดิน", gd:"Biadh is talamh", tt:"Аш һәм җир", uk:"Їжа і земля", cs:"Jídlo a země", zh:"食物与大地", ko:"음식과 땅", ar:"الطعام والأرض", "nl-be":"Eten en aarde", es:"Comida y tierra", nl:"Eten en aarde", de:"Essen und Erde", fr:"Nourriture et terre", he:"אוכל ואדמה", hi:"खाना और धरती", bn:"খাবার ও মাটি", fa:"غذا و زمین", ur:"کھانا اور زمین", ja:"食と大地", da:"Mad og jord", nb:"Mat og jord", sv:"Mat och jord", fi:"Ruoka ja maa", tr:"Yemek ve toprak", hu:"Étel és föld", sa:"आहारः पृथ्वी च" },
+        "well.newbee.earth.p": { ru:"Та же живая земля.", lv:"Tā pati dzīvā zeme.", th:"ผืนดินเดียวกัน", gd:"An aon talamh beò.", tt:"Шул ук тере җир.", uk:"Та сама жива земля.", cs:"Stejná živá země.", zh:"同一片活着的土地。", ko:"같은 살아있는 땅.", ar:"نفس الأرض الحية.", "nl-be":"Dezelfde levende grond.", es:"La misma tierra viva.", nl:"Dezelfde levende grond.", de:"Derselbe lebendige Boden.", fr:"La même terre vivante.", he:"אותה אדמה חיה.", hi:"वही जीवित धरती।", bn:"সেই এক জীবন্ত মাটি।", fa:"همان زمین زنده.", ur:"وہی زندہ زمین۔", ja:"同じ生きている土。", da:"Den samme levende jord.", nb:"Den samme levende jorden.", sv:"Samma levande jord.", fi:"Sama elävä maa.", tr:"Aynı canlı toprak.", hu:"Ugyanaz az élő föld.", sa:"सा एव जीविनी भूमिः।" },
+        "well.newbee.earth.go": { ru:"Открыть", lv:"Atvērt", th:"เปิด", gd:"Fosgail", tt:"Ачарга", uk:"Відкрити", cs:"Otevřít", zh:"打开", ko:"열기", ar:"افتح", "nl-be":"Open", es:"Abrir", nl:"Open", de:"Öffnen", fr:"Ouvrir", he:"פתח", hi:"खोलें", bn:"খোলো", fa:"باز کن", ur:"کھولو", ja:"開く", da:"Åbn", nb:"Åpne", sv:"Öppna", fi:"Avaa", tr:"Aç", hu:"Megnyit", sa:"उद्घाटय" },
+        "well.newbee.media": { ru:"Картинки и музыка", lv:"Bildes un mūzika", th:"ภาพและเพลง", gd:"Dealbhan is ceòl", tt:"Рәсемнәр һәм музыка", uk:"Картинки і музика", cs:"Obrázky a hudba", zh:"图画和音乐", ko:"그림과 음악", ar:"صور وموسيقى", "nl-be":"Beelden en muziek", es:"Imágenes y música", nl:"Beelden en muziek", de:"Bilder und Musik", fr:"Images et musique", he:"תמונות ומוזיקה", hi:"चित्र और संगीत", bn:"ছবি ও সঙ্গীত", fa:"تصویر و موسیقی", ur:"تصویر اور موسیقی", ja:"絵と音楽", da:"Billeder og musik", nb:"Bilder og musikk", sv:"Bilder och musik", fi:"Kuvat ja musiikki", tr:"Resim ve müzik", hu:"Képek és zene", sa:"चित्राणि गीतं च" },
+        "well.newbee.media.p": { ru:"Только если комната зовёт.", lv:"Tikai tad, ja telpa sauc.", th:"ถ้าห้องเรียกเท่านั้น", gd:"A-mhàin ma ghairmeas seòmar.", tt:"Бүлмә чакырса гына.", uk:"Лише якщо кімната кличе.", cs:"Jen když místnost volá.", zh:"只有房间在叫你时。", ko:"방이 부를 때만.", ar:"فقط إن نادتك غرفة.", "nl-be":"Alleen als een kamer roept.", es:"Solo si una sala llama.", nl:"Alleen als een kamer roept.", de:"Nur wenn ein Raum ruft.", fr:"Seulement si une salle appelle.", he:"רק אם חדר קורא.", hi:"अगर कोई कमरा पुकारे।", bn:"শুধু যদি ঘর ডাকে।", fa:"فقط اگر اتاقی صدا بزند.", ur:"اگر کوئی کمرہ پکارے۔", ja:"部屋が呼ぶときだけ。", da:"Kun hvis et rum kalder.", nb:"Bare om et rom kaller.", sv:"Bara om ett rum kallar.", fi:"Vain jos huone kutsuu.", tr:"Yalnızca bir oda çağırırsa.", hu:"Csak ha egy szoba hív.", sa:"कक्षः आह्वयति चेत् एव।" },
+        "well.newbee.media.go": { ru:"Комнаты", lv:"Telpas", th:"ห้อง", gd:"Seòmraichean", tt:"Бүлмәләр", uk:"Кімнати", cs:"Místnosti", zh:"房间", ko:"방 보기", ar:"الغرف", "nl-be":"Kamers", es:"Salas", nl:"Kamers", de:"Räume", fr:"Salles", he:"חדרים", hi:"कमरे", bn:"ঘর", fa:"اتاق‌ها", ur:"کمرے", ja:"部屋", da:"Rum", nb:"Rom", sv:"Rum", fi:"Huoneet", tr:"Odalar", hu:"Szobák", sa:"गृहाणि" },
+        "well.newbee.more": { ru:"Ещё комнаты", lv:"Vēl telpas", th:"ห้องอื่น", gd:"Barrachd sheòmraichean", tt:"Тагын бүлмәләр", uk:"Ще кімнати", cs:"Další místnosti", zh:"更多房间", ko:"다른 방", ar:"غرف أخرى", "nl-be":"Meer kamers", es:"Más salas", nl:"Meer kamers", de:"Weitere Räume", fr:"D’autres salles", he:"עוד חדרים", hi:"और कमरे", bn:"আরও ঘর", fa:"اتاق‌های دیگر", ur:"مزید کمرے", ja:"ほかの部屋", da:"Flere rum", nb:"Flere rom", sv:"Fler rum", fi:"Lisää huoneita", tr:"Diğer odalar", hu:"További szobák", sa:"अन्यानि गृहाणि" },
+        "well.newbee.more.p": { ru:"Всё ещё по желанию.", lv:"Joprojām pēc izvēles.", th:"ยังไม่บังคับ", gd:"Fhathast roghainneil.", tt:"Әле дә ихтыяри.", uk:"Досі за бажанням.", cs:"Pořád volitelné.", zh:"仍然可选。", ko:"여전히 선택.", ar:"ما زال اختيارياً.", "nl-be":"Nog altijd optioneel.", es:"Sigue siendo opcional.", nl:"Nog altijd optioneel.", de:"Immer noch freiwillig.", fr:"Toujours facultatif.", he:"עדיין רשות.", hi:"अब भी वैकल्पिक।", bn:"এখনও ঐচ্ছিক।", fa:"هنوز اختیاری.", ur:"اب بھی اختیاری۔", ja:"まだ任意。", da:"Stadig valgfrit.", nb:"Fortsatt valgfritt.", sv:"Fortfarande valfritt.", fi:"Yhä valinnainen.", tr:"Hâlâ isteğe bağlı.", hu:"Még mindig nem kötelező.", sa:"अद्यापि वैकल्पिकम्।" },
+        "well.newbee.more.open": { ru:"Открыть имена", lv:"Atvērt vārdus", th:"เปิดชื่อ", gd:"Fosgail ainmean", tt:"Исемнәрне ачарга", uk:"Відкрити назви", cs:"Otevřít jména", zh:"打开名称", ko:"이름 열기", ar:"افتح الأسماء", "nl-be":"Namen openen", es:"Abrir nombres", nl:"Namen openen", de:"Namen öffnen", fr:"Ouvrir les noms", he:"פתח שמות", hi:"नाम खोलें", bn:"নাম খোলো", fa:"نام‌ها را باز کن", ur:"نام کھولو", ja:"名前を開く", da:"Åbn navne", nb:"Åpne navn", sv:"Öppna namn", fi:"Avaa nimet", tr:"Adları aç", hu:"Nevek megnyitása", sa:"नामानि उद्घाटय" },
+        "well.newbee.coa": { ru:"Спецификация", lv:"Specifikācija", th:"เอกสารอาหาร", gd:"Sgrìobhainn bìdh", tt:"Спецификация", uk:"Специфікація", cs:"Specifikace", zh:"食物规格", ko:"식품 명세", ar:"مواصفة غذاء", "nl-be":"Voedselspec", es:"Especificación", nl:"Voedselspec", de:"Lebensmittelspez", fr:"Spécification", he:"מפרט מזון", hi:"खाद्य विनिर्देश", bn:"খাদ্য স্পেক", fa:"مشخصات غذا", ur:"خوراک کی تفصیل", ja:"食品仕様", da:"Fødevarespec", nb:"Matspesifikasjon", sv:"Livsmedelsspec", fi:"Elintarvikespes", tr:"Gıda şartnamesi", hu:"Élelmiszer-spec", sa:"आहारस्य विनिर्देशः" },
+        "well.newbee.newtab": { ru:" (новая вкладка)", lv:" (jauna cilne)", th:" (แท็บใหม่)", gd:" (taba ùr)", tt:" (яңа өстәмә)", uk:" (нова вкладка)", cs:" (nová karta)", zh:"（新标签页）", ko:" (새 탭)", ar:" (تبويب جديد)", "nl-be":" (nieuw tabblad)", es:" (nueva pestaña)", nl:" (nieuw tabblad)", de:" (neuer Tab)", fr:" (nouvel onglet)", he:" (כרטיסייה חדשה)", hi:" (नया टैब)", bn:" (নতুন ট্যাব)", fa:" (زبانه جدید)", ur:" (نیا ٹیب)", ja:"（新しいタブ）", da:" (nyt faneblad)", nb:" (ny fane)", sv:" (ny flik)", fi:" (uusi välilehti)", tr:" (yeni sekme)", hu:" (új lap)", sa:" (नवीनं पत्रम्)" },
+        "well.newbee.wall": { ru:"Только грамотность. Не медицинский совет.", lv:"Tikai lasītprasme. Nav medicīnisks padoms.", th:"ความรู้เท่านั้น ไม่ใช่คำแนะนำทางการแพทย์", gd:"Litearrachd a-mhàin. Chan e comhairle mheidigeach.", tt:"Бары грамота. Медицина киңәше түгел.", uk:"Лише грамотність. Не медична порада.", cs:"Jen gramotnost. Ne lékařská rada.", zh:"只是识读。不是医疗建议。", ko:"문해만. 의료 조언 아님.", ar:"معرفة فقط. ليست نصيحة طبية.", "nl-be":"Alleen geletterdheid. Geen medisch advies.", es:"Solo alfabetización. No es consejo médico.", nl:"Alleen geletterdheid. Geen medisch advies.", de:"Nur Lesekompetenz. Kein medizinischer Rat.", fr:"Lecture seulement. Pas un avis médical.", he:"אוריינות בלבד. לא ייעוץ רפואי.", hi:"केवल साक्षरता। चिकित्सा सलाह नहीं।", bn:"শুধু সাক্ষরতা। চিকিৎসা পরামর্শ নয়।", fa:"فقط سواد. توصیه پزشکی نیست.", ur:"صرف خواندگی۔ طبی مشورہ نہیں۔", ja:"読み方だけ。医療助言ではない。", da:"Kun læsefærdighed. Ikke lægeråd.", nb:"Bare leseferdighet. Ikke medisinsk råd.", sv:"Endast läskunnighet. Inte medicinsk rådgivning.", fi:"Vain lukutaito. Ei lääketieteellistä neuvoa.", tr:"Yalnızca okuryazarlık. Tıbbi tavsiye değil.", hu:"Csak írástudás. Nem orvosi tanács.", sa:"केवलं साक्षरता। न चिकित्सोपदेशः।" }
+      };
+
+      function apply(reg) {
+        if (!allowed[reg]) reg = "newbee";
+        body.setAttribute("data-reg", reg);
+        buttons.forEach(function (btn) {
+          var on = btn.getAttribute("data-reg") === reg;
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        document.querySelectorAll(".for-newbee").forEach(function (el) {
+          el.hidden = reg !== "newbee";
+        });
+        document.querySelectorAll(".for-raver").forEach(function (el) {
+          el.hidden = reg !== "raver";
+        });
+        document.querySelectorAll(".for-cypher").forEach(function (el) {
+          el.hidden = reg !== "cypherpunk";
+        });
+        try { localStorage.setItem(KEY, reg); } catch (e) {}
+      }
+
+      function pref() {
+        try {
+          var v = localStorage.getItem(LANG_KEY);
+          if (v && langs[v]) return v;
+        } catch (e) {}
+        return "en";
+      }
+
+      function applyLang(code) {
+        if (!langs[code]) code = "en";
+        document.documentElement.lang = code;
+        document.documentElement.dir = RTL[code] ? "rtl" : "ltr";
+        if (sel) sel.value = code;
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (el.dataset.i18nEn === undefined) el.dataset.i18nEn = el.textContent;
+          var row = corpus[k];
+          var s = code !== "en" && row && row[code];
+          el.textContent = (typeof s === "string" && s.trim()) ? s : el.dataset.i18nEn;
+        });
+        if (note) {
+          if (code === "en") {
+            note.hidden = true;
+            note.textContent = "";
+          } else {
+            note.hidden = false;
+            note.textContent = "⚙";
+            note.title = "machine-drafted — human attestation upgrades it; English if a cell is empty";
+          }
+        }
+        try { localStorage.setItem(LANG_KEY, code); } catch (e) {}
+        try {
+          var p = JSON.parse(localStorage.getItem("btranslated_pref") || "{}");
+          p.ui = code;
+          localStorage.setItem("btranslated_pref", JSON.stringify(p));
+        } catch (e) {}
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          apply(btn.getAttribute("data-reg"));
+        });
+      });
+      if (sel) {
+        sel.addEventListener("change", function () {
+          applyLang(sel.value);
+        });
+      }
+      window.addEventListener("storage", function (e) {
+        if (e.key === LANG_KEY) applyLang(pref());
+      });
+      document.addEventListener("blang", function () {
+        applyLang(pref());
+        apply(body.getAttribute("data-reg") || "newbee");
+      });
+
+      var start = "newbee";
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved && allowed[saved]) start = saved;
+      } catch (e) {}
+      apply(start);
+      applyLang(pref());
+    })();
+  </script>
+</body>
+</html>
