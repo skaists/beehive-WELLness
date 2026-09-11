@@ -42,37 +42,60 @@ and it is not a curriculum module. The eight stay the literacy set; New bee is a
 
 ## New bee · optional connect (not graded)
 
-`new_bee.html` is the first-class New bee surface: calm cards (view / emotion / choose-click,
-no step lists) that invite — if the reader wants — into public estate rooms:
+`new_bee.html` is the optional-connect surface. It is not a curriculum module and not in
+the graded eight. Three views share the **same doors**; only first-screen temperature
+changes. Progressive disclosure: **bEarth** (`https://skaists.dev/surfaces/bearth.html`)
+is Raver-temperature (dials, self-refutations, N₂O). That depth must not be New bee
+first paint — a sceptical commons reader would be overwhelmed.
 
-| door | public URL (new tab · leaving BNR) |
+| view | first-screen temperature |
 |---|---|
-| Media / W@tch | `https://skaists.dev/surfaces/watch.html` |
-| Art / gallery | `https://skaists.dev/surfaces/blight/gallery.html` |
-| Festival / hive | `https://skaists.dev/surfaces/festival/` |
+| **New bee** (default) | One calm beat after a literacy win + four soft deepen cards (Hexagon / Symposium / bEarth / media). Short strings, `data-i18n` + `data-language-host` so estate `bLanguage` / `lang.js` can cover them. No planetary-cost math, refutation tables, or jargon walls. |
+| **Raver** | Emotional / imagery / consciousness / spirituality / plant-as-living. **bEarth is a first-class door** — living-systems feeling and earth cost, not a denser New bee. |
+| **Cypherpunk** | Full instruments: Hexagon laws, symposium receipts, bEarth arithmetic, `Measured<T>`, cite-or-silent, liability wall. |
 
-The index carries a same-origin invitation to those three anchors. The outbound leaves
-live on New bee, each `target="_blank" rel="noopener noreferrer"` and labeled
-*opens in a new tab · leaving BNR*. No health data, vault field, scan, or label travels.
-The surface is MIT/Apache; it does not import kernel `register.js` (AGPL). Three views
-are authored locally: **New bee** (default), **Raver** (warmer empathy), **Cypherpunk**
-(the liability wall and one-way edge, for engineers). The WELLness mark is the heartbeat.
+Live atlas hrefs (estate = same tab; do not invent paths):
+
+| door | public URL |
+|---|---|
+| THE bFOOD HEXAGON | `https://skaists.dev/surfaces/bfood.html` |
+| bSymposium | `https://skaists.dev/surfaces/bsymposium.html` |
+| bEarth | `https://skaists.dev/surfaces/bearth.html` |
+| University | `https://skaists.dev/surfaces/university/index.html` |
+| Living-systems door | `https://skaists.dev/surfaces/doors/bnature-bio.html` |
+| Watch / gallery / studio / festival / buzz / kandi / PLUR | matching `skaists.dev/surfaces/…` atlas paths |
+
+True external (new tab, labeled): hemp-hearts COA spec on GitHub. No health data, vault
+field, scan, or label travels. MIT/Apache; no AGPL `register.js`. Copy claims
+**measurement grammar** only — never a medical outcome. The liability wall stays up in
+every view (short on New bee; full on Cypherpunk).
+
+The index invitation is **after** Learn / Tools / Hive, same-origin only, New bee
+temperature (one beat + four deepen cards). Outbound leaves live on `new_bee.html`.
 
 **Poke after Pages rebuilds from `main`:**
 
 1. Open `https://skaists.github.io/beehive-WELLness/surfaces/beehive_wellness_index.html`
-2. The New bee strip is under the hero. Stay, or choose Watch / Gallery / Festival.
-3. On `https://skaists.github.io/beehive-WELLness/surfaces/new_bee.html`, click a card —
-   a new tab should open the estate URL, labeled as leaving BNR.
-4. Toggle Raver and Cypherpunk. Facts stay the same; prose and density change.
-5. Modules 1–4, the fat scan, and the companion are unchanged siblings.
+2. The optional strip is **after** the course, not under the hero. Soft cards only.
+3. On `https://skaists.github.io/beehive-WELLness/surfaces/new_bee.html`, New bee first
+   paint is one beat + four deepen cards. No N₂O, no refutation table, no Hexagon laws.
+4. Toggle **Raver**: bEarth is first-class living-ground feeling. Toggle **Cypherpunk**:
+   Hexagon laws, symposium receipts, bEarth instruments. Same hrefs; view is remembered.
+5. Estate rooms open same tab. The COA spec opens a new tab, labeled.
+6. Modules 1–4, the fat scan, and the companion are unchanged siblings.
+
+## N-2 · progressive disclosure + food-network first-class — index clearance void again
+
+`beehive_wellness_index.html` moved the invitation **below** the literacy wins and
+replaced media/art/festival-first cards with Hexagon / Symposium / bEarth / media
+deepen cards (same-origin). Bytes changed, so **its founder clearance is void and its
+digest below is new.** Modules 1–4, the scanner, the companion, and bQueenBee are
+byte-unchanged and keep theirs. New bee was never in the graded table.
 
 ## N-1 · the New bee invitation added to the index — its clearance is void, the other seven stand
 
-`beehive_wellness_index.html` now carries the real WELLness mark and a first-class
-optional New bee strip (three same-origin cards). Bytes changed, so **its founder
-clearance is void and its digest below is new.** Modules 1–4, the scanner, the companion,
-and bQueenBee are byte-unchanged and keep theirs. New bee was never in the graded table.
+`beehive_wellness_index.html` first gained the real WELLness mark and an optional New bee
+strip. That digest is superseded by N-2. The other seven stayed byte-unchanged.
 
 ## Clearance chain
 
@@ -82,7 +105,7 @@ grepping for words — "grep found nothing" is not a clearance.
 
 | surface | sha256 (cleared bytes) |
 |---|---|
-| `beehive_wellness_index.html` | `d494f2266b426fc183493ae69c54aaf1ef30dfd00f7552edd8254d865ae8ff72` <!-- PUBLIC-CONSTANT: content digest, voided N-1 New bee invitation + mark --> |
+| `beehive_wellness_index.html` | `706654713bb41c9f15597df8f4b8b608bbc71e2a74a89f7db00fe8d8f85e7360` <!-- PUBLIC-CONSTANT: content digest, voided N-2 progressive disclosure + food-network deepen cards --> |
 | `module1_hemp_hearts_label_reader.html` | `cfe32d59e5b16d06af172cf7328a5d43eabd392c267419892cf3dbcb8a2167de` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module2_fats_label_wont_show.html` | `06814e3e77264c44cc422b0a609315d91db11c8ec55875fb7c6e0589d8d98cb2` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
 | `module3_portion_reality.html` | `8ba50be3b03f24dfd6e05a4efd8bfce3727f67e9f70462e89b0bda5100c301ae` <!-- PUBLIC-CONSTANT: content digest, re-cleared RELAY-10 AA --> |
@@ -95,7 +118,7 @@ grepping for words — "grep found nothing" is not a clearance.
 
 - **Zero network** — no `http(s)://`, no CDN, no `@import`, no remote fonts, anywhere
   in the graded eight. New bee is the documented exception: labeled outbound leaves only.
-- **Links** — the index's curriculum hrefs plus the three New bee invitations resolve as siblings.
+- **Links** — the index's curriculum hrefs plus the four same-origin New bee deepen cards resolve as siblings.
 - **CONCEPT-tagged** — every surface carries it.
 - **Gates** — secret-scan and PHI-marker scan clean.
 
