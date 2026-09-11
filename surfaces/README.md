@@ -50,7 +50,7 @@ first paint — a sceptical commons reader would be overwhelmed.
 
 | view | first-screen temperature |
 |---|---|
-| **New bee** (default) | One calm beat after a literacy win + four soft deepen cards (Hexagon / Symposium / bEarth / media). Short strings, `data-i18n` + `data-language-host` so estate `bLanguage` / `lang.js` can cover them. No planetary-cost math, refutation tables, or jargon walls. |
+| **New bee** (default) | One calm beat after a literacy win + **one featured** Hexagon card and quieter Symposium / bEarth / media links. Short `data-i18n` strings. A **visible first-paint language control** (`#blangctl`, estate `blang` key, no AGPL `register.js`). No planetary-cost math, refutation tables, or jargon walls. |
 | **Raver** | Emotional / imagery / consciousness / spirituality / plant-as-living. **bEarth is a first-class door** — living-systems feeling and earth cost, not a denser New bee. |
 | **Cypherpunk** | Full instruments: Hexagon laws, symposium receipts, bEarth arithmetic, `Measured<T>`, cite-or-silent, liability wall. |
 
@@ -70,17 +70,26 @@ field, scan, or label travels. MIT/Apache; no AGPL `register.js`. Copy claims
 **measurement grammar** only — never a medical outcome. The liability wall stays up in
 every view (short on New bee; full on Cypherpunk).
 
+Language-first chrome lives on `new_bee.html` (the connect surface), not on the
+graded zero-network index. The picker is self-contained MIT/Apache HTML+JS: it
+paints in the document (not a dead `data-language-host` stub), writes `blang` so
+an estate visit can continue the same tongue, and falls back to English with a ⚙
+note on machine drafts. It does not import kernel `register.js` or fetch
+`lang.js`.
+
 The index invitation is **after** Learn / Tools / Hive, same-origin only, New bee
-temperature (one beat + four deepen cards). Outbound leaves live on `new_bee.html`.
+temperature. Outbound leaves live on `new_bee.html`.
 
 **Poke after Pages rebuilds from `main`:**
 
 1. Open `https://skaists.github.io/beehive-WELLness/surfaces/beehive_wellness_index.html`
 2. The optional strip is **after** the course, not under the hero. Soft cards only.
-3. On `https://skaists.github.io/beehive-WELLness/surfaces/new_bee.html`, New bee first
-   paint is one beat + four deepen cards. No N₂O, no refutation table, no Hexagon laws.
+3. On `https://skaists.github.io/beehive-WELLness/surfaces/new_bee.html`, first paint
+   shows the **language control** next to the view switcher, one beat, one featured
+   Hexagon card, and quieter deepen links. No N₂O, no refutation table, no Hexagon laws.
 4. Toggle **Raver**: bEarth is first-class living-ground feeling. Toggle **Cypherpunk**:
-   Hexagon laws, symposium receipts, bEarth instruments. Same hrefs; view is remembered.
+   Hexagon laws, symposium receipts, bEarth instruments. Language control stays painted.
+   Same hrefs; view and `blang` are remembered.
 5. Estate rooms open same tab. The COA spec opens a new tab, labeled.
 6. Modules 1–4, the fat scan, and the companion are unchanged siblings.
 
