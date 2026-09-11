@@ -70,6 +70,11 @@ field, scan, or label travels. MIT/Apache; no AGPL `register.js`. Copy claims
 **measurement grammar** only — never a medical outcome. The liability wall stays up in
 every view (short on New bee; full on Cypherpunk).
 
+The WELLness bloom mark on New bee is the in-tree mandala as a **sibling**
+(`surfaces/wellness-mandala.svg`, `src="wellness-mandala.svg"`) so it paints on
+GitHub Pages and when the surfaces folder is served locally. `../assets/` 404s
+under a surfaces-rooted preview.
+
 Language-first chrome lives on `new_bee.html` (the connect surface), not on the
 graded zero-network index. The picker is self-contained MIT/Apache HTML+JS: it
 paints in the document (not a dead `data-language-host` stub), writes `blang` so
